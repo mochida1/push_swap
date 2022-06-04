@@ -63,6 +63,7 @@ Para minimizar a quantidade de movimentos, queremos mexer na menor quantidade de
 Se nós soubessemos de antemão qual a ordem esperada de todos elementos, conseguiríamos apenas mover os que são necessários.
 Saber onde cada coisa vai é simples: usa-se um sort qualquer para ordernar em um array diferente, portanto:
 	5 2 4 8 6 9 3 1 iria resultar em {1, 2, 3, 4, 5, 6, 8, 9};
+	vamos char essa porra de LUT
 
 Agora que temos uma indexação maneira para servir como referência, para não produzir movimentos desnecessários, podemos achar a maior sequência indexável e maomeno a 'travamos', desta forma não entramos na armadilha de entrar num ciclo de SWAPs e ROTATEs.
 Fazer isso não é tão simples: usando um stack(que não tem picas a ver com o STACK A ou B), testa cada elemento para achar a maior sequencia possível - isso quer dizer que não necessariamente a sequencia será iniciada pelo menor numero inputado;
@@ -72,10 +73,12 @@ a maior sequencia seria (note o uso do stack de memoização para o caso da deci
 o uso de momoização se faz necessário pelo seguinte fator:
 	5 9 4 6 7 8 0 1 2 3		//input
 	rodamos a busca da maior sequencia possivel:
-	0 1 2 3 9				// se fizessemos com uma regra simples de achar o proximo maior
+	0 1 2 3 5 9				// se fizessemos com uma regra simples de achar o proximo maior
 	0 1 2 3 5 7 9			// segunda iteração da memoização
 	0 1 2 3 5 6 7 8			// terceira iteração da memoização
 então temos que testar todos os elementos maiores que o elemento atual da comparação para podermos achar a sequencia braba. Isso num algoritmo de sorting normal seria uma grande merda de eficiência computacional em questão de tempo e memória, mas já que nosso benchmark é o número de movimentos printados, podemos tacar o foda-se com vontade.
+Se no entanto, uma iteração resultar em n elementos ordenados, signifca que a porra já está toda em ordem, e você não vai precisar fazer um teste de O(n*n!) ou algo absurdo do gênero. Se houver também uma sequência já achada que seja maior que o número de elementos restantes na LUT, não é preciso testar os números acima do primeiro elemento sendo testado, então no exemplo acima, já achamos uma sequencia de 8/10 com o primeiro numero sendo 0, isso significa que 1 vai achar no maximo 9/10; 2 resultara no máximo 8/10 e 3 só 7/10 na melhor das hipoteses. Se você vai implementar isso de alguma maneira pra se exibir, problema seu.
+<!-- PENSAR EM COMO IMPLEMENTAR ESSA BUDEGA DEPOIS -->
 
 Se levarmos em conta que toda quantidade de elementos terão 4 casos de resolução simples (um pronto, e outros 3 que podem ser resolvidos apenas com 1 movimento), dá pra fazer uma implementação simples para todos eles;
 são eles:
@@ -98,6 +101,7 @@ Mas bora criar uma regrinhas pra gente ir testando e depois vamos arrumando... M
 3- Elementos ordenados não valem a pena de ser mexidos especialmente os que estão adjacentes, então se uma sequencia 345 aparece no seu STACK A, mantenha-a-aa-aaa-aà-á.
 4- Qualquer coisa que não seja push não tem efeito se o STACK tiver apenas 1 elemento.
 5- RRR/RR > SS > PUSH em VÁRIOS casos. Não se limite a 5 elementos e pense no pq. Se tiver uma STACK com 400 e outra com 100, fica mais fácil de visualizar na mente. Gosto de engrenagens.
+6-
 Testa TOP_A e TOP_B: se TOP_A entrar em ordem crescente com um SWAP A e TOP_B entrar em ordem crescente com um SWAP B,
 
 
@@ -106,6 +110,8 @@ Caso nao haja swaps, push B
 Checa se o elemento do topo de B entra em ordem se der push A, caso sim, push B;
 
 
+
+<!-- daqui pra baixo não tá valendo -->
 8 5 2 4 9 7 1
 1 2 4 5 7 8 9
 
