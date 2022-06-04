@@ -65,7 +65,7 @@ Saber onde cada coisa vai é simples: usa-se um sort qualquer para ordernar em u
 	5 2 4 8 6 9 3 1 iria resultar em {1, 2, 3, 4, 5, 6, 8, 9};
 	vamos char essa porra de LUT
 
-Agora que temos uma indexação maneira para servir como referência, para não produzir movimentos desnecessários, podemos achar a maior sequência indexável e maomeno a 'travamos', desta forma não entramos na armadilha de entrar num ciclo de SWAPs e ROTATEs.
+Agora que temos uma indexação maneira para servir como referência, para não produzir movimentos desnecessários, podemos achar a maior sequência indexável que eu (decidi chamar de PIN) e maomeno a 'travamos', desta forma não entramos na armadilha de entrar num ciclo de SWAPs e ROTATEs.
 Fazer isso não é tão simples: usando um stack(que não tem picas a ver com o STACK A ou B), testa cada elemento para achar a maior sequencia possível - isso quer dizer que não necessariamente a sequencia será iniciada pelo menor numero inputado;
 	entao: dados os argumentos 5 2 4 8 6 9 3 1
 a maior sequencia seria (note o uso do stack de memoização para o caso da decisão)
@@ -78,7 +78,7 @@ o uso de momoização se faz necessário pelo seguinte fator:
 	0 1 2 3 5 6 7 8			// terceira iteração da memoização
 então temos que testar todos os elementos maiores que o elemento atual da comparação para podermos achar a sequencia braba. Isso num algoritmo de sorting normal seria uma grande merda de eficiência computacional em questão de tempo e memória, mas já que nosso benchmark é o número de movimentos printados, podemos tacar o foda-se com vontade.
 Se no entanto, uma iteração resultar em n elementos ordenados, signifca que a porra já está toda em ordem, e você não vai precisar fazer um teste de O(n*n!) ou algo absurdo do gênero. Se houver também uma sequência já achada que seja maior que o número de elementos restantes na LUT, não é preciso testar os números acima do primeiro elemento sendo testado, então no exemplo acima, já achamos uma sequencia de 8/10 com o primeiro numero sendo 0, isso significa que 1 vai achar no maximo 9/10; 2 resultara no máximo 8/10 e 3 só 7/10 na melhor das hipoteses. Se você vai implementar isso de alguma maneira pra se exibir, problema seu.
-<!-- PENSAR EM COMO IMPLEMENTAR ESSA BUDEGA DEPOIS -->
+<!-- PENSAR EM COMO IMPLEMENTAR ESSA BUDEGA sem ter precisar de memória e tempo infinito DEPOIS -->
 
 Se levarmos em conta que toda quantidade de elementos terão 4 casos de resolução simples (um pronto, e outros 3 que podem ser resolvidos apenas com 1 movimento), dá pra fazer uma implementação simples para todos eles;
 são eles:
@@ -101,17 +101,31 @@ Mas bora criar uma regrinhas pra gente ir testando e depois vamos arrumando... M
 3- Elementos ordenados não valem a pena de ser mexidos especialmente os que estão adjacentes, então se uma sequencia 345 aparece no seu STACK A, mantenha-a-aa-aaa-aà-á.
 4- Qualquer coisa que não seja push não tem efeito se o STACK tiver apenas 1 elemento.
 5- RRR/RR > SS > PUSH em VÁRIOS casos. Não se limite a 5 elementos e pense no pq. Se tiver uma STACK com 400 e outra com 100, fica mais fácil de visualizar na mente. Gosto de engrenagens.
-6-
-Testa TOP_A e TOP_B: se TOP_A entrar em ordem crescente com um SWAP A e TOP_B entrar em ordem crescente com um SWAP B,
+6- as coisas anteriores podem não estar certas.
+
+Regras de teste 1:
+input: 54321	LUT: 12345	PIN: 1 3 (escolha totalmente arbitrária)
+1 - Testa TOP_A e TOP_B: se TOP_A entrar em ordem crescente com um SWAP A e TOP_B entrar em ordem crescente com um SWAP B -> SS
+	caso TOP_A entre em ordem e TOP_B não, SA
+	se TOP_A estiver indexado, RA
+	caso porra nenhuma das anteriores, PB
+1> 45321	PIN:13
+1> 5321/4	PIN:13
+1> 321/45	PIN:13
+1> 231/45	PIN:13
+....SIGINT
+Já deu pra ver que vai precisar melhorar essa pica. Precisa começar a adicionar coisas ao PIN, e precisa definir QUANDO um elemento está indexado.
 
 
+
+
+<!-- daqui pra baixo não tá valendo -->
 checa se o primeiro elemento de cada lista entrará na ordem caso haja um swap: se 5 ficar entre 4 e 6, dá um swap a; caso haja elementos na stack b e seu elemento do topo for entrar em ordem, dá swap s;
 Caso nao haja swaps, push B
 Checa se o elemento do topo de B entra em ordem se der push A, caso sim, push B;
 
 
 
-<!-- daqui pra baixo não tá valendo -->
 8 5 2 4 9 7 1
 1 2 4 5 7 8 9
 
