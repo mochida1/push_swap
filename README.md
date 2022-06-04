@@ -53,6 +53,11 @@ Para fins de estudo e procrastinação, vou colocar aqui os 24 casos e tentar pe
 Ao usar uma IDE (ou com um mínimo de atenção e/ou lógica), dá pra ver que sempre chegaremos a um estado onde dá para copiar o resto da solução. A merda é quais estados são os mais curtos para se solucionar. Por sorte, eu sou otário e já fiz isso por você.
 Note que não foi utilziado o push em nenhum momento, e que os movimentos mais complicados são variações do mesmo input mas com offsets: 4321, 3214, 2143, 1432. Nestes casos seria tão ou mais eficiente usar o push em conjunto do swap. Mas o que vale talvez realmente contar aqui são as quantidades de elementos que já estão em ordem, ou seja: no máximo 2.
 
+Para 5 elementos, diz-se poder fazer em no máximo 11 movimentos (pelo menos é o que a régua diz). Se a gente aprendeu algo nos passados, é que a grandessíssima bosta está quando a coisa vem sortada, mas ao contrário, entao: 5 4 3 2 1 . Se isso se mantém verdade aqui, não sei, vamos testar:
+5 4 3 2 1 -> PB -> 4321/5 -> PB -> 321/45 -> SA -> 231/45 -> RA -> 312/45 -> RR -> 123/54 -> PB -> 5123/4 -> PB -> 45123 -> RA -> 51234 -> RA -> ok;
+9/11. Tá dentro da linha, tá bom o suficiente.
+Mas isso foi no olho e na fé. Vamos pensar.
+
 Para minimizar a quantidade de movimentos, queremos mexer na menor quantidade de elementos possível. E fazer isso é uma dor de cabeça do caralho.
 Se nós soubessemos de antemão qual a ordem esperada de todos elementos, conseguiríamos apenas mover os que são necessários.
 Saber onde cada coisa vai é simples: usa-se um sort qualquer para ordernar em um array diferente, portanto:
@@ -83,6 +88,8 @@ então conseguimos criar nosso terceiro set de regras que é em verdade o segund
 	*itera pela lista e conta em (i), se i+1=n quer dizer que veio na ordem correta. Beijo no ombro e me liga. Não faz nada e sai do programa.
 	*caso 2, deixa pra pensar mais tarde
 # COMPLETAR OS CASOS
+
+Agora, vamos utilizar o caso do primeiro exemplo de 5 elementos (5 4 3 2 1) pra já criar as regras pro caso mais bosta possivel e ver se funciona, pelo menos em pequena escala.
 
 
 checa se o primeiro elemento de cada lista entrará na ordem caso haja um swap: se 5 ficar entre 4 e 6, dá um swap a; caso haja elementos na stack b e seu elemento do topo for entrar em ordem, dá swap s;
