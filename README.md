@@ -6,13 +6,33 @@ REGRAS DE MOVIMENTAÇÃO DE SORTING;
 argc = numero de elemtos a serem sortados;
 n = argc - 1;
 
-usando memoização, testa cada elemento para achar a maior sequencia possivel - isso quer dizer que não necessariamente a sequencia será iniciada pelo menor numero inputado;
-entao: dado o array {5, 2, 4, 8, 6, 3, 1}
-a maior sequencia seria
-1248 ou 1246 -> usa o menor ultimo elemento possível: isso faz com que um swap POSSA resolver o problema;
+se n=2, ou está em ordem, ou um swap resolve;
+se n=3 existem 9 possibilidades, ou seja, n! (n fatorial):
+1 2 3 -> ok;
+1 3 2 -> SWAP -> 312 -> RA;
+2 1 3 -> SWAP;
+2 3 1 -> RRA;
+3 1 2 -> RA;
+3 2 1 -> SWAP -> 231 -> RRA;
+ainda dá pra fazer hardcoded em no maximo 2 ops sem muita dor de cabeça;
+Com 4 elementos, as possibilidades aumentam para 24. 5 elementos: 120.
+
+Para minimizar a quantidade de movimentos, queremos mexer na menor quantidade de elementos possível. E fazer isso é uma dor de cabeça do caralho.
+Se nós soubessemos de antemão qual a ordem esperada de todos elementos, conseguiríamos apenas mover os que são necessários.
+Saber onde cada coisa vai é simples: usa-se um sort qualquer para ordernar em um array diferente, portanto:
+	5 2 4 8 6 9 3 1 iria resultar em {1, 2, 3, 4, 5, 6, 8, 9};
+
+Agora que temos uma indexação maneira para servir como referência, para não produzir movimentos desnecessários, podemos achar a maior sequência indexável e maomeno a 'travamos', desta forma não entramos na armadilha de entrar num ciclo de SWAPs e ROTATEs.
+Fazer isso não é tão simples: usando um stack(que não tem picas a ver com o STACK A ou B), testa cada elemento para achar a maior sequencia possível - isso quer dizer que não necessariamente a sequencia será iniciada pelo menor numero inputado;
+	entao: dados os argumentos 5 2 4 8 6 9 3 1
+a maior sequencia seria (note o uso do stack de memoização para o caso da decisão)
+	12489 ou 12469 -> usa o menor ultimo elemento possível: isso faz com que um swap POSSA resolver o problema; Veja que neste caso em específico, um swap entre 8 e 6 já resolveria.
 
 
-usa um sort qualquer para ordernar em um array diferente, logo: {1, 2, 3, 4, 5, 6, 8};
+
+
+
+Se levarmos em conta que toda quantidade de elementos terão 4 casos de resolução simples (um pronto, e outros 3 que podem ser resolvidos apenas com 1 movimento), dá pra fazer um código primário para todos esses cassos
 
 checa se o primeiro elemento de cada lista entrará na ordem caso haja um swap: se 5 ficar entre 4 e 6, dá um swap a; caso haja elementos na stack b e seu elemento do topo for entrar em ordem, dá swap s;
 Caso nao haja swaps, push B
@@ -30,3 +50,5 @@ pb
 //como saber se posso (rr) para poder inserir 5 no lugar certo?
 SE HOUVER elementos em B, olha para o proximo elemento de B que possa ser inserido em A; se numero de rotações para inserí-lo for maior que o numero de rotações para chegar em seu espaço, olha para o próximo;
 caso seja menor, usa RR ao invés de RA;
+
+
