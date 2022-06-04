@@ -1,6 +1,8 @@
 # push_swap
 
-
+INT MIN		-2147483648
+INT MAX		2147483647
+Range: de INT MIN à INT MAX
 
 REGRAS DE MOVIMENTAÇÃO DE SORTING;
 argc = numero de elemtos a serem sortados;
@@ -9,6 +11,10 @@ n = argc - 1;
 se n=2, ou está em ordem, ou qualquer movimento sem ser o push na STACK A resolve;
 	1 2 -> ok;
 	2 1 -> SWAP || RR || RA || RRR || RRA -> 1 2;
+desta forma temos nossas priemiras regras:
+	* se n=2 e n1 < n2
+	* se n=2 e n1 > n2, SWAP
+
 se n=3 existem 9 possibilidades, ou seja, n! (n fatorial):
 1 2 3 -> ok;
 1 3 2 -> SWAP -> 312 -> RA;
@@ -18,6 +24,34 @@ se n=3 existem 9 possibilidades, ou seja, n! (n fatorial):
 3 2 1 -> SWAP -> 231 -> RRA;
 ainda dá pra fazer hardcoded em no maximo 2 ops sem muita dor de cabeça;
 Com 4 elementos, as possibilidades aumentam para 24. 5 elementos: 120. 6: 720. E aí matemáticas...
+
+Para fins de estudo e procrastinação, vou colocar aqui os 24 casos e tentar pensar na menor quantidade possivel de movimentos para cada:
+1 2 3 4 -> ok;
+1 2 4 3 -> RA -> 2431 -> RA -> 4312 -> SA -> 3412 -> RA -> 4123 -> RA -> ok;
+1 3 2 4 -> RA -> 3241 -> SA -> 2341 -> RRA -> ok;
+1 3 4 2 -> RRA -> 2134 -> SA -> ok;
+1 4 2 3 -> SA -> 4123 -> RA -> ok;
+1 4 3 2 -> SA -> 4132 -> RA -> 1324 -> RA -> 3241 -> SA -> 2341 -> RRA -> ok;				// PB -> 432/1 -> RRA -> 243/1 -> SA -> 423/1 -> RA -> 234/1 -> PA -> ok
+2 1 3 4 -> SA -> ok;
+2 1 4 3 -> RA -> 1432 SA -> 4132 -> RA -> 1324 -> RA -> 3241 -> SA -> 2341 -> RRA -> ok;	//SA -> 1243 -> PB -> 243/1 -> SA -> 423/1 -> RA -> 234/1 -> PA -> ok
+2 3 1 4 -> RA -> 3142 -> SA -> 1342 -> RRA -> 2134 -> SA -> ok;								//RRA  -> 4231 -> PB -> 231/4 -> RRA -> 123/4 -> PA -> 4123 -> RA -> ok;
+2 3 4 1 -> RRA -> ok;
+2 4 1 3 -> RRA -> 3241-> SA -> 2341 -> RRA -> ok;
+2 4 3 1 -> RA -> 4312 -> SA -> 3412 -> RA -> 4123 -> RA -> ok;
+3 1 2 4 -> RRA -> 4312 -> SA -> 3412 -> RA -> 4123 -> RA -> ok;
+3 1 4 2 -> SA -> 1342 -> RRA -> 2134 -> SA -> ok;
+3 2 1 4 -> RA -> 2314 -> RA -> 3142 -> SA -> 1342 -> RRA -> 2134 -> SA -> ok;
+3 2 4 1 -> SA -> 2341 -> RRA -> ok;
+3 4 1 2 -> RA -> 4123 -> RA -> ok;
+3 4 2 1 -> RA -> 4213 -> RA -> 2134 -> SA -> ok;
+4 1 2 3 -> RA -> ok;
+4 1 3 2 -> RA -> 1324 -> RA -> 3241 -> SA -> 2341 -> RRA -> ok;
+4 2 1 3 -> RA -> 2134 -> SA -> ok;
+4 2 3 1 -> SA -> 2431 -> RA -> 4312 -> SA -> 3412 -> RA -> 4123 -> RA -> ok;
+4 3 1 2 -> SA -> 3412 -> RA -> 4123 -> RA -> ok;
+4 3 2 1 -> SA -> 3421 -> RA -> 4213 -> RA -> 2134 -> SA -> ok;
+Ao usar uma IDE (ou com um mínimo de atenção e/ou lógica), dá pra ver que sempre chegaremos a um estado onde dá para copiar o resto da solução. A merda é quais estados são os mais curtos para se solucionar. Por sorte, eu sou otário e já fiz isso por você.
+Note que não foi utilziado o push em nenhum momento, e que os movimentos mais complicados são variações do mesmo input mas com offsets: 4321, 3214, 2143, 1432. Nestes casos seria tão ou mais eficiente usar o push em conjunto do swap. Mas o que vale talvez realmente contar aqui são as quantidades de elementos que já estão em ordem, ou seja: no máximo 2.
 
 Para minimizar a quantidade de movimentos, queremos mexer na menor quantidade de elementos possível. E fazer isso é uma dor de cabeça do caralho.
 Se nós soubessemos de antemão qual a ordem esperada de todos elementos, conseguiríamos apenas mover os que são necessários.
@@ -33,13 +67,23 @@ o uso de momoização se faz necessário pelo seguinte fator:
 	5 9 4 6 7 8 0 1 2 3		//input
 	rodamos a busca da maior sequencia possivel:
 	0 1 2 3 9				// se fizessemos com uma regra simples de achar o proximo maior
-	0 1 2 3 5 7 9			// primeira iteração da memoização
-	0 1 2 3 5 6 7 8			// segunda iteração da memoização
+	0 1 2 3 5 7 9			// segunda iteração da memoização
+	0 1 2 3 5 6 7 8			// terceira iteração da memoização
 então temos que testar todos os elementos maiores que o elemento atual da comparação para podermos achar a sequencia braba. Isso num algoritmo de sorting normal seria uma grande merda de eficiência computacional em questão de tempo e memória, mas já que nosso benchmark é o número de movimentos printados, podemos tacar o foda-se com vontade.
 
 
-
 Se levarmos em conta que toda quantidade de elementos terão 4 casos de resolução simples (um pronto, e outros 3 que podem ser resolvidos apenas com 1 movimento), dá pra fazer uma implementação simples para todos eles;
+são eles:
+
+0 1 2 3 ... n -> ok
+1 0 2 3 ... n -> swap -> ok;
+n 0 1 2 3... (n-1) -> RA || RR -> ok;
+1 2 3 ... n 0 -> RRA || RRR -> ok;
+então conseguimos criar nosso terceiro set de regras que é em verdade o segundo mas mais chic (gastando o francês aqui ó)
+	*itera pela lista e conta em (i), se i+1=n quer dizer que veio na ordem correta. Beijo no ombro e me liga. Não faz nada e sai do programa.
+	*caso 2, deixa pra pensar mais tarde
+# COMPLETAR OS CASOS
+
 
 checa se o primeiro elemento de cada lista entrará na ordem caso haja um swap: se 5 ficar entre 4 e 6, dá um swap a; caso haja elementos na stack b e seu elemento do topo for entrar em ordem, dá swap s;
 Caso nao haja swaps, push B
