@@ -28,9 +28,14 @@ Agora que temos uma indexação maneira para servir como referência, para não 
 Fazer isso não é tão simples: usando um stack(que não tem picas a ver com o STACK A ou B), testa cada elemento para achar a maior sequencia possível - isso quer dizer que não necessariamente a sequencia será iniciada pelo menor numero inputado;
 	entao: dados os argumentos 5 2 4 8 6 9 3 1
 a maior sequencia seria (note o uso do stack de memoização para o caso da decisão)
-	12489 ou 12469 -> usa o menor ultimo elemento possível: isso faz com que um swap POSSA resolver o problema; Veja que neste caso em específico, um swap entre 8 e 6 já resolveria.
-
-
+	12489 ou 12469 -> usa o menor ultimo possível: isso faz com que um swap POSSA resolver o problema; Veja que neste caso em específico, um swap entre 8 e 6 já resolveria.
+o uso de momoização se faz necessário pelo seguinte fator:
+	5 9 4 6 7 8 0 1 2 3		//input
+	rodamos a busca da maior sequencia possivel:
+	0 1 2 3 9				// se fizessemos com uma regra simples de achar o proximo maior
+	0 1 2 3 5 7 9			// primeira iteração da memoização
+	0 1 2 3 5 6 7 8			// segunda iteração da memoização
+então temos que testar todos os elementos maiores que o elemento atual da comparação para podermos achar a sequencia braba. Isso num algoritmo de sorting normal seria uma grande merda de eficiência computacional em questão de tempo e memória, mas já que nosso benchmark é o número de movimentos printados, podemos tacar o foda-se com vontade.
 
 
 
