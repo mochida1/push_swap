@@ -111,13 +111,18 @@ input: 54321	LUT: 12345	PIN: 1 3 (escolha totalmente arbitrária)
 	caso porra nenhuma das anteriores, PB
 1> 45321	PIN:13
 1> 5321/4	PIN:13
-1> 321/45	PIN:13
+1> 321/54	PIN:13
 1> 231/45	PIN:13
 ....SIGINT
 Já deu pra ver que vai precisar melhorar essa pica. Precisa começar a adicionar coisas ao PIN, e precisa definir QUANDO um elemento está indexado.
 
-
-
+input: 54321	LUT: 12345	PIN: 1 3 (escolha totalmente arbitrária)
+1 - Marca os PIN junto à LUT para poder fixar os valores que já estão certos
+	Testa TOP_A e TOP_B: se TOP_A entrar em ordem crescente com um SWAP A e TOP_B entrar em ordem crescente com um SWAP B -> SS
+	caso TOP_A entre em ordem e TOP_B não, SA
+	se TOP_A estiver PINADO, RA
+	caso porra nenhuma das anteriores, PB
+	Testa a STACK A para autalizar o PIN;
 
 <!-- daqui pra baixo não tá valendo -->
 checa se o primeiro elemento de cada lista entrará na ordem caso haja um swap: se 5 ficar entre 4 e 6, dá um swap a; caso haja elementos na stack b e seu elemento do topo for entrar em ordem, dá swap s;
