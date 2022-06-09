@@ -137,7 +137,7 @@ A STACK A começa a funcionar direito, porém estas regras ainda não checam o S
 <!-- daqui pra baixo não tá valendo -->
 checa se o primeiro elemento de cada lista entrará na ordem caso haja um swap: se 5 ficar entre 4 e 6, dá um swap a; caso haja elementos na stack b e seu elemento do topo for entrar em ordem, dá swap s;
 Caso nao haja swaps, push B
-Checa se o elemento do topo de B entra em ordem se der push A, caso sim, push B;
+Checa se o elemento do topo de B entra em ordem se der push A, caso sim, push B;Ħ
 
 
 
