@@ -106,30 +106,32 @@ Mas bora criar uma regrinhas pra gente ir testando e depois vamos arrumando... M
 Regras de teste 1:
 input: 54321	LUT: 12345	PIN: 1 3 (escolha totalmente arbitrária)
 1 - Testa TOP_A e TOP_B: se TOP_A entrar em ordem crescente com um SWAP A e TOP_B entrar em ordem crescente com um SWAP B -> SS
-	caso TOP_A entre em ordem e TOP_B não, SA
-	se TOP_A estiver indexado, RA
-	caso porra nenhuma das anteriores, PB
+2 - caso TOP_A entre em ordem e TOP_B não, SA
+3 - se TOP_A estiver indexado, RA
+4 - caso porra nenhuma das anteriores, PB
 1> 45321	PIN:13
-1> 5321/4	PIN:13
-1> 321/54	PIN:13
-1> 231/45	PIN:13
-....SIGINT
+4> 5321/4	PIN:13
+3> 321/54	PIN:13
+3> 231/54	PIN:13
+....SIGPAU
 Já deu pra ver que vai precisar melhorar essa pica. Precisa começar a adicionar coisas ao PIN, e precisa definir QUANDO um elemento está indexado.
 
 input: 54321	LUT: 12345	PIN: 1 3 (escolha totalmente arbitrária)
 1 - Marca os PIN junto à LUT para poder fixar os valores que já estão certos
-	Testa TOP_A e TOP_B: se TOP_A entrar em ordem crescente com um SWAP A e TOP_B entrar em ordem crescente com um SWAP B -> SS
-	caso TOP_A entre em ordem e TOP_B não, SA
-	se TOP_A estiver PINADO, RA
-	caso porra nenhuma das anteriores, PB
+2 - Testa TOP_A e TOP_B: se TOP_A entrar em ordem crescente com um SWAP A e TOP_B entrar em ordem crescente com um SWAP B -> SS
+3 - caso TOP_A entre em ordem e TOP_B não, SA
+4 - se TOP_A estiver PINADO, RA
+5 - caso porra nenhuma das anteriores, PB
 	Testa a STACK A para autalizar o PIN;
 
 1> 45321	PIN:13
 1> 5321/4	PIN:13
 1> 321/54	PIN:13
 1> 213/54	PIN:123
-...SIGINT
-A STACK A começa a funcionar direito, porém estas regras ainda não checam o STACK B
+...SIGINT - continua testando a stack e atualizando PIN infinitamente
+A STACK A começa a funcionar direito, porém estas regras ainda não checam o STACK B. Temos então que definir como a ordenação da STACK B faz sentido.
+
+
 
 
 <!-- daqui pra baixo não tá valendo -->
