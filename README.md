@@ -124,6 +124,14 @@ input: 54321	LUT: 12345	PIN: 1 3 (escolha totalmente arbitrária)
 	caso porra nenhuma das anteriores, PB
 	Testa a STACK A para autalizar o PIN;
 
+1> 45321	PIN:13
+1> 5321/4	PIN:13
+1> 321/54	PIN:13
+1> 213/54	PIN:123
+...SIGINT
+A STACK A começa a funcionar direito, porém estas regras ainda não checam o STACK B
+
+
 <!-- daqui pra baixo não tá valendo -->
 checa se o primeiro elemento de cada lista entrará na ordem caso haja um swap: se 5 ficar entre 4 e 6, dá um swap a; caso haja elementos na stack b e seu elemento do topo for entrar em ordem, dá swap s;
 Caso nao haja swaps, push B
