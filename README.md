@@ -130,8 +130,7 @@ input: 54321	LUT: 12345	PIN: 1 3 (escolha totalmente arbitrária)
 1> 213/54	PIN:123
 ...SIGINT - continua testando a stack e atualizando PIN infinitamente
 A STACK A começa a funcionar direito, porém estas regras ainda não checam o STACK B. Temos então que definir como a ordenação da STACK B faz sentido.
-
-
+entaõ -> Se existir STACK B o topo do STACK B for maior que o ultimo elemento de STACK A e menor que o topo de STACK A, PUSH A;
 
 
 <!-- daqui pra baixo não tá valendo -->
