@@ -126,10 +126,15 @@ input: 54321	LUT: 12345	PIN: 1 3 (escolha totalmente arbitrária)
 5 - caso porra nenhuma das anteriores, PB
 	Testa a STACK A para autalizar o PIN;
 
-1> 45321	PIN:13
-1> 5321/4	PIN:13
-1> 321/54	PIN:13
-1> 213/54	PIN:123
+1> 54321	PIN:13
+3> 45321	PIN:13
+5> 5321/4	PIN:13
+5> 321/54	PIN:13
+4> 213/54	PIN:13
+2> 123/45	PIN:123
+2> 123/45	PIN:123
+2> 123/45	PIN:123
+...
 ...SIGINT - continua testando a stack e atualizando PIN infinitamente
 A STACK A começa a funcionar direito, porém estas regras ainda não checam o STACK B. Temos então que definir como a ordenação da STACK B faz sentido.
 entaõ -> Se existir STACK B o topo do STACK B for o elemento na LUT antes do elemento topo do STACK A na LUT, PUSH A; -> isso faz com que os elementos voltem ordenadamente para o STACK A;
@@ -141,12 +146,37 @@ input: 54321	LUT: 12345	PIN: 1 3 (escolha totalmente arbitrária)
 1 - Marca os PIN junto à LUT para poder fixar os valores que já estão certos
 2 - Testa TOP_A e TOP_B: se TOP_A entrar em ordem crescente com um SWAP A e TOP_B entrar em ordem crescente com um SWAP B -> SS
 3 - caso TOP_A entre em ordem e TOP_B não, SA
-4 - se TOP_A estiver PINADO, RA
-5 - se existir STACK B o topo do STACK B for o elemento na LUT antes do elemento topo do STACK A na LUT, PUSH A;
+4 - se existir STACK B o topo do STACK B for o elemento na LUT antes do elemento topo do STACK A na LUT, PUSH A;
+5 - se TOP_A estiver PINADO, RA
 6 - caso porra nenhuma das anteriores, PB
 	Testa a STACK A para autalizar o PIN;
 7 - se o PIN estiver completo, checa se o menor elemento está mais perto do fim ou do começo, se estiver mais proximo do fim, RA até chegar no topo. Se estiver mais próximo do começo, RRA até lá. Caso esteja equidistante, tanto faz.
 
+1> 54321	PIN:13
+3> 45321	PIN:13
+6> 5321/4	PIN:13
+6> 321/54	PIN:13
+2> 231/45	PIN:123
+5> 312/45	PIN:123
+5> 123/45	PIN:123
+4> 4123/5	PIN:1234
+5> 1234/5	PIN:1234
+4> 51234	PIN:12345
+7> 51234	PIN:12345
+7> 12345	PIN:12345
+EUBA! FUNCIONA!
+mas levamos 12 movimentos pra resolver essa biromba, então dá pra melhorar bastante ainda (temos que dar um jeito de utilizar um movimento a menos para que o minimo necessário de 11 seja passável)
+melhor seria:
+PB> 4321/5	PIN:13
+PB> 321/45	PIN:13
+SA> 231/45	PIN:123
+RA> 312/45	PIN:123
+RA> 123/45	PIN:123
+PA> 4123/5	PIN:1234
+RA> 1234/5	PIN:1234
+PA> 51234	PIN:12345
+RA> 12345	XABLAU
+melhor ainda seria a sequencia de RA's e PA's sendo trocadas por PA e SA...talvez?
 
 
 
