@@ -130,13 +130,13 @@ input: 54321	LUT: 12345	PIN: 1 3 (escolha totalmente arbitrária)
 1> 213/54	PIN:123
 ...SIGINT - continua testando a stack e atualizando PIN infinitamente
 A STACK A começa a funcionar direito, porém estas regras ainda não checam o STACK B. Temos então que definir como a ordenação da STACK B faz sentido.
-entaõ -> Se existir STACK B o topo do STACK B for maior que o ultimo elemento de STACK A e menor que o topo de STACK A, PUSH A;
+entaõ -> Se existir STACK B o topo do STACK B for o elemento na LUT antes do elemento topo do STACK A na LUT, PUSH A; -> isso faz com que os elementos voltem ordenadamente para o STACK A;
 
 
 <!-- daqui pra baixo não tá valendo -->
 checa se o primeiro elemento de cada lista entrará na ordem caso haja um swap: se 5 ficar entre 4 e 6, dá um swap a; caso haja elementos na stack b e seu elemento do topo for entrar em ordem, dá swap s;
 Caso nao haja swaps, push B
-Checa se o elemento do topo de B entra em ordem se der push A, caso sim, push B;Ħ
+Checa se o elemento do topo de B entra em ordem se der push A, caso sim, push B;
 
 
 
