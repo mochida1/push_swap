@@ -116,6 +116,8 @@ input: 54321	LUT: 12345	PIN: 1 3 (escolha totalmente arbitrária)
 ....SIGPAU
 Já deu pra ver que vai precisar melhorar essa pica. Precisa começar a adicionar coisas ao PIN, e precisa definir QUANDO um elemento está indexado.
 
+--------------------------------------------------------------------------------
+
 input: 54321	LUT: 12345	PIN: 1 3 (escolha totalmente arbitrária)
 1 - Marca os PIN junto à LUT para poder fixar os valores que já estão certos
 2 - Testa TOP_A e TOP_B: se TOP_A entrar em ordem crescente com um SWAP A e TOP_B entrar em ordem crescente com um SWAP B -> SS
@@ -124,6 +126,9 @@ input: 54321	LUT: 12345	PIN: 1 3 (escolha totalmente arbitrária)
 5 - caso porra nenhuma das anteriores, PB
 	Testa a STACK A para autalizar o PIN;
 
+--------------------------------------------------------------------------------
+
+input: 54321	LUT: 12345	PIN: 1 3 (escolha totalmente arbitrária)
 1> 45321	PIN:13
 1> 5321/4	PIN:13
 1> 321/54	PIN:13
@@ -131,6 +136,16 @@ input: 54321	LUT: 12345	PIN: 1 3 (escolha totalmente arbitrária)
 ...SIGINT - continua testando a stack e atualizando PIN infinitamente
 A STACK A começa a funcionar direito, porém estas regras ainda não checam o STACK B. Temos então que definir como a ordenação da STACK B faz sentido.
 entaõ -> Se existir STACK B o topo do STACK B for o elemento na LUT antes do elemento topo do STACK A na LUT, PUSH A; -> isso faz com que os elementos voltem ordenadamente para o STACK A;
+
+--------------------------------------------------------------------------------
+
+input: 54321	LUT: 12345	PIN: 1 3 (escolha totalmente arbitrária)
+1 - Marca os PIN junto à LUT para poder fixar os valores que já estão certos
+2 - Testa TOP_A e TOP_B: se TOP_A entrar em ordem crescente com um SWAP A e TOP_B entrar em ordem crescente com um SWAP B -> SS
+3 - caso TOP_A entre em ordem e TOP_B não, SA
+4 - se TOP_A estiver PINADO, RA
+5 - caso porra nenhuma das anteriores, PB
+	Testa a STACK A para autalizar o PIN;
 
 
 <!-- daqui pra baixo não tá valendo -->
