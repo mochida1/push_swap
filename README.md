@@ -126,9 +126,6 @@ input: 54321	LUT: 12345	PIN: 1 3 (escolha totalmente arbitrária)
 5 - caso porra nenhuma das anteriores, PB
 	Testa a STACK A para autalizar o PIN;
 
---------------------------------------------------------------------------------
-
-input: 54321	LUT: 12345	PIN: 1 3 (escolha totalmente arbitrária)
 1> 45321	PIN:13
 1> 5321/4	PIN:13
 1> 321/54	PIN:13
@@ -136,6 +133,7 @@ input: 54321	LUT: 12345	PIN: 1 3 (escolha totalmente arbitrária)
 ...SIGINT - continua testando a stack e atualizando PIN infinitamente
 A STACK A começa a funcionar direito, porém estas regras ainda não checam o STACK B. Temos então que definir como a ordenação da STACK B faz sentido.
 entaõ -> Se existir STACK B o topo do STACK B for o elemento na LUT antes do elemento topo do STACK A na LUT, PUSH A; -> isso faz com que os elementos voltem ordenadamente para o STACK A;
+já dá pra pensar também em como finalizar a porra toda, então... depois disso tudo temos que definir quando realinhar a STACK A, ou seja, rodar a STACK A a menor distancia com RA ou RRA para que o topo dela seja o menor elemento.
 
 --------------------------------------------------------------------------------
 
@@ -144,15 +142,18 @@ input: 54321	LUT: 12345	PIN: 1 3 (escolha totalmente arbitrária)
 2 - Testa TOP_A e TOP_B: se TOP_A entrar em ordem crescente com um SWAP A e TOP_B entrar em ordem crescente com um SWAP B -> SS
 3 - caso TOP_A entre em ordem e TOP_B não, SA
 4 - se TOP_A estiver PINADO, RA
-5 - caso porra nenhuma das anteriores, PB
+5 - se existir STACK B o topo do STACK B for o elemento na LUT antes do elemento topo do STACK A na LUT, PUSH A;
+6 - caso porra nenhuma das anteriores, PB
 	Testa a STACK A para autalizar o PIN;
+7 - se o PIN estiver completo, checa se o menor elemento está mais perto do fim ou do começo, se estiver mais proximo do fim, RA até chegar no topo. Se estiver mais próximo do começo, RRA até lá. Caso esteja equidistante, tanto faz.
+
+
 
 
 <!-- daqui pra baixo não tá valendo -->
 checa se o primeiro elemento de cada lista entrará na ordem caso haja um swap: se 5 ficar entre 4 e 6, dá um swap a; caso haja elementos na stack b e seu elemento do topo for entrar em ordem, dá swap s;
 Caso nao haja swaps, push B
 Checa se o elemento do topo de B entra em ordem se der push A, caso sim, push B;
-
 
 
 8 5 2 4 9 7 1
@@ -166,5 +167,3 @@ pb
 //como saber se posso (rr) para poder inserir 5 no lugar certo?
 SE HOUVER elementos em B, olha para o proximo elemento de B que possa ser inserido em A; se numero de rotações para inserí-lo for maior que o numero de rotações para chegar em seu espaço, olha para o próximo;
 caso seja menor, usa RR ao invés de RA;
-
-
