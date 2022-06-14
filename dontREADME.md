@@ -176,8 +176,38 @@ PA> 4123/5	PIN:1234
 RA> 1234/5	PIN:1234
 PA> 51234	PIN:12345
 RA> 12345	XABLAU
-melhor ainda seria a sequencia de RA's e PA's sendo trocadas por PA e SA...talvez?
-
+de 11, passamos para 9. Melhor ainda seria a sequencia de RA's e PA's sendo trocadas por PA e SA...talvez?
+PB>4321/5	PIN:13
+PB>321/45	PIN:13
+SA>231/45	PIN:123
+RA>312/45	PIN:123
+PA>4312/5	PIN:123
+SA>3412/5	PIN:1234
+RA>4123/5	PIN:1234
+PA>54123	PIN:1234
+SA>45123	PIN:12345
+RA>51234	PIN:12345
+RA>12345	XABLAU
+11 comandos de novo. OPS. Ainda bem que é sempre bom testar os rolês. No caso específico das coisas virem do contrário, no entanto, será que existe uma regra específica para otimizar esses casos? Vejamos se empurrar tudo pra B funciona.
+PB>4321/5
+PB>321/45
+RRR>132/54
+PA>5132/4
+PA>45132
+RRA>24513
+RRA>32451
+SA>23451
+RRA>12345
+9 comandos mais uma vez...comparando com um método freestyle:
+PB>4321/5
+PB>321/45
+SS>231/54
+RA>123/54
+PA>5123
+PA>45123
+RA>51234
+RA>12345
+conseguiríamos em 8 comandos. Nota especial para o SS
 
 
 <!-- daqui pra baixo não tá valendo -->
