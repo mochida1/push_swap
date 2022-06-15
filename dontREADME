@@ -207,7 +207,9 @@ PA>5123
 PA>45123
 RA>51234
 RA>12345
-conseguiríamos em 8 comandos. Nota especial para o SS
+conseguiríamos em 8 comandos. Nota especial para o SS. Uma coisa que, no entanto não foi testada, e em retrospectiva, deveria ter sido testada antes de tentarmos otimizar a parada fugindo das regras, é setar um PIN diferente.
+utilizando as regras que fizemos anteriormente, será que setar o PIN com o maior delta possível influenciaria de alguma forma o resultado? Vamos checar.
+
 
 
 <!-- daqui pra baixo não tá valendo -->
