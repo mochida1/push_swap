@@ -209,7 +209,8 @@ RA>51234
 RA>12345
 conseguiríamos em 8 comandos. Nota especial para o SS. Uma coisa que, no entanto não foi testada, e em retrospectiva, deveria ter sido testada antes de tentarmos otimizar a parada fugindo das regras, é setar um PIN diferente.
 utilizando as regras que fizemos anteriormente, será que setar o PIN com o maior delta possível influenciaria de alguma forma o resultado? Vamos checar, mas vou chutar que sim, e que o ideal, pelo menos neste caso seria usar 1 e 4, ao inves de 1 e 5.
-input: 54321	LUT: 12345	PIN: 1 5 (escolha totalmente arbitrária)
+
+input: 54321	LUT: 12345	PIN: 1 5
 1 - Marca os PIN junto à LUT para poder fixar os valores que já estão certos
 2 - Testa TOP_A e TOP_B: se TOP_A entrar em ordem crescente com um SWAP A e TOP_B entrar em ordem crescente com um SWAP B -> SS
 3 - caso TOP_A entre em ordem e TOP_B não, SA
@@ -229,6 +230,23 @@ input: 54321	LUT: 12345	PIN: 1 5 (escolha totalmente arbitrária)
 4>23451		PIN:12345
 7>12345		PIN:12345
 10 COMANDOS! Se está bom o suficiente para a régua, está bom o suficiente para mim também! Mas por via das duvidas, vamos testar com PIN:14
+input: 54321	LUT: 12345	PIN: 1 4
+3>45321		PIN:145
+5>...
+5...
+...o que significa que é INDIFERENTE pq o primeiro comando vai ser um SWAP A de qualquer forma :)
+
+Note no entanto, que o 4o comando, um SWAP, faz-se-ia desenecessário caso houvesse um jeito de se prever que ambos iriam tomar PUSH. Com uma pequena mudança na regra 3, creio que isso possa ser resolvido.
+input: 54321	LUT: 12345	PIN: 1 5
+1 - Marca os PIN junto à LUT para poder fixar os valores que já estão certos
+2 - Testa TOP_A e TOP_B: se TOP_A entrar em ordem crescente com um SWAP A e TOP_B entrar em ordem crescente com um SWAP B -> SS
+3 - caso TOP_A entre em ordem indexada e TOP_B não, SA
+4 - se existir STACK B o topo do STACK B for o elemento na LUT antes do elemento topo do STACK A na LUT, PUSH A;
+5 - se TOP_A estiver PINADO, RA
+6 - caso porra nenhuma das anteriores, PB
+	Testa a STACK A para autalizar o PIN;
+7 - se o PIN estiver completo, checa se o menor elemento está mais perto do fim ou do começo, se estiver mais proximo do fim, RA até chegar no topo. Se estiver mais próximo do começo, RRA até lá. Caso esteja equidistante, tanto faz.
+
 
 
 <!-- daqui pra baixo não tá valendo -->
