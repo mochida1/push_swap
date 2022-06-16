@@ -263,6 +263,13 @@ input: 54321	LUT: 12345	PIN: 1 5
 --------------------------------------------------------------------------------
 
 
+GERENCIAMENTO DE ERROS
+
+* qualquer input que não seja um numero;
+	* cada int deve ser recebido do output separado tão somente por espaços
+* numeros fora do range INT_MIN -> INT_MAX;
+* argumentos pra bosta;
+
 
 
 <!-- daqui pra baixo não tá valendo -->
