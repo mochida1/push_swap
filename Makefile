@@ -11,7 +11,8 @@ LIBS = libs
 INCLUDES = -I /headers
 
 # Lists sources. Manually because of norm...
-SRC_LIST = push_swap.c \
+SRC_LIST = me.c \
+push_swap.c \
 
 
 # Names sources
@@ -51,7 +52,8 @@ bonus:
 
 # from here on shit ain't mandatory or bonus
 run: all
-	./$(NAME)
+	$ARGS='8 5 6 3 2 4 7 10 -5 -8'
+	./$(NAME) $ARGS
 
 #make teste:
 
