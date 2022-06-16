@@ -13,6 +13,10 @@ INCLUDES = -I /headers
 # Lists sources. Manually because of norm...
 SRC_LIST = me.c \
 push_swap.c \
+check_arguments.c \
+check_invalid_chars.c \
+count_splits.c \
+
 
 
 # Names sources

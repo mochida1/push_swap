@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   check_invalid_chars.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/16 09:19:18 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/16 18:11:34 by hmochida         ###   ########.fr       */
+/*   Created: 2022/06/16 17:37:58 by hmochida          #+#    #+#             */
+/*   Updated: 2022/06/16 17:44:12 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+#include "../headers/push_swap.h"
 
-#include <unistd.h> // read, write;
-#include <stdlib.h> // exit, malloc, free;
-#include <stdio.h> // DELETAR OS PRINTF!!!
-#include "defs.h"
+/*
+** checks if strings are all composed of SPACES and NUMBERS
+** Returns 1 if it finds bad shit, if all is good and the user didn't try to
+** fuck you up, it'll return 0 :)
+*/
 
-char **push_swap(int argc, char *argv[]);
-int	check_arguments (char *argv[]);
-int count_splits (char *argv);
+int check_invalid_chars (char *str)
+{
+	int i;
 
-#endif
+	i = 0;
+	while (*str)
+	{
+		if (*str == ' ' || (str >= '0' && str <= '9'))
+		{
+			i++;
+		}
+		else
+			return (1);
+	}
+	return (0);
+}
