@@ -290,14 +290,16 @@ Agora que já manjamos como os inputs podem vir, é meio que indiferente de como
 Se eles vierem separados por algo que não apenas espaço, é só bostar o programa. No caso do 4 e 5 virem concatenados, taca-se o foda-se. Isso é erro do usuário que não sabe como usar o shell.
 Não havendo outra possibilidade de caracateres que não sejam espaço ou números, podemos deixar qualquer outro caractere como um belo dum ERRO.
 A condição acima sendo verdadeira: enquanto houver argv[i], haverão elementos a para ser lidos e botados na stack. Ou Seja, se passarmos uma split por todos os elementos não nulos, já teremos separadinho os números. Depois disso é só dar atoi no rolê todo e xablau.
-O difícil fica saber quantos elementos vamos ter que guardar. Mas aí tu que se vire pra implementar essa joça. (mentira, é facinho - só passar contando as coisas entre os espaços antes de dar o split e salvar em uma variável enquanto checa por erros)
+O difícil fica saber quantos elementos vamos ter que guardar. Mas aí tu que te vire pra implementar essa joça. (mentira, é facinho - só passar contando as coisas entre os espaços antes de dar o split e salvar em uma variável enquanto checa por erros)
 
 GERENCIAMENTO DE ERROS
 
-* qualquer input que não seja um numero;
+* qualquer input que não seja um numero ou espaço;
 	* cada int deve ser recebido do output separado tão somente por espaços
 * numeros fora do range INT_MIN -> INT_MAX;
 * argumentos pra bosta;
+* NUMEROS REPETIDOS;
+* chamar o programa sem argumentos;
 
 
 
