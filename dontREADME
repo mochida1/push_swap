@@ -288,7 +288,8 @@ input:	ARGS='2 1 3 4 5 6 7'   --> o bash separa cada elemento dentro das aspas c
 
 Agora que já manjamos como os inputs podem vir, é meio que indiferente de como o usuário vai inputar os argumentos. 
 Se eles vierem separados por algo que não apenas espaço, é só bostar o programa. No caso do 4 e 5 virem concatenados, taca-se o foda-se. Isso é erro do usuário que não sabe como usar o shell.
-
+Não havendo outra possibilidade de caracateres que não sejam espaço ou números, podemos deixar qualquer outro caractere como um belo dum ERRO.
+A condição acima sendo verdadeira: enquanto houver argv[i], haverão elementos a para ser lidos e botados na stack. Ou Seja, se passarmos uma split por todos os elementos não nulos, já teremos separadinho os números. Depois disso é só dar atoi no rolê todo e xablau.
 
 
 GERENCIAMENTO DE ERROS
