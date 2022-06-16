@@ -8,7 +8,7 @@ LIBS = libs
 #VPATH = $(SOURCEDIR)
 
 # headers
-INCLUDES = -I /includes
+INCLUDES = -I /headers
 
 # Lists sources. Manually because of norm...
 SRC_LIST = push_swap.c \
@@ -54,7 +54,7 @@ run: all
 	./$(NAME)
 
 #make teste:
-	
+
 
 git: fclean
 	git add -A
