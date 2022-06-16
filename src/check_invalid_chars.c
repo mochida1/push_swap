@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 17:37:58 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/16 17:44:12 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/16 18:27:32 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int check_invalid_chars (char *str)
 	i = 0;
 	while (*str)
 	{
-		if (*str == ' ' || (str >= '0' && str <= '9'))
+		if (*str == ' ' || (*str >= '0' && *str <= '9') || *str == '-')
 		{
 			i++;
 		}
