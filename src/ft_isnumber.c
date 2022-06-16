@@ -1,38 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   count_splits.c                                     :+:      :+:    :+:   */
+/*   ft_isnumber.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/16 18:10:52 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/16 18:33:13 by hmochida         ###   ########.fr       */
+/*   Created: 2022/06/16 18:58:19 by hmochida          #+#    #+#             */
+/*   Updated: 2022/06/16 19:01:00 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../headers/push_swap.h"
 
 /*
-** counts and returns the number of splitable elements in the string.
-** Yes, it'll be used again in the split. Yes, it could be optmized.
-** But I ain't giving a single fuck about it.
+** if char c is a number, returns 1;
+** if not returns 0;
 */
 
-int count_splits(char *str)
+int	ft_isnumber(char c)
 {
-	int ret;
-	int i;
-
-	ret = 0;
-	while (*str)
-	{
-		while (*str == ' ')
-			str++;
-		if (str == '-')
-			str++;
-		while (*str >= '0' || *str <= '9')
-			str++;
-		ret++;
-	}
-	return (ret);
+	if (c >= '0' && c <= '9')
+		return (1);
+	else
+		return (0);
 }

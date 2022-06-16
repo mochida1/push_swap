@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:19:18 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/16 18:11:34 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/16 19:01:09 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,8 @@
 char **push_swap(int argc, char *argv[]);
 int	check_arguments (char *argv[]);
 int count_splits (char *argv);
+int	validate_splits(char *str);
+int check_invalid_chars (char *str);
+int	ft_isnumber(char c);
 
 #endif
