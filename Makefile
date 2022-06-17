@@ -12,14 +12,19 @@ INCLUDES = -I /headers
 
 # Lists sources. Manually because of norm...
 SRC_LIST = me.c \
-push_swap.c \
 check_arguments.c \
 check_invalid_chars.c \
-validate_splits.c \
 count_splits.c \
-ft_isnumber.c \
 ft_atolong.c \
-
+ft_isnumber.c \
+ft_putstr_fd.c \
+ft_split.c \
+ft_strdup.c \
+ft_strlen.c \
+init_data.c \
+push_swap.c \
+validate_inputs.c \
+validate_splits.c \
 
 # Names sources
 SOURCES = $(addprefix $(SOURCEDIR)/,$(SRC_LIST))
