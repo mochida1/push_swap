@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:51:30 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/16 21:40:04 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/17 15:31:52 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ static int validate_pos_seq (char **str)
 {
 	while (ft_isnumber(**str))
 		str[0]++;
+	if (!**str)
+		return (0);
 	if (**str != ' ')
 		return (1);
 	while (**str == ' ')
@@ -41,6 +43,8 @@ static int validate_neg_seq (char **str)
 		return (1);
 	while (ft_isnumber(**str))
 		str[0]++;
+	if (!**str)
+		return (0);
 	if (**str != ' ')
 		return (1);
 	while (**str == ' ')
@@ -49,25 +53,28 @@ static int validate_neg_seq (char **str)
 }
 
 /*
-** validates the sequence of splittable elements to check if they're valid 
+** validates the sequence of splittable elements to check if they're valid
 ** integers. Return 0 if no problems are found, else returns 1;
 */
 int	validate_splits(char *str)
 {
-	while (*str)
+	char *temp;
+
+	temp = str;
+	while (*temp)
 	{
-		if (*str == '-')
+		if (*temp == '-')
 		{
-			if (validate_neg_seq(&str))
+			if (validate_neg_seq(&temp))
 				return (1);
 		}
-		else if (ft_isnumber(*str))
+		else if (ft_isnumber(*temp))
 		{
-			if (validate_pos_seq(&str))
+			if (validate_pos_seq(&temp))
 				return (1);
 		}
-		while (*str == ' ')
-			str++;
+		while (*temp == ' ')
+			temp++;
 	}
 	return (0);
 }
