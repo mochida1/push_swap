@@ -18,6 +18,7 @@ check_invalid_chars.c \
 validate_splits.c \
 count_splits.c \
 ft_isnumber.c \
+ft_atolong.c \
 
 
 # Names sources
