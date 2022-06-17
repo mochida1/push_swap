@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:51:30 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/16 20:46:56 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/16 21:19:16 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@
 
 static int validate_pos_seq (char **str)
 {
-	while (ft_isnumber(*str))
-		str++;
-	if (*str != ' ')
+	while (ft_isnumber(**str))
+		str[0]++;
+	if (**str != ' ')
 		return (1);
-	while (*str == ' ')
-		str++;
+	while (**str == ' ')
+		str[0]++;
 	return (0);
 }
 
@@ -36,15 +36,15 @@ static int validate_pos_seq (char **str)
 
 static int validate_neg_seq (char **str)
 {
-	str++;
-	if (!ft_isnumber(*str))
+	str[0]++;
+	if (!ft_isnumber(**str))
 		return (1);
-	while (ft_isnumber(*str))
-		str++;
-	if (*str != ' ')
+	while (ft_isnumber(**str))
+		str[0]++;
+	if (**str != ' ')
 		return (1);
-	while (*str == ' ')
-		str++;
+	while (**str == ' ')
+		str[0]++;
 	return (0);
 }
 
@@ -57,11 +57,15 @@ int	validate_splits(char *str)
 	while (*str)
 	{
 		if (*str == '-')
+		{
 			if (validate_neg_seq(&str))
 				return (1);
+		}
 		else if (ft_isnumber(*str))
+		{
 			if (validate_pos_seq(&str))
 				return (1);
+		}
 		while (*str == ' ')
 			str++;
 	}

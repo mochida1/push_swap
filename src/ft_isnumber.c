@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:58:19 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/16 19:07:34 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/16 20:55:52 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 ** if not returns 0;
 */
 
-int	ft_isnumber(char c)
+int	ft_isnumber(int c)
 {
 	if (c >= '0' && c <= '9')
 		return (c);

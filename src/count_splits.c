@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:10:52 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/16 18:33:13 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/16 21:03:11 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,13 @@
 int count_splits(char *str)
 {
 	int ret;
-	int i;
 
 	ret = 0;
 	while (*str)
 	{
 		while (*str == ' ')
 			str++;
-		if (str == '-')
+		if (*str == '-')
 			str++;
 		while (*str >= '0' || *str <= '9')
 			str++;
