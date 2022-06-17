@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:46:15 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/16 20:52:44 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/16 21:54:58 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,8 @@ int	main(int argc, char *argv[])
 		printf("Dargv[%d]: %d\n", i, argv[i][0]);
 		i++;
 	}
-	i = 0;
-	int count = 0;
-	while (argv[i])
-	{
-		count += count_splits(argv[i++]);
-	}
+	i = 1;
+	int count = check_arguments(argv);
 	printf("Count: %d\n", count);
 	return(0);
 }
