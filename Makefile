@@ -40,7 +40,7 @@ $(NAME): $(OBJS)
 
 objs/%.o: src/%.c
 	@mkdir -p objs
-	@$(CC) $(CF) $(INCLUDES) -c $< -o $@
+	@$(CC) $(CF) $(GDB) $(INCLUDES) -c $< -o $@
 
 all: $(NAME)
 
