@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 22:49:26 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/17 23:29:53 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/18 01:47:18 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ static void	free_some_pointers(t_pushswap_data *ps_data, t_stack **ptrs, int i)
 	exit (1);
 }
 
+/*
+** yes, it's that ugly.
+*/
 int	create_stack(t_pushswap_data *ps_data)
 {
 	t_stack **ptrs;
