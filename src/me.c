@@ -6,12 +6,14 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:46:15 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/17 19:26:15 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/18 15:29:28 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../headers/push_swap.h"
-
+/*
+** DELETE me.c
+*/
 /*
 int	main(int argc, char *argv[])
 {

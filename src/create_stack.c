@@ -6,12 +6,16 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 22:49:26 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/18 14:42:53 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/18 15:10:55 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../headers/push_swap.h"
 
+/*
+** If shit goes sideways, frees all pointers allocated so far and exits.
+** It works, trust me.
+*/
 static void	free_some_pointers(t_pushswap_data *ps_data)
 {
 	t_stack *temp = ps_data->head_a;
@@ -29,6 +33,9 @@ static void	free_some_pointers(t_pushswap_data *ps_data)
 	exit (1);
 }
 
+/*
+** Creates a new node on the list.
+*/
 static t_stack	*ft_lstnew(t_stack *prev)
 {
 	t_stack	*fresh;
@@ -42,7 +49,7 @@ static t_stack	*ft_lstnew(t_stack *prev)
 }
 
 /*
-** yes, it's that ugly.
+** Creates the stack. yeah, really.
 */
 int	create_stack(t_pushswap_data *ps_data)
 {

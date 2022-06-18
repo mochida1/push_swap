@@ -6,12 +6,15 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 12:01:41 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/18 14:23:57 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/18 15:30:10 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../headers/push_swap.h"
 
+/*
+** Fills up STACK A with relevant data.
+*/
 int	populate_stack(t_pushswap_data *ps_data)
 {
 	t_stack	*temp;

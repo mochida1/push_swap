@@ -6,12 +6,16 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 19:52:16 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/18 14:30:29 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/18 15:28:55 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../headers/push_swap.h"
 
+/*
+** Allocates and initializes most of the data used in the program,
+** with exception of *ps_data.
+*/
 void	init_data(t_pushswap_data *ps_data, int in_nbr, char *argv[])
 {
 	ps_data->ele_count = in_nbr;

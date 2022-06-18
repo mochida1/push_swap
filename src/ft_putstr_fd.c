@@ -6,12 +6,15 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/17 04:59:21 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/17 18:30:00 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/18 15:20:01 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../headers/push_swap.h"
 
+/*
+** Writes a string on given fd.
+*/
 void	ft_putstr_fd(char *s, int fd)
 {
 	size_t	len;

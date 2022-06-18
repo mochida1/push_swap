@@ -6,12 +6,15 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 17:49:26 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/17 22:24:49 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/18 15:19:00 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../headers/push_swap.h"
 
+/*
+** Just documenting this for procrastination's sake.
+*/
 static int	ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
@@ -21,6 +24,9 @@ static int	ft_isdigit(int c)
 
 }
 
+/*
+** Tests if char c is a space defined character. If not returns 0.
+*/
 static int	ft_isspace(const char c)
 {
 	if (c == 32 || (c > 8 && c < 14))
@@ -29,6 +35,9 @@ static int	ft_isspace(const char c)
 		return (0);
 }
 
+/*
+** It's atoi. But to long instead.
+*/
 long int	ft_atolong(const char *str)
 {
 	long ret;

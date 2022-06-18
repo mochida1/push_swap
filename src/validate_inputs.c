@@ -6,12 +6,17 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 18:37:33 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/17 19:42:43 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/18 15:33:38 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../headers/push_swap.h"
 
+/*
+** Wrapper that inquires the user's inputs for demonic stuff.
+** If no signs of foul characters are found, returns the number of splittable
+** elements. Else exits with exit code 1.
+*/
 int	validate_inputs(int argc, char *argv[])
 {
 	if (argc==1)
