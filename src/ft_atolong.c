@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 17:49:26 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/17 19:39:18 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/17 22:24:49 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	ft_isspace(const char c)
 
 long int	ft_atolong(const char *str)
 {
-	long int ret;
+	long ret;
 	int m;
 
 	ret = 0;
