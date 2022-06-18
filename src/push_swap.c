@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:32:17 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/18 15:30:48 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/18 15:38:31 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ int	main (int argc, char *argv[])
 	ps_data = malloc(sizeof(t_pushswap_data));
 	init_data (ps_data, in_nbr, argv);
 
-	print_list(ps_data);
 	freedom(ps_data);
 	return (0);
 }
