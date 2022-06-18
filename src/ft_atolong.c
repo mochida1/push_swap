@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 17:49:26 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/18 15:19:00 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/18 16:49:07 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,6 @@ static int	ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
 		return (c);
-	else
-		return (0);
-
-}
-
-/*
-** Tests if char c is a space defined character. If not returns 0.
-*/
-static int	ft_isspace(const char c)
-{
-	if (c == 32 || (c > 8 && c < 14))
-		return ((int)c);
 	else
 		return (0);
 }

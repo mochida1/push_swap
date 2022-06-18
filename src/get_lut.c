@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 20:44:48 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/18 15:27:33 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/18 17:09:58 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,11 @@ static void fill_lut(t_pushswap_data *ps_data, char *argv[])
 		{
 			ps_data->lut[i] = check_int_xflow(ft_atolong(temp), ps_data);
 			i++;
-			while (*temp && *temp != ' ')
+			while (*temp && *temp == ' ')
+				temp++;
+			while (*temp && !ft_isspace(*temp))
+				temp++;
+			while (*temp && *temp == ' ')
 				temp++;
 		}
 		j++;

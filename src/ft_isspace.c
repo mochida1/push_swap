@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/16 09:32:17 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/18 17:01:29 by hmochida         ###   ########.fr       */
+/*   Created: 2022/06/18 16:44:48 by hmochida          #+#    #+#             */
+/*   Updated: 2022/06/18 16:55:20 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../headers/push_swap.h"
-//char	**push_swap;
-
-
 /*
-** This is what calls __start and all that good shit.
+** Tests if char c is a space defined character. If not returns 0.
 */
-int	main (int argc, char *argv[])
+int	ft_isspace(const char c)
 {
-	t_pushswap_data *ps_data;
-	int in_nbr;
-
-	in_nbr = validate_inputs(argc, argv);
-	printf("in_nbr: %d\n", in_nbr);
-	ps_data = malloc(sizeof(t_pushswap_data));
-	init_data (ps_data, in_nbr, argv);
-
-	print_list(ps_data);
-	freedom(ps_data);
-	return (0);
+	if (c == 32 || (c > 8 && c < 14))
+		return ((int)c);
+	else
+		return (0);
 }

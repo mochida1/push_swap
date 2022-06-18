@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:19:18 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/18 14:39:26 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/18 16:45:09 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	freedom(t_pushswap_data *ps_data);
 void	freexit(void *ptr, int exit_code);
 long int	ft_atolong(const char *str);
 int	ft_isnumber(int c);
+int	ft_isspace(const char c);
 long int	ft_atolong(const char *str);
 void	ft_putstr_fd(char *s, int fd);
 char	**ft_split(char *s, char c);

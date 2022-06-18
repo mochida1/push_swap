@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:10:52 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/16 21:45:21 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/18 17:04:05 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 ** Yes, it'll be used again in the split. Yes, it could be optmized.
 ** But I ain't giving a single fuck about it.
 */
-
 int count_splits(char *str)
 {
 	int ret;
@@ -32,6 +31,8 @@ int count_splits(char *str)
 		while (*str && *str != ' ')
 			str++;
 		ret++;
+		while (*str && *str == ' ')
+			str++;
 	}
 	return (ret);
 }
