@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:19:18 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/18 16:45:09 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/18 20:16:31 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 int	check_arguments (char *argv[]);
 int	check_invalid_chars (char *str);
+void	check_repeated_numbers(t_pushswap_data *ps_data);
 int	count_splits (char *argv);
 int	create_stack(t_pushswap_data *ps_data);
 void	free_list(t_pushswap_data *ps_data);
@@ -38,6 +39,7 @@ void	ifreexit(void *ptr_to_check, void *ptr_to_free, int exit_code);
 void	init_data(t_pushswap_data *ps_data, int in_nbr, char *argv[]);
 int	populate_stack(t_pushswap_data *ps_data);
 void print_list(t_pushswap_data *ps_data); // DELETAR!
+void	sort_lut(t_pushswap_data *ps_data);
 char	**push_swap(int argc, char *argv[]);
 int	validate_inputs(int argc, char *argv[]);
 int	validate_splits(char *str);

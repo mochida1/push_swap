@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:17:16 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/18 12:09:44 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/18 19:26:43 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct		s_pushswap_data
 {
 	int				exit_code;
 	int				*lut;
+	int				*pin;
 	int				ele_count;
 	struct s_stack	*head_a;
 	struct s_stack	*end_a;

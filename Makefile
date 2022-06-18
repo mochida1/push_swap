@@ -16,6 +16,7 @@ SRC_LIST = me.c \
 PRINT_LIST.c \
 check_arguments.c \
 check_invalid_chars.c \
+check_repeated_numbers.c \
 count_splits.c \
 create_stack.c \
 free_list.c \
@@ -33,6 +34,7 @@ ifreexit.c \
 init_data.c \
 populate_stack.c \
 push_swap.c \
+sort_lut.c \
 validate_inputs.c \
 validate_splits.c \
 
@@ -50,7 +52,7 @@ VAL = valgrind --trace-children=yes --leak-check=full --track-origins=yes ./$(NA
 FSF = -fsanitize=address
 
 # Arguments to test the program with
-RUN_ARGS = "1 12 123 1234 12345 1235456" "1234567 12345678 123456789 1234567890"
+RUN_ARGS = "1234567 12345678 123456789 1234567890" "1 12 123 1234 12345 1235456"
 
 $(NAME): $(OBJS)
 	@$(CC) $(CF) $(OBJS) $(INCLUDES) -o $(NAME)

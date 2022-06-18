@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 14:37:02 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/18 15:41:15 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/18 19:50:21 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ void	freedom(t_pushswap_data *ps_data)
 {
 	free_list(ps_data);
 	free (ps_data->lut);
+	free (ps_data->pin);
 	free (ps_data);
-	printf("\nFREEEEEDDDDDOOOOOOOOM!\n\n"); //deletar essa brincadeira antes de subir pra intra!!
 }

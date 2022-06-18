@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:32:17 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/18 17:01:29 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/18 19:54:05 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,12 @@ int	main (int argc, char *argv[])
 	int in_nbr;
 
 	in_nbr = validate_inputs(argc, argv);
-	printf("in_nbr: %d\n", in_nbr);
 	ps_data = malloc(sizeof(t_pushswap_data));
 	init_data (ps_data, in_nbr, argv);
+	check_repeated_numbers(ps_data);
+	sort_lut(ps_data);
 
-	print_list(ps_data);
+	// print_list(ps_data);
 	freedom(ps_data);
 	return (0);
 }
