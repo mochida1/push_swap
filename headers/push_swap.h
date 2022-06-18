@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:19:18 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/17 21:55:27 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/17 23:20:06 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 int	check_arguments (char *argv[]);
 int check_invalid_chars (char *str);
 int count_splits (char *argv);
+void create_stack(t_pushswap_data *ps_data);
 void	freexit(void *ptr, int exit_code);
 long int	ft_atolong(const char *str);
 int	ft_isnumber(int c);

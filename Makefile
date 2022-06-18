@@ -15,6 +15,7 @@ SRC_LIST = me.c \
 check_arguments.c \
 check_invalid_chars.c \
 count_splits.c \
+create_stack.c \
 freexit.c \
 ft_atolong.c \
 ft_isnumber.c \
