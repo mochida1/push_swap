@@ -15,12 +15,15 @@ SRC_LIST = me.c \
 check_arguments.c \
 check_invalid_chars.c \
 count_splits.c \
+freexit.c \
 ft_atolong.c \
 ft_isnumber.c \
 ft_putstr_fd.c \
 ft_split.c \
 ft_strdup.c \
 ft_strlen.c \
+get_lut.c \
+ifreexit.c \
 init_data.c \
 push_swap.c \
 validate_inputs.c \

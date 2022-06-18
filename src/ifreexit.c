@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ifreexit.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/16 09:32:17 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/17 20:26:14 by hmochida         ###   ########.fr       */
+/*   Created: 2022/06/17 20:33:33 by hmochida          #+#    #+#             */
+/*   Updated: 2022/06/17 20:40:16 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../headers/push_swap.h"
-//char	**push_swap;
+#include <stdlib.h>
 
-int	main (int argc, char *argv[])
+/*
+** Checks if ptr_to_check is not NULL. If it is, free's ptr_to_free and exits
+** with exit_code.
+*/
+void	ifreexit(void *ptr_to_check, void *ptr_to_free, int exit_code)
 {
-	t_pushswap_data *ps_data;
-	int in_nbr;
-
-	in_nbr = validate_inputs(argc, argv);
-	ps_data = malloc(sizeof(t_pushswap_data));
-	init_data (ps_data, in_nbr, argv);
+	if (!ptr_to_check)
+	{
+		free(ptr_to_free);
+		exit(exit_code);
+	}
 }

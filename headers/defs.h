@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:17:16 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/17 19:45:21 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/17 21:48:03 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct		s_pushswap_data
 {
 	int				exit_code;
 	int				*lut;
+	int				ele_count;
 	struct s_stack	*head_a;
 	struct s_stack	*end_a;
 	struct s_stack	*head_b;
@@ -36,5 +37,6 @@ typedef struct		s_pushswap_data
 
 #define INT_MIN -2147483648
 #define INT_MAX 2147483647
+#define PSERROR	"Error\n"
 
 #endif

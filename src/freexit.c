@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   freexit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/16 09:32:17 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/17 20:26:14 by hmochida         ###   ########.fr       */
+/*   Created: 2022/06/17 20:29:13 by hmochida          #+#    #+#             */
+/*   Updated: 2022/06/17 20:39:23 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../headers/push_swap.h"
-//char	**push_swap;
+#include <stdlib.h>
 
-int	main (int argc, char *argv[])
+void	freexit(void *ptr, int exit_code)
 {
-	t_pushswap_data *ps_data;
-	int in_nbr;
-
-	in_nbr = validate_inputs(argc, argv);
-	ps_data = malloc(sizeof(t_pushswap_data));
-	init_data (ps_data, in_nbr, argv);
+	free (ptr);
+	exit (exit_code);
 }

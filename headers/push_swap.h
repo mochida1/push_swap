@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:19:18 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/17 19:54:48 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/17 21:55:27 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 int	check_arguments (char *argv[]);
 int check_invalid_chars (char *str);
 int count_splits (char *argv);
+void	freexit(void *ptr, int exit_code);
 long int	ft_atolong(const char *str);
 int	ft_isnumber(int c);
 long int	ft_atolong(const char *str);
@@ -28,7 +29,9 @@ void	ft_putstr_fd(char *s, int fd);
 char	**ft_split(char *s, char c);
 char	*ft_strdup(const char *s1);
 int	ft_strlen(const char *s);
-void	init_data(t_pushswap_data *ps_data, int argc, char *argv[]);
+void	get_lut(t_pushswap_data *data, char *argv[]);
+void	ifreexit(void *ptr_to_check, void *ptr_to_free, int exit_code);
+void	init_data(t_pushswap_data *ps_data, int in_nbr, char *argv[]);
 char **push_swap(int argc, char *argv[]);
 int validate_inputs(int argc, char *argv[]);
 int	validate_splits(char *str);
