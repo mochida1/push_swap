@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_data.c                                        :+:      :+:    :+:   */
+/*   free_list.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/17 19:52:16 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/18 14:30:29 by hmochida         ###   ########.fr       */
+/*   Created: 2022/06/18 12:19:52 by hmochida          #+#    #+#             */
+/*   Updated: 2022/06/18 13:53:01 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../headers/push_swap.h"
 
-void	init_data(t_pushswap_data *ps_data, int in_nbr, char *argv[])
+void	free_list(t_pushswap_data *ps_data)
 {
-	ps_data->ele_count = in_nbr;
-	get_lut(ps_data, argv);
-	create_stack(ps_data);
+	t_stack *temp;
+	int i;
+
+	i = 0;
+	while (i++ < ps_data->ele_count)
+	{
+		temp = ps_data->head_a;
+		ps_data->head_a = ps_data->head_a->next;
+		free (temp);
+	}
 }

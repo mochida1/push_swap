@@ -12,10 +12,13 @@ INCLUDES = -I /headers
 
 # Lists sources. Manually because of norm...
 SRC_LIST = me.c \
+PRINT_LIST.c \
 check_arguments.c \
 check_invalid_chars.c \
 count_splits.c \
 create_stack.c \
+free_list.c \
+freedom.c \
 freexit.c \
 ft_atolong.c \
 ft_isnumber.c \
@@ -26,6 +29,7 @@ ft_strlen.c \
 get_lut.c \
 ifreexit.c \
 init_data.c \
+populate_stack.c \
 push_swap.c \
 validate_inputs.c \
 validate_splits.c \
@@ -40,10 +44,10 @@ OBJS := $(subst $(SOURCEDIR),$(BUILDDIR),$(SOURCES:.c=.o))
 CC = gcc
 CF = -Wall -Wextra -Werror
 GDB = -ggdb
-VAL = valgrind ./$(NAME)
+VAL = valgrind --trace-children=yes --leak-check=full --track-origins=yes ./$(NAME)
 
 # Arguments to test the program with
-RUN_ARGS = 1 3 2 5 4
+RUN_ARGS = 1 12 123 1234 12345 1235456 1234567 12345678 123456789 1234567890
 
 $(NAME): $(OBJS)
 	@$(CC) $(CF) $(OBJS) $(INCLUDES) -o $(NAME)
@@ -67,8 +71,7 @@ bonus:
 
 # from here on shit ain't mandatory or bonus
 run: all
-	$ARGS='8 5 6 3 2 4 7 10 -5 -8'
-	./$(NAME) $ARGS
+	$(VAL) $(RUN_ARGS)
 
 #make teste:
 

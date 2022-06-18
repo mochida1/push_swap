@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:17:16 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/17 23:09:42 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/18 12:09:44 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ typedef struct		s_stack
 {
 	int				num;
 	int				index;
-	int				stack_order;
+	unsigned int	stack_order;
 	unsigned char	is_indexed;
 	struct s_stack	*next;
 	struct s_stack	*prev;
