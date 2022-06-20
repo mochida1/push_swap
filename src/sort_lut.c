@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 19:54:01 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/19 18:00:04 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/19 18:39:03 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ static void	swap_elements(t_pushswap_data *ps_data, int i, int hold)
 
 /*
 ** Easy and simple selection sort to make up the LUT;
-** Yes, a bubble sort would be easier. But sometimes you just want to use the worst stuff.
+** Yes, a bubble sort would be easier - AND - better. But sometimes you just
+** want to use the worst stuff because you can.
 */
 void	sort_lut(t_pushswap_data *ps_data)
 {

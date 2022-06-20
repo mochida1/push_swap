@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:17:16 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/18 19:26:43 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/19 22:52:33 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,14 @@ typedef struct		s_pushswap_data
 	struct s_stack	*end_a;
 	struct s_stack	*head_b;
 	struct s_stack	*end_b;
+	struct s_movements	*moves_to_print;
 } t_pushswap_data;
+
+typedef struct		s_movements
+{
+	char movement;
+	struct s_movements	*next;
+} t_movements;
 
 #define INT_MIN -2147483648
 #define INT_MAX 2147483647
