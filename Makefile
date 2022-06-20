@@ -14,6 +14,7 @@ INCLUDES = -I /headers
 # Lists sources. Manually because of norm...
 SRC_LIST = me.c \
 PRINT_LIST.c \
+add_to_mv_list.c \
 check_arguments.c \
 check_invalid_chars.c \
 check_repeated_numbers.c \
@@ -32,6 +33,11 @@ ft_strlen.c \
 get_lut.c \
 ifreexit.c \
 init_data.c \
+mv_px.c \
+mv_rrx.c \
+mv_rx.c \
+mv_sx.c \
+mv_wrapper.c \
 populate_stack.c \
 push_swap.c \
 sort_lut.c \

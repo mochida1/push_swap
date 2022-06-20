@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:32:17 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/20 12:43:38 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/20 16:24:49 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main (int argc, char *argv[])
 	init_data (ps_data, in_nbr, argv);
 	check_repeated_numbers(ps_data);
 	sort_lut(ps_data);
-	ps_data->moves_to_print = push_swap(ps_data);
+	ps_data->mv_to_print = push_swap(ps_data);
 
 	// print_list(ps_data);
 	freedom(ps_data);
