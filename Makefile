@@ -35,6 +35,7 @@ init_data.c \
 populate_stack.c \
 push_swap.c \
 sort_lut.c \
+sort_two.c \
 validate_inputs.c \
 validate_splits.c \
 
@@ -84,7 +85,9 @@ bonus:
 run: all
 	$(VAL) $(RUN_ARGS)
 
-#make teste:
+make teste: $(NAME_FS)
+	./$(NAME_FS) $(RUN_ARGS)
+
 
 
 git: fclean
