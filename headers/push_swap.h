@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:19:18 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/20 19:56:20 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/20 20:19:57 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,13 @@ void	get_lut(t_pushswap_data *data, char *argv[]);
 void	ifreexit(void *ptr_to_check, void *ptr_to_free, int exit_code);
 void	init_data(t_pushswap_data *ps_data, int in_nbr, char *argv[]);
 void	mv(char *mv, t_pushswap_data *ps_data, t_movements *mv_to_print);
+void	mv_swap_stack_a(t_pushswap_data *ps_data, t_movements *mv_to_print);
+void	mv_swap_stack_b(t_pushswap_data *ps_data, t_movements *mv_to_print);
+void	mv_swap_stack_s(t_pushswap_data *ps_data, t_movements *mv_to_print);
 int	populate_stack(t_pushswap_data *ps_data);
 void print_list(t_pushswap_data *ps_data); // DELETAR!
 void	sort_lut(t_pushswap_data *ps_data);
-t_movements	*sort_two(t_pushswap_data *ps_data);
+void	*sort_two(t_pushswap_data *ps_data);
 t_movements	*push_swap(t_pushswap_data *ps_data);
 int	validate_inputs(int argc, char *argv[]);
 int	validate_splits(char *str);
