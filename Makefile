@@ -19,8 +19,10 @@ check_arguments.c \
 check_invalid_chars.c \
 check_repeated_numbers.c \
 count_splits.c \
+create_moves_array.c \
 create_stack.c \
 free_list.c \
+free_moves_array.c \
 free_print_list.c \
 freedom.c \
 freexit.c \
@@ -39,6 +41,7 @@ mv_rrx.c \
 mv_rx.c \
 mv_sx.c \
 mv_wrapper.c \
+print_moves.c \
 populate_stack.c \
 push_swap.c \
 sort_lut.c \

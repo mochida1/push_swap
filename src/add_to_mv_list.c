@@ -6,26 +6,26 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 16:21:33 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/20 19:45:32 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/21 15:08:44 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../headers/push_swap.h"
 
-void	add_to_mv(char *move, t_movements *mv_to_print)
+void	add_to_mv(int move, t_pushswap_data *ps_data)
 {
 	t_movements	*temp;
 
-	if (mv_to_print == NULL)
+	if (ps_data->mv_to_print == NULL)
 	{
-		mv_to_print = malloc (sizeof(t_movements));
-		mv_to_print->movement = move;
+		ps_data->mv_to_print = malloc (sizeof(t_movements));
+		ps_data->mv_to_print->movement = ps_data->moves[move];
 	}
 	else
 	{
-		temp = mv_to_print;
-		mv_to_print = malloc (sizeof(t_movements));
-		mv_to_print->movement = move;
-		mv_to_print->next = temp;
+		temp = ps_data->mv_to_print;
+		ps_data->mv_to_print = malloc (sizeof(t_movements));
+		ps_data->mv_to_print->movement = ps_data->moves[move];
+		ps_data->mv_to_print->next = temp;
 	}
 }

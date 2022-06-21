@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:17:16 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/20 19:17:15 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/21 14:59:47 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct		s_pushswap_data
 	struct s_stack	*head_b;
 	struct s_stack	*end_b;
 	struct s_movements	*mv_to_print;
+	char **moves;
 } t_pushswap_data;
 
 typedef struct		s_movements
@@ -46,17 +47,17 @@ typedef struct		s_movements
 #define INT_MIN -2147483648
 #define INT_MAX 2147483647
 #define PSERROR	"Error\n"
-#define SWAP_A	"swap a\n"
-#define SWAP_B	"swap b\n"
-#define SWAP_S	"swap s\n"
-#define RA		"ra\n"
-#define RB		"rb\n"
-#define RR		"rr\n"
-#define RRA		"rra\n"
-#define RRB		"rrb\n"
-#define RRR		"rrr\n"
-#define PB		"pb\n"
-#define PA		"pa\n"
+#define SWAP_A	0
+#define SWAP_B	1
+#define SWAP_S	2
+#define RA		3
+#define RB		4
+#define RR		5
+#define RRA		6
+#define RRB		7
+#define RRR		8
+#define PB		9
+#define PA		10
 
 #ifndef NULL
 #define NULL ((void*)0)

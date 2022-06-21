@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:19:18 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/20 21:26:04 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/21 15:11:26 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,15 @@
 #include <stdio.h> // DELETAR OS PRINTF!!!
 #include "defs.h"
 
-void	add_to_mv(char *move, t_movements *mv_to_print);
+void	add_to_mv(int move, t_pushswap_data *ps_data);
 int	check_arguments (char *argv[]);
 int	check_invalid_chars (char *str);
 void	check_repeated_numbers(t_pushswap_data *ps_data);
 int	count_splits (char *argv);
+void	create_moves_array(t_pushswap_data *ps_data);
 int	create_stack(t_pushswap_data *ps_data);
 void	free_list(t_pushswap_data *ps_data);
+void	free_moves_array(char **moves);
 void	free_print_list(t_movements *list);
 void	freedom(t_pushswap_data *ps_data);
 void	freexit(void *ptr, int exit_code);
@@ -39,12 +41,13 @@ int	ft_strlen(const char *s);
 void	get_lut(t_pushswap_data *data, char *argv[]);
 void	ifreexit(void *ptr_to_check, void *ptr_to_free, int exit_code);
 void	init_data(t_pushswap_data *ps_data, int in_nbr, char *argv[]);
-void	mv(char *mv, t_pushswap_data *ps_data, t_movements *mv_to_print);
-void	mv_swap_stack_a(t_pushswap_data *ps_data, t_movements *mv_to_print);
-void	mv_swap_stack_b(t_pushswap_data *ps_data, t_movements *mv_to_print);
-void	mv_swap_stack_s(t_pushswap_data *ps_data, t_movements *mv_to_print);
+void	mv(int mv, t_pushswap_data *ps_data, t_movements *mv_to_print);
+void	mv_swap_stack_a(t_pushswap_data *ps_data);
+void	mv_swap_stack_b(t_pushswap_data *ps_data);
+void	mv_swap_stack_s(t_pushswap_data *ps_data);
 int	populate_stack(t_pushswap_data *ps_data);
 void print_list(t_pushswap_data *ps_data); // DELETAR!
+void	print_mv(t_movements *mv_to_print);
 void	sort_lut(t_pushswap_data *ps_data);
 void	sort_two(t_pushswap_data *ps_data);
 t_movements	*push_swap(t_pushswap_data *ps_data);
