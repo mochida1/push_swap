@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 22:49:26 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/18 15:10:55 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/21 15:36:17 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	create_stack(t_pushswap_data *ps_data)
 		temp = temp->next;
 		i++;
 	}
-	ps_data->end_b = temp;
+	ps_data->end_a = temp;
 	populate_stack(ps_data);
 	return (0);
 }
