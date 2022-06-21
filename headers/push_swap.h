@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:19:18 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/20 20:19:57 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/20 21:09:40 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	check_repeated_numbers(t_pushswap_data *ps_data);
 int	count_splits (char *argv);
 int	create_stack(t_pushswap_data *ps_data);
 void	free_list(t_pushswap_data *ps_data);
+void	free_print_list(t_movements *list);
 void	freedom(t_pushswap_data *ps_data);
 void	freexit(void *ptr, int exit_code);
 long int	ft_atolong(const char *str);

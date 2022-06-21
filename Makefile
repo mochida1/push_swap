@@ -21,6 +21,7 @@ check_repeated_numbers.c \
 count_splits.c \
 create_stack.c \
 free_list.c \
+free_print_list.c \
 freedom.c \
 freexit.c \
 ft_atolong.c \

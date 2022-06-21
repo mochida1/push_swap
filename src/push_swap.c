@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:32:17 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/20 16:24:49 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/20 21:01:32 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ t_movements	*push_swap(t_pushswap_data *ps_data)
 		return (sort_two(ps_data));
 	return (0);
 }
-
 
 /*
 ** This is what calls __start and all that good shit.
