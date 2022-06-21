@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 15:56:38 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/21 16:11:19 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/21 16:23:05 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void	mv_sa(t_pushswap_data *ps_data, int log_mv)
 void	mv_sb(t_pushswap_data *ps_data, int log_mv)
 {
 	t_stack	*temp;
+	t_stack *tn;
+	t_stack *tnn;
 
 	if (ps_data->head_b->next)
 	{
