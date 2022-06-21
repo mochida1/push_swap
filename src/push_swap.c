@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:32:17 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/21 15:48:01 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/21 16:34:12 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	main (int argc, char *argv[])
 	sort_lut(ps_data);
 	push_swap(ps_data);
 
-	print_list(ps_data);
+	//print_list(ps_data);
 	print_mv(ps_data);
 	freedom(ps_data);
 	return (0);
