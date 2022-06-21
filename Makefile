@@ -12,8 +12,7 @@ LIBS = libs
 INCLUDES = -I /headers
 
 # Lists sources. Manually because of norm...
-SRC_LIST = me.c \
-PRINT_LIST.c \
+SRC_LIST = PRINT_LIST.c \
 add_to_mv_list.c \
 check_arguments.c \
 check_invalid_chars.c \

@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 17:28:33 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/16 21:47:30 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/21 16:55:11 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 /*
 ** iterates through the arguments checking wether they're all numeric or spaces.
 ** counts the number of split elements and returns it.
-** If an invalid character is found or if 
+** If an invalid character is found or if
 ** a splittable sequence has not a valid format, returns -1;
-*/ 
-int	check_arguments (char *argv[])
+*/
+int	check_arguments(char *argv[])
 {
-	int i;
-	int ret;
+	int	i;
+	int	ret;
 
 	i = 1;
 	ret = 0;

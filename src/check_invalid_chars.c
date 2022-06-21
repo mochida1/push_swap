@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 17:37:58 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/16 19:02:59 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/21 16:54:43 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 ** fuck you up, it'll return 0 :)
 */
 
-int check_invalid_chars (char *str)
+int	check_invalid_chars(char *str)
 {
 	while (*str)
 	{

@@ -6,11 +6,11 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 19:31:04 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/18 20:16:09 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/21 16:54:00 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../headers/push_swap.h"
+#include "../headers/push_swap.h"
 
 /*
 ** This is already sorted. My job here is done.
@@ -40,8 +40,8 @@ static void	this_should_not_happen(t_pushswap_data *ps_data)
 */
 void	check_repeated_numbers(t_pushswap_data *ps_data)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 1;

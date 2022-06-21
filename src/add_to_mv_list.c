@@ -6,11 +6,11 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 16:21:33 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/21 16:31:22 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/21 16:55:19 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../headers/push_swap.h"
+#include "../headers/push_swap.h"
 
 void	add_to_mv(int move, t_pushswap_data *ps_data)
 {

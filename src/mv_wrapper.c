@@ -6,13 +6,13 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 16:18:11 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/21 16:02:51 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/21 16:45:47 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../headers/push_swap.h"
+#include "../headers/push_swap.h"
 
-void	mv(int mv, t_pushswap_data *ps_data, t_movements *mv_to_print)
+void	mv(int mv, t_pushswap_data *ps_data)
 {
 	if (mv == SWAP_A)
 		mv_sa(ps_data, 1);
@@ -35,7 +35,5 @@ void	mv(int mv, t_pushswap_data *ps_data, t_movements *mv_to_print)
 	else if (mv == PB)
 		return ;
 	else if (mv == PA)
-		return ;
-	if (mv_to_print) //segurando uso de variável
 		return ;
 }

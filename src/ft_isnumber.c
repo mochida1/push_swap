@@ -6,11 +6,11 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:58:19 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/18 15:19:13 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/21 16:49:53 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../headers/push_swap.h"
+#include "../headers/push_swap.h"
 
 /*
 ** if char c is a number, returns it's ascii value;

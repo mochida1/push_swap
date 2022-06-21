@@ -6,11 +6,11 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 17:32:21 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/17 18:30:03 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/21 16:48:25 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../headers/push_swap.h"
+#include "../headers/push_swap.h"
 
 static int	count_words(char *s, char c)
 {

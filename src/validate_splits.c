@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 18:51:30 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/17 23:33:36 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/21 16:38:36 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ** Parses a sequence of numbers, checking if it is valid while advancing the
 ** pointer until the next splittable element or null terminator;
 */
-static int validate_pos_seq (char **str)
+static int	validate_pos_seq(char **str)
 {
 	while (ft_isnumber(**str))
 		str[0]++;
@@ -34,7 +34,7 @@ static int validate_pos_seq (char **str)
 ** next splittable element or null terminator.
 ** If it's not good shizzle, returns 1, else returns 0;
 */
-static int validate_neg_seq (char **str)
+static int	validate_neg_seq(char **str)
 {
 	str[0]++;
 	if (!ft_isnumber(**str))
@@ -56,7 +56,7 @@ static int validate_neg_seq (char **str)
 */
 int	validate_splits(char *str)
 {
-	char *temp;
+	char	*temp;
 
 	temp = str;
 	while (*temp)

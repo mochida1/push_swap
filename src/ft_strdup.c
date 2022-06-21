@@ -6,11 +6,11 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/11 18:43:18 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/18 15:20:37 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/21 16:48:18 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../headers/push_swap.h"
+#include "../headers/push_swap.h"
 
 /*
 ** Copies a string and returns a new pointer.

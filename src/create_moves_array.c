@@ -6,11 +6,11 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 14:56:32 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/21 15:05:35 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/21 16:53:02 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../headers/push_swap.h"
+#include "../headers/push_swap.h"
 
 void	create_moves_array(t_pushswap_data *ps_data)
 {

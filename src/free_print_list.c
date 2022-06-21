@@ -6,15 +6,15 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 21:05:29 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/21 14:47:31 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/21 16:50:26 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../headers/push_swap.h"
+#include "../headers/push_swap.h"
 
 void	free_print_list(t_movements *list)
 {
-	t_movements *temp;
+	t_movements	*temp;
 
 	while (list)
 	{

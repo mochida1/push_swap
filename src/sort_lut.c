@@ -6,23 +6,22 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 19:54:01 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/19 18:39:03 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/21 16:40:29 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../headers/push_swap.h"
+#include "../headers/push_swap.h"
 /*
 ** Swap values inside an array;
 */
 static void	swap_elements(t_pushswap_data *ps_data, int i, int hold)
 {
-	int temp;
+	int	temp;
 
 	temp = ps_data->lut[hold];
 	ps_data->lut[hold] = ps_data->lut[i];
 	ps_data->lut[i] = temp;
 }
-
 
 /*
 ** Easy and simple selection sort to make up the LUT;
@@ -31,13 +30,12 @@ static void	swap_elements(t_pushswap_data *ps_data, int i, int hold)
 */
 void	sort_lut(t_pushswap_data *ps_data)
 {
-	int hold;
-	int i;
-	int j;
+	int	hold;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
-
 	while (i < ps_data->ele_count)
 	{
 		hold = i;

@@ -6,11 +6,11 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 15:56:38 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/21 16:33:26 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/21 16:46:20 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../headers/push_swap.h"
+#include "../headers/push_swap.h"
 
 /*
 ** makes the swap movent on the A list and saves it to mv_to_print.
@@ -18,8 +18,8 @@
 void	mv_sa(t_pushswap_data *ps_data, int log_mv)
 {
 	t_stack	*temp;
-	t_stack *tn;
-	t_stack *tnn;
+	t_stack	*tn;
+	t_stack	*tnn;
 
 	if (ps_data->head_a && ps_data->head_a->next)
 	{
@@ -42,8 +42,8 @@ void	mv_sa(t_pushswap_data *ps_data, int log_mv)
 void	mv_sb(t_pushswap_data *ps_data, int log_mv)
 {
 	t_stack	*temp;
-	t_stack *tn;
-	t_stack *tnn;
+	t_stack	*tn;
+	t_stack	*tnn;
 
 	if (ps_data->head_b && ps_data->head_b->next)
 	{

@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:19:18 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/21 16:03:09 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/21 16:45:33 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_strlen(const char *s);
 void	get_lut(t_pushswap_data *data, char *argv[]);
 void	ifreexit(void *ptr_to_check, void *ptr_to_free, int exit_code);
 void	init_data(t_pushswap_data *ps_data, int in_nbr, char *argv[]);
-void	mv(int mv, t_pushswap_data *ps_data, t_movements *mv_to_print);
+void	mv(int mv, t_pushswap_data *ps_data);
 void	mv_sa(t_pushswap_data *ps_data, int log_mv);
 void	mv_sb(t_pushswap_data *ps_data, int log_mv);
 void	mv_ss(t_pushswap_data *ps_data);

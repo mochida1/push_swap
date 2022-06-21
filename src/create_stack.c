@@ -6,11 +6,11 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 22:49:26 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/21 15:36:17 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/21 16:52:44 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../headers/push_swap.h"
+#include "../headers/push_swap.h"
 
 /*
 ** If shit goes sideways, frees all pointers allocated so far and exits.
@@ -18,8 +18,9 @@
 */
 static void	free_some_pointers(t_pushswap_data *ps_data)
 {
-	t_stack *temp = ps_data->head_a;
+	t_stack	*temp;
 
+	temp = ps_data->head_a;
 	while (ps_data->head_a)
 	{
 		temp = ps_data->head_a;
@@ -53,8 +54,8 @@ static t_stack	*ft_lstnew(t_stack *prev)
 */
 int	create_stack(t_pushswap_data *ps_data)
 {
-	int i;
-	t_stack *temp;
+	int		i;
+	t_stack	*temp;
 
 	i = 1;
 	ps_data->head_a = ft_lstnew (NULL);

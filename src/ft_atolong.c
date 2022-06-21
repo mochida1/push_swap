@@ -6,11 +6,11 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/09 17:49:26 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/18 16:49:07 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/21 16:50:12 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../headers/push_swap.h"
+#include "../headers/push_swap.h"
 
 /*
 ** Just documenting this for procrastination's sake.
@@ -28,8 +28,8 @@ static int	ft_isdigit(int c)
 */
 long int	ft_atolong(const char *str)
 {
-	long ret;
-	int m;
+	long	ret;
+	int		m;
 
 	ret = 0;
 	m = 1;
