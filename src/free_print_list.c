@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 21:05:29 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/20 21:07:42 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/20 21:15:04 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	free_print_list(t_movements *list)
 {
 	t_movements *temp;
 
-	while (list->next)
+	while (list)
 	{
 		temp = list;
 		list = list->next;
