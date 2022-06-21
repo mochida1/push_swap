@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:19:18 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/21 17:26:37 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/21 18:24:39 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,9 @@ void	mv(int mv, t_pushswap_data *ps_data);
 void	mv_ra(t_pushswap_data *ps_data, int log_mv);
 void	mv_rb(t_pushswap_data *ps_data, int log_mv);
 void	mv_rr(t_pushswap_data *ps_data);
+void	mv_rra(t_pushswap_data *ps_data, int log_mv);
+void	mv_rrb(t_pushswap_data *ps_data, int log_mv);
+void	mv_rrr(t_pushswap_data *ps_data);
 void	mv_sa(t_pushswap_data *ps_data, int log_mv);
 void	mv_sb(t_pushswap_data *ps_data, int log_mv);
 void	mv_ss(t_pushswap_data *ps_data);

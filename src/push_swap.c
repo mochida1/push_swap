@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:32:17 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/21 17:27:25 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/21 18:25:49 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ t_movements	*push_swap(t_pushswap_data *ps_data)
 {
 	if (ps_data->ele_count == 2)
 		sort_two(ps_data);
-	mv(RR, ps_data);
-	mv(RR, ps_data);
-	mv(RR, ps_data);
-	mv(RR, ps_data); //231
+	mv(RRA, ps_data);
+	mv(RRA, ps_data);
+	mv(RRA, ps_data);
+	mv(RRA, ps_data); //231
 	return (0);
 }
 
