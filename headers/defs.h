@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:17:16 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/21 14:59:47 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/21 17:10:58 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ typedef struct		s_movements
 #define INT_MIN -2147483648
 #define INT_MAX 2147483647
 #define PSERROR	"Error\n"
-#define SWAP_A	0
-#define SWAP_B	1
-#define SWAP_S	2
+#define SA	0
+#define SB	1
+#define SS	2
 #define RA		3
 #define RB		4
 #define RR		5

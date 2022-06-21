@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 15:56:38 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/21 16:46:20 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/21 17:10:58 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	mv_sa(t_pushswap_data *ps_data, int log_mv)
 		temp->next = tnn;
 	}
 	if (log_mv)
-		add_to_mv(SWAP_A, ps_data);
+		add_to_mv(SA, ps_data);
 }
 
 /*
@@ -57,7 +57,7 @@ void	mv_sb(t_pushswap_data *ps_data, int log_mv)
 		temp->next = tnn;
 	}
 	if (log_mv)
-		add_to_mv(SWAP_B, ps_data);
+		add_to_mv(SB, ps_data);
 }
 
 /*
@@ -67,5 +67,5 @@ void	mv_ss(t_pushswap_data *ps_data)
 {
 	mv_sa(ps_data, 0);
 	mv_sb(ps_data, 0);
-	add_to_mv(SWAP_S, ps_data);
+	add_to_mv(SS, ps_data);
 }
