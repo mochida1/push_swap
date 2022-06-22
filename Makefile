@@ -44,6 +44,7 @@ print_moves.c \
 populate_stack.c \
 push_swap.c \
 sort_lut.c \
+sort_three.c \
 sort_two.c \
 update_stacks_data.c \
 validate_inputs.c \
