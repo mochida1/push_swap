@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:19:18 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/21 20:02:57 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/22 10:39:03 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	print_mv(t_pushswap_data *ps_data);
 void	sort_lut(t_pushswap_data *ps_data);
 void	sort_two(t_pushswap_data *ps_data);
 t_movements	*push_swap(t_pushswap_data *ps_data);
+void	update_stacks_data(t_pushswap_data *ps_data);
 int	validate_inputs(int argc, char *argv[]);
 int	validate_splits(char *str);
 

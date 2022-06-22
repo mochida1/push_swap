@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:32:17 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/22 10:23:55 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/22 10:57:09 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ t_movements	*push_swap(t_pushswap_data *ps_data)
 	mv(PB, ps_data);
 	mv(PB, ps_data);
 	mv(PB, ps_data);
-	// mv(PA, ps_data);
-	// mv(PA, ps_data);
+	mv(PA, ps_data);
+	mv(PA, ps_data);
 	// mv(PA, ps_data);
 	// mv(PA, ps_data);
 	return (0);
@@ -48,8 +48,10 @@ int	main(int argc, char *argv[])
 	print_mv(ps_data);
 	printf("----------A----------\n");
 	print_list(ps_data->head_a);
+	printf("END_A:%p \n", ps_data->end_a);
 	printf("----------B----------\n");
 	print_list(ps_data->head_b);
+	printf("END_B:%p \n", ps_data->end_b);
 	freedom(ps_data);
 	return (0);
 }
