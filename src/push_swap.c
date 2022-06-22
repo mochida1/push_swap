@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:32:17 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/21 20:04:37 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/22 10:23:55 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ t_movements	*push_swap(t_pushswap_data *ps_data)
 	mv(PB, ps_data);
 	mv(PB, ps_data);
 	mv(PB, ps_data);
-	mv(PA, ps_data);
-	mv(PA, ps_data);
-	mv(PA, ps_data);
-	mv(PA, ps_data);
+	// mv(PA, ps_data);
+	// mv(PA, ps_data);
+	// mv(PA, ps_data);
+	// mv(PA, ps_data);
 	return (0);
 }
 
