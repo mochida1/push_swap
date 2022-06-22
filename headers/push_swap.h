@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:19:18 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/22 14:59:51 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/22 20:22:08 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ char		**ft_split(char *s, char c);
 char		*ft_strdup(const char *s1);
 int			ft_strlen(const char *s);
 void		get_lut(t_pushswap_data *data, char *argv[]);
+void		get_stack_index(t_pushswap_data *ps_data);
 void		ifreexit(void *ptr_to_check, void *ptr_to_free, int exit_code);
 void		init_data(t_pushswap_data *ps_data, int in_nbr, char *argv[]);
 void		mv(int mv, t_pushswap_data *ps_data);

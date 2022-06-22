@@ -33,6 +33,7 @@ ft_split.c \
 ft_strdup.c \
 ft_strlen.c \
 get_lut.c \
+get_stack_index.c \
 ifreexit.c \
 init_data.c \
 mv_px.c \

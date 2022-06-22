@@ -1,20 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_three.c                                       :+:      :+:    :+:   */
+/*   get_stack_index.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/22 13:54:08 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/22 20:31:13 by hmochida         ###   ########.fr       */
+/*   Created: 2022/06/22 20:19:38 by hmochida          #+#    #+#             */
+/*   Updated: 2022/06/22 20:32:31 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
-void	sort_three(t_pushswap_data *ps_data)
+static int	comp_num_lut(int num, int *lut, int ele_count)
 {
-	get_stack_index(ps_data);
-	ps_data->exit_code = 0;
-	return ;
+	int i;
+
+	i = 0;
+	while (i < ele_count)
+	{
+		if (num == lut[i])
+			return(i);
+		i++;
+	}
+	return (-1);
+}
+
+void	get_stack_index(t_pushswap_data *ps_data)
+{
+	t_stack *temp;
+
+	temp = ps_data->head_a;
+	while (temp)
+	{
+		temp->index = comp_num_lut(temp->num, ps_data->lut, ps_data->ele_count);
+		temp = temp->next;
+	}
 }
