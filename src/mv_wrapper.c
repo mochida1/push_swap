@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 16:18:11 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/21 18:22:40 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/21 20:02:06 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	mv(int mv, t_pushswap_data *ps_data)
 	else if (mv == RRR)
 		mv_rrr(ps_data);
 	else if (mv == PB)
-		return ;
+		mv_pb(ps_data);
 	else if (mv == PA)
-		return ;
+		mv_pa(ps_data);
 }

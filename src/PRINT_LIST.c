@@ -1,8 +1,8 @@
 # include "../headers/push_swap.h"
 
-void	print_list(t_pushswap_data *ps_data) //deletar!
+void	print_list(t_stack *head_a) //deletar!
 {
-	t_stack *temp = ps_data->head_a;
+	t_stack *temp = head_a;
 
 	while (temp)
 	{
