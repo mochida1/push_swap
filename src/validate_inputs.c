@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 18:37:33 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/21 16:39:32 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/22 11:20:40 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	validate_inputs(int argc, char *argv[])
 {
 	if (argc == 1)
 	{
-		ft_putstr_fd("Error\n", 2);
 		exit (1);
 	}
 	argc = check_arguments(argv);
