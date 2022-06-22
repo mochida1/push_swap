@@ -6,21 +6,11 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 18:01:36 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/22 10:25:54 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/22 10:28:01 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
-
-// static t_stack	*get_last_adress(t_stack *stack_x)
-// {
-// 	t_stack	*temp;
-
-// 	temp = stack_x;
-// 	while (temp->next)
-// 		temp = temp->next;
-// 	return (temp);
-// }
 
 void	mv_pb(t_pushswap_data *ps_data)
 {
