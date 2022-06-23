@@ -6,20 +6,28 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:32:17 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/23 12:41:14 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/23 14:47:50 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
 /*
+**
 */
-t_movements	*push_swap(t_pushswap_data *ps_data)
+t_movements	*push_swap(t_pushswap_data *ps_data) //heisenbug: 3 2 1 faz desaparecer um indice.
 {
 	if (ps_data->ele_count == 2)
 		sort_two(ps_data);
 	if (ps_data->ele_count == 3)
 		sort_three(ps_data);
+	else
+	{
+		mv(PB, ps_data);
+		mv(PB, ps_data);
+		mv(SA, ps_data);
+		mv(RRA, ps_data);
+	}
 	return (0);
 }
 
