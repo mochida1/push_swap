@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 18:01:39 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/21 18:23:37 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/23 16:11:45 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	mv_rra(t_pushswap_data *ps_data, int log_mv)
 		tp->prev->next = NULL;
 		temp->prev = tp;
 		ps_data->head_a = tp;
-		ps_data->head_a->next = temp;
-		ps_data->head_a->prev = NULL;
+		tp->next = temp;
+		tp->prev = NULL;
 	}
 	if (log_mv)
 		add_to_mv(RRA, ps_data);

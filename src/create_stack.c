@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 22:49:26 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/21 16:52:44 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/23 16:32:13 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,17 @@ static t_stack	*ft_lstnew(t_stack *prev)
 }
 
 /*
+** sets all lists to NULL;
+*/
+static void	nullify_heads(t_pushswap_data *ps_data)
+{
+	ps_data->head_a = NULL;
+	ps_data->end_a = NULL;
+	ps_data->head_b = NULL;
+	ps_data->end_b = NULL;
+}
+
+/*
 ** Creates the stack. yeah, really.
 */
 int	create_stack(t_pushswap_data *ps_data)
@@ -58,6 +69,7 @@ int	create_stack(t_pushswap_data *ps_data)
 	t_stack	*temp;
 
 	i = 1;
+	nullify_heads(ps_data);
 	ps_data->head_a = ft_lstnew (NULL);
 	temp = ps_data->head_a;
 	while (i < ps_data->ele_count)
