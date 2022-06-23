@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:32:17 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/23 14:53:51 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/23 15:02:10 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ t_movements	*push_swap(t_pushswap_data *ps_data) //heisenbug: 3 2 1 faz desapare
 		mv(PB, ps_data);
 		mv(SA, ps_data);
 		mv(RRA, ps_data);
+		mv(PA, ps_data);
+		mv(PA, ps_data);
 	}
 	return (0);
 }
