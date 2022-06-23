@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:32:17 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/22 21:35:07 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/23 12:41:14 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	main(int argc, char *argv[])
 	sort_lut(ps_data);
 	push_swap(ps_data);
 
-	print_mv(ps_data);
+	print_mv(ps_data->mv_to_print);
 	printf("----------A----------\n");
 	print_list(ps_data->head_a);
 	printf("END_A:%p \n", ps_data->end_a);
