@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 10:37:54 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/22 20:17:52 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/23 19:41:25 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static void	update_stacks_order(t_pushswap_data *ps_data)
 {
-	t_stack *temp;
-	int i;
+	t_stack	*temp;
+	int		i;
 
 	if (ps_data->head_a)
 	{

@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 20:19:38 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/22 20:32:31 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/23 19:42:53 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 static int	comp_num_lut(int num, int *lut, int ele_count)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < ele_count)
 	{
 		if (num == lut[i])
-			return(i);
+			return (i);
 		i++;
 	}
 	return (-1);
@@ -28,7 +28,7 @@ static int	comp_num_lut(int num, int *lut, int ele_count)
 
 void	get_stack_index(t_pushswap_data *ps_data)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	temp = ps_data->head_a;
 	while (temp)

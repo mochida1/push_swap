@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 19:52:16 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/21 16:47:02 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/23 16:55:59 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ void	init_data(t_pushswap_data *ps_data, int in_nbr, char *argv[])
 	get_lut(ps_data, argv);
 	create_stack(ps_data);
 	create_moves_array(ps_data);
-	ps_data->head_b = NULL;
-	ps_data->end_b = NULL;
 	ps_data->mv_to_print = NULL;
 	ps_data->exit_code = 0;
 }
