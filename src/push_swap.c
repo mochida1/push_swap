@@ -6,18 +6,16 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:32:17 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/22 20:31:02 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/22 21:35:07 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
 /*
-**
 */
 t_movements	*push_swap(t_pushswap_data *ps_data)
 {
-	get_stack_index(ps_data); // DELETAR!!!
 	if (ps_data->ele_count == 2)
 		sort_two(ps_data);
 	if (ps_data->ele_count == 3)
