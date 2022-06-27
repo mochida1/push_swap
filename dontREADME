@@ -78,6 +78,15 @@ o uso de momoização se faz necessário pelo seguinte fator:
 	0 1 2 3 5 6 7 8			// terceira iteração da memoização
 então temos que testar todos os elementos maiores que o elemento atual da comparação para podermos achar a sequencia braba. Isso num algoritmo de sorting normal seria uma grande merda de eficiência computacional em questão de tempo e memória, mas já que nosso benchmark é o número de movimentos printados, podemos tacar o foda-se com vontade.
 Se no entanto, uma iteração resultar em n elementos ordenados, signifca que a porra já está toda em ordem, e você não vai precisar fazer um teste de O(n*n!) ou algo absurdo do gênero. Se houver também uma sequência já achada que seja maior que o número de elementos restantes na LUT, não é preciso testar os números acima do primeiro elemento sendo testado, então no exemplo acima, já achamos uma sequencia de 8/10 com o primeiro numero sendo 0, isso significa que 1 vai achar no maximo 9/10; 2 resultara no máximo 8/10 e 3 só 7/10 na melhor das hipoteses. Se você vai implementar isso de alguma maneira pra se exibir, problema seu.
+
+IMPLEMENTANDO A MEMOIZAÇÃO
+dar uma olhada sobre longes increasing subsequence;
+https://algodaily.com/challenges/longest-increasing-subsequence
+Recebe ps_data
+	pega o 1o elemento e salva em PIN
+	se o proximo elemento for maior q o elemento anterior, salva em pin e segue para o proximo
+		caso contrario, segue para o proximo
+
 <!-- PENSAR EM COMO IMPLEMENTAR ESSA BUDEGA sem ter precisar de memória e tempo infinito DEPOIS -->
 
 Se levarmos em conta que toda quantidade de elementos terão 4 casos de resolução simples (um pronto, e outros 3 que podem ser resolvidos apenas com 1 movimento), dá pra fazer uma implementação simples para todos eles;
