@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:32:17 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/23 20:10:19 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/27 10:50:26 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 /*
 **
 */
-t_movements	*push_swap(t_pushswap_data *ps_data) //heisenbug: 3 2 1 faz desaparecer um indice.
+t_movements	*push_swap(t_pushswap_data *ps_data)
 {
 	if (ps_data->ele_count == 2)
 		sort_two(ps_data);
 	if (ps_data->ele_count == 3)
 		sort_three(ps_data);
-	if (ps_data->ele_count == 4)
+	// if (ps_data->ele_count == 4)
 	
 	return (0);
 }

@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_data.c                                        :+:      :+:    :+:   */
+/*   set_pin.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/17 19:52:16 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/27 11:08:54 by hmochida         ###   ########.fr       */
+/*   Created: 2022/06/27 10:50:52 by hmochida          #+#    #+#             */
+/*   Updated: 2022/06/27 14:47:01 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
-/*
-** Allocates and initializes most of the data used in the program,
-** with exception of *ps_data.
-*/
-void	init_data(t_pushswap_data *ps_data, int in_nbr, char *argv[])
+void	set_pin(t_pushswap_data *ps_data)
 {
-	ps_data->ele_count = in_nbr;
-	ps_data->pin = malloc (sizeof(int) * ps_data->ele_count);
-	get_lut(ps_data, argv);
-	create_stack(ps_data);
-	create_moves_array(ps_data);
-	ps_data->mv_to_print = NULL;
-	ps_data->pin = NULL;
-	ps_data->pin_size = 0;
-	ps_data->exit_code = 0;
+	int		i;
+	int		temp_sz;
+	t_pin	*temp;
+
+	i = 0;
+	while (i < ps_data->ele_count)
+	{
+		temp = get_pin(ps_data, i);
+		temp_sz = count_list(temp);
+		if (temp_sz >= ps_data->pin_size && ps_data->pin != temp)
+		{
+			ps_data->pin = temp;
+			ps_data->pin_size = temp_sz;
+			free_pin(ps_data->pin);
+		}
+		else
+		{
+			free_pin(temp);
+			temp = NULL;
+		}
+		i++;
+	}
 }
