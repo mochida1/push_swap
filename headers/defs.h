@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:17:16 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/22 15:12:00 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/27 20:09:13 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,15 @@ typedef struct s_stack
 }	t_stack;
 
 /*
+**
+*/
+typedef struct s_pin
+{
+	int					num;
+	struct s_pin		*next;
+}	t_pin;
+
+/*
 ** exit_code: if exiting is needed, keeps the exit code to be used after frees;
 ** lut: sorted array of arguments
 ** pin: keeps the numbers wich are already sorted;
@@ -40,9 +49,10 @@ typedef struct s_stack
 typedef struct s_pushswap_data
 {
 	int					exit_code;
-	int					*lut;
-	int					*pin;
 	int					ele_count;
+	int					pin_size;
+	int					*lut;
+	struct s_pin		*pin;
 	struct s_stack		*head_a;
 	struct s_stack		*end_a;
 	struct s_stack		*head_b;
