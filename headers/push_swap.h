@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:19:18 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/23 12:41:37 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/06/30 11:51:31 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void		create_moves_array(t_pushswap_data *ps_data);
 int			create_stack(t_pushswap_data *ps_data);
 void		free_list(t_pushswap_data *ps_data);
 void		free_moves_array(char **moves);
+void		free_pin(t_pin *pin);
 void		free_print_list(t_movements *list);
 void		freedom(t_pushswap_data *ps_data);
 void		freexit(void *ptr, int exit_code);
@@ -57,10 +58,12 @@ void		mv_ss(t_pushswap_data *ps_data);
 int			populate_stack(t_pushswap_data *ps_data);
 void print_list(t_stack *head_a); // DELETAR!
 void		print_mv(t_movements *mv_to_print);
+void		set_pin(t_pushswap_data *ps_data);
 void		sort_lut(t_pushswap_data *ps_data);
+void		sort_me(t_pushswap_data *ps_data);
 void		sort_three(t_pushswap_data *ps_data);
 void		sort_two(t_pushswap_data *ps_data);
-t_movements	*push_swap(t_pushswap_data *ps_data);
+int			push_swap(t_pushswap_data *ps_data);
 void		update_stacks_data(t_pushswap_data *ps_data);
 int			validate_inputs(int argc, char *argv[]);
 int			validate_splits(char *str);

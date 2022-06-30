@@ -22,6 +22,7 @@ create_moves_array.c \
 create_stack.c \
 free_list.c \
 free_moves_array.c \
+free_pin.c \
 free_print_list.c \
 freedom.c \
 freexit.c \
@@ -44,7 +45,9 @@ mv_wrapper.c \
 print_moves.c \
 populate_stack.c \
 push_swap.c \
+set_pin.c \
 sort_lut.c \
+sort_me.c \
 sort_three.c \
 sort_two.c \
 update_stacks_data.c \
