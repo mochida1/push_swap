@@ -6,11 +6,36 @@
 /*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 10:50:52 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/30 15:45:46 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/07/02 13:36:24 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
+
+static t_pin	*init_ret(int content)
+{
+	t_pin	*ret;
+
+	ret = malloc(sizeof(t_pin));
+	ret->num = content;
+	return (ret);
+}
+
+static int	count_pin_list(t_pin *temp)
+{
+	t_pin	*temp_temp;
+	int		ret;
+
+	ret = 0;
+	temp_temp = temp;
+	while (temp_temp)
+	{
+	// printf (">>%d, %p\n", ret, temp_temp);
+		ret++;
+		temp_temp = temp_temp->next;
+	}
+	return (ret);
+}
 
 static void	add_to_pin(t_pin *ret, int t_num)
 {
@@ -34,23 +59,6 @@ static void	increment_list(t_stack *temp, t_stack *head_a)
 }
 
 /*
-**
-*/
-static void	iterate_list(int k, t_pushswap_data *ps_data)
-{
-	while (k--)
-	{
-		if (t_num < temp->num)
-		{
-			add_to_pin(ret, t_num);
-			increment_list(temp, ps_data->head_a);
-		}
-		increment_list(temp, ps_data->head_a);
-		t_num = temp->num;
-	}
-}
-
-/*
 ** get the longest incresing subsequence starting on a given element of the 
 ** head_a list;
 */
@@ -66,8 +74,19 @@ static t_pin	*get_pin(t_pushswap_data *ps_data, int i)
 	k = ps_data->ele_count;
 	while (i--) // chega no elemento em que queremos começar
 		increment_list(temp, ps_data->head_a);
-	ret = init_ret(ret, temp->num);
-	iterate_list();
+	ret = init_ret(temp->num);
+	while (k--)
+	{
+		//printf("t_num: %d temp->num: %d\n", t_num, temp->num);
+		printf("&temp: %p\n", temp);
+		increment_list(temp, ps_data->head_a);
+		if (t_num < temp->num)
+		{
+			add_to_pin(ret, t_num);
+			// increment_list(temp, ps_data->head_a);
+		}
+		t_num = temp->num;
+	}
 	return (ret);
 }
 
