@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 15:56:38 by hmochida          #+#    #+#             */
-/*   Updated: 2022/07/25 17:39:43 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/07/26 19:26:23 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ void	mv_sa(t_pushswap_data *ps_data, int log_mv)
 	{
 		temp = ps_data->head_a;
 		tn = ps_data->head_a->next;
-		tnn = temp->next->next;
+		if (ps_data->head_a->next->next)
+			tnn = temp->next->next;
+		else
+			tnn = NULL;
 		ps_data->head_a = ps_data->head_a->next;
 		ps_data->head_a->prev = NULL;
 		ps_data->head_a->next = temp;
