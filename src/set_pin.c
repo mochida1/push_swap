@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_pin.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 10:50:52 by hmochida          #+#    #+#             */
-/*   Updated: 2022/07/02 13:36:24 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/07/26 20:43:40 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static void	increment_list(t_stack *temp, t_stack *head_a)
 }
 
 /*
-** get the longest incresing subsequence starting on a given element of the 
+** get the longest incresing subsequence starting on a given element of the
 ** head_a list;
 */
 static t_pin	*get_pin(t_pushswap_data *ps_data, int i)
@@ -91,7 +91,7 @@ static t_pin	*get_pin(t_pushswap_data *ps_data, int i)
 }
 
 /*
-** sets ps_data->pin to the largest sequence of already sorted numbers in the
+** sets ps_data->pin to the longest incresing sequence numbers from
 ** arguments.
 */
 void	set_pin(t_pushswap_data *ps_data)
