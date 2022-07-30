@@ -86,11 +86,11 @@ https://cp-algorithms.com/sequences/longest_increasing_subsequence.html
 
 VER METODO 3!!
 https://www.geeksforgeeks.org/longest-increasing-subsequence-dp-3/
-Recebe ps_data e i;
-	itera até i;
-		salva ordem crescente normal
-		salva ordem crescente, mas pula o ultimo elemento da sequencia anterior
-aumenta i;
+
+Em primeiro lugar, vamos salvar todos os argumentos não sortados em um array 2x maior que o necessário, preenchendo-o com outra copia não sortada dos elementos em sua ordem original.
+Após isso usamos o algoritmo de LCS(longest common subsequence) para magicamente criar o LIS (Longest Increasing Subsquence), aí você que se vire pra descobrir o porquê.
+Salvamos o LCS como PIN e tá tudo certo.
+
 
 <!-- PENSAR EM COMO IMPLEMENTAR ESSA BUDEGA sem ter precisar de memória e tempo infinito DEPOIS -->
 
