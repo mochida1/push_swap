@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:32:17 by hmochida          #+#    #+#             */
-/*   Updated: 2022/07/26 19:41:44 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/07/31 03:19:25 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int	push_swap(t_pushswap_data *ps_data) //heisenbug: 3 2 1 faz desaparecer um in
 	if (ps_data->ele_count == 3)
 		sort_three(ps_data);
 	if (ps_data->ele_count >= 4)
-		sort_me(ps_data);
+		set_pin(ps_data);
+		// sort_me(ps_data);
 
 
 	return (0);

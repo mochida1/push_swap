@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 18:56:22 by hmochida          #+#    #+#             */
-/*   Updated: 2022/07/31 01:45:52 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/07/31 02:40:06 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,22 +36,6 @@ static int	lcs_index(t_pushswap_data *ps_data, int **lcs_t, int *unsrt)
 	}
 	return (lcs_t[ps_data->ele_count * 2][ps_data->ele_count]);
 }
-
-static void	fill_unsorted(int *unsorted, t_pushswap_data *ps_data)
-{
-	int	i;
-	t_stack *temp;
-
-	temp = ps_data->head_a;
-	i = 0;
-	while (temp)
-	{
-		unsorted[i] = temp->num;
-		temp = temp->next;
-		i++;
-	}
-}
-
 
 int	lcs(int **lcs_t, int *unsrt, t_pushswap_data *ps_data, int *lcs_m)
 {
