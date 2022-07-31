@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defs.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:17:16 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/27 20:09:13 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/07/31 08:49:35 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,14 @@ typedef struct s_pin
 	int					num;
 	struct s_pin		*next;
 }	t_pin;
+
+typedef struct s_lis
+{
+	int					**lcs_tab;
+	int					*unsrt;
+	int					*lcs_m;
+	int					lcs_size;
+}	t_lis;
 
 /*
 ** exit_code: if exiting is needed, keeps the exit code to be used after frees;

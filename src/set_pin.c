@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 10:50:52 by hmochida          #+#    #+#             */
-/*   Updated: 2022/07/31 03:18:09 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/07/31 08:48:42 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,17 @@ static void	fill_unsorted(int *unsrt, t_pushswap_data *ps_data)
 	}
 }
 
-static void	init_mats(int **lcs_tab, int *unsrt, t_pushswap_data *ps_data)
+static void	init_mats(t_lis *lis, t_pushswap_data *ps_data)
 {
 	int	i[2];
 
 	i[0] = 0;
 	i[1] = 0;
-	unsrt = malloc (sizeof(int) * ps_data->ele_count * 2);
-	lcs_tab = malloc (sizeof(int *) * ps_data->ele_count * 2);
+	lis->unsrt = malloc (sizeof(int) * ps_data->ele_count * 2);
+	lis->lcs_tab = malloc (sizeof(int *) * ps_data->ele_count * 2);
 	while (i[0] < ps_data->ele_count * 2)
 	{
-		lcs_tab[i[0]] = malloc (sizeof(int) * ps_data->ele_count);
+		lis->lcs_tab[i[0]] = malloc (sizeof(int) * ps_data->ele_count);
 		i[0]++;
 	}
 	i[0] = 0;
@@ -52,13 +52,13 @@ static void	init_mats(int **lcs_tab, int *unsrt, t_pushswap_data *ps_data)
 	{
 		while (i[1] < ps_data->ele_count)
 		{
-			lcs_tab[i[0]][i[1]] = 0;
+			lis->lcs_tab[i[0]][i[1]] = 0;
 			i[1]++;
 		}
 		i[0]++;
 		i[1] = 0;
 	}
-	fill_unsorted(unsrt, ps_data);
+	fill_unsorted(lis->unsrt, ps_data);
 }
 
 /*
@@ -67,21 +67,17 @@ static void	init_mats(int **lcs_tab, int *unsrt, t_pushswap_data *ps_data)
 */
 void	set_pin(t_pushswap_data *ps_data)
 {
-	int	**lcs_tab; // 2len x len
-	int	*unsrt;
-	int	*lcs_m;
-	int	lcs_size;
+	t_lis *lis;
 
-	lcs_m = NULL;
-	lcs_tab = NULL;
-	unsrt = NULL;
-	init_mats(lcs_tab, unsrt, ps_data);
-	lcs_size = lcs(lcs_tab, unsrt, ps_data, lcs_m);
+	lis = malloc (sizeof (t_lis));
+	init_mats(lis, ps_data);
+	printf ("setpin P: %p\n", lis->lcs_tab);
+	lis->lcs_size = lcs(lis->lcs_tab, lis->unsrt, ps_data, lis->lcs_m);
 
-	printf ("%d\n", unsrt[0]);
+	printf ("%d\n", lis->unsrt[0]);
 	int i = 0;
-	while (i < lcs_size)
-		printf("%d ", lcs_m[i++]);
+	while (i < lis->lcs_size)
+		printf("%d ", lis->lcs_m[i++]);
 	printf("\n");
 
 }
