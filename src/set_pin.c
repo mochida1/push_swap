@@ -6,88 +6,37 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 10:50:52 by hmochida          #+#    #+#             */
-/*   Updated: 2022/07/26 20:43:40 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/07/31 01:33:48 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
-static t_pin	*init_ret(int content)
+static void	init_mats(int **lcs_tab, int *unsorted, t_pushswap_data *ps_data)
 {
-	t_pin	*ret;
+	int	i[2];
 
-	ret = malloc(sizeof(t_pin));
-	ret->num = content;
-	return (ret);
-}
-
-static int	count_pin_list(t_pin *temp)
-{
-	t_pin	*temp_temp;
-	int		ret;
-
-	ret = 0;
-	temp_temp = temp;
-	while (temp_temp)
+	i[0] = 0;
+	i[1] = 0;
+	unsorted = malloc (sizeof(int) * ps_data->ele_count * 2);
+	lcs_tab = malloc (sizeof(int *) * ps_data->ele_count * 2);
+	while (i[0] < ps_data->ele_count * 2)
 	{
-	// printf (">>%d, %p\n", ret, temp_temp);
-		ret++;
-		temp_temp = temp_temp->next;
+		lcs_tab[i[0]] = malloc (sizeof(int) * ps_data->ele_count);
+		i[0]++;
 	}
-	return (ret);
-}
-
-static void	add_to_pin(t_pin *ret, int t_num)
-{
-	t_pin *temp;
-
-	temp = ret;
-	temp->next = malloc (sizeof(t_pin));
-	temp = temp->next;
-	temp->num = t_num;
-}
-
-/*
-** iterate the list circularly.
-*/
-static void	increment_list(t_stack *temp, t_stack *head_a)
-{
-	if (temp->next)
-		temp = temp->next;
-	else
-		temp = head_a;
-}
-
-/*
-** get the longest incresing subsequence starting on a given element of the
-** head_a list;
-*/
-static t_pin	*get_pin(t_pushswap_data *ps_data, int i)
-{
-	int		k;
-	int		t_num;
-	t_stack	*temp;
-	t_pin	*ret;
-
-	temp = ps_data->head_a;
-	t_num = ps_data->head_a->num;
-	k = ps_data->ele_count;
-	while (i--) // chega no elemento em que queremos começar
-		increment_list(temp, ps_data->head_a);
-	ret = init_ret(temp->num);
-	while (k--)
+	i[0] = 0;
+	while (i[0] < ps_data->ele_count * 2)
 	{
-		//printf("t_num: %d temp->num: %d\n", t_num, temp->num);
-		printf("&temp: %p\n", temp);
-		increment_list(temp, ps_data->head_a);
-		if (t_num < temp->num)
+		while (i[1] < ps_data->ele_count)
 		{
-			add_to_pin(ret, t_num);
-			// increment_list(temp, ps_data->head_a);
+			lcs_tab[i[0]][i[1]] = 0;
+			i[1]++;
 		}
-		t_num = temp->num;
+		i[0]++;
+		i[1] = 0;
 	}
-	return (ret);
+	fill_unsorted(unsorted, ps_data);
 }
 
 /*
@@ -96,26 +45,12 @@ static t_pin	*get_pin(t_pushswap_data *ps_data, int i)
 */
 void	set_pin(t_pushswap_data *ps_data)
 {
-	int		i;
-	int		temp_sz;
-	t_pin	*temp;
+	int	**lcs_tab; // 2len x len
+	int	*unsrt;
+	int	*lcs_m;
+	int	lcs_size;
 
-	i = 0;
-	while (i < ps_data->ele_count)
-	{
-		temp = get_pin(ps_data, i);
-		temp_sz = count_pin_list(temp);
-		if (temp_sz >= ps_data->pin_size && ps_data->pin != temp)
-		{
-			free_pin(ps_data->pin);
-			ps_data->pin = temp;
-			ps_data->pin_size = temp_sz;
-		}
-		else
-		{
-			free_pin(temp);
-			temp = NULL;
-		}
-		i++;
-	}
+	init_mats(lcs_tab, unsrt, ps_data);
+	lcs_size = lcs(lcs_tab, unsrt, ps_data, lcs_m);
+
 }

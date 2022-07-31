@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_me.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:37:36 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/30 11:51:45 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/07/30 16:18:46 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@
 */
 void	sort_me(t_pushswap_data *ps_data)
 {
-	set_pin(ps_data);
+
 	return ;
 }

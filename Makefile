@@ -37,6 +37,7 @@ get_lut.c \
 get_stack_index.c \
 ifreexit.c \
 init_data.c \
+lcs.c \
 mv_px.c \
 mv_rrx.c \
 mv_rx.c \
