@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 10:50:52 by hmochida          #+#    #+#             */
-/*   Updated: 2022/07/31 08:48:42 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/08/02 18:32:26 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,28 +36,19 @@ static void	fill_unsorted(int *unsrt, t_pushswap_data *ps_data)
 
 static void	init_mats(t_lis *lis, t_pushswap_data *ps_data)
 {
-	int	i[2];
+	int	i;
 
-	i[0] = 0;
-	i[1] = 0;
+	i = 0;
 	lis->unsrt = malloc (sizeof(int) * ps_data->ele_count * 2);
-	lis->lcs_tab = malloc (sizeof(int *) * ps_data->ele_count * 2);
-	while (i[0] < ps_data->ele_count * 2)
-	{
-		lis->lcs_tab[i[0]] = malloc (sizeof(int) * ps_data->ele_count);
-		i[0]++;
-	}
-	i[0] = 0;
-	while (i[0] < ps_data->ele_count * 2)
-	{
-		while (i[1] < ps_data->ele_count)
-		{
-			lis->lcs_tab[i[0]][i[1]] = 0;
-			i[1]++;
-		}
-		i[0]++;
-		i[1] = 0;
-	}
+	lis->lcs_t = malloc (sizeof(int *) * ps_data->ele_count * 2 + 1);
+	while (i < ps_data->ele_count * 2)
+		lis->lcs_t[i++] = malloc (sizeof(int) * ps_data->ele_count + 1);
+	i = 0;
+	while (i < ps_data->ele_count * 2)
+		lis->lcs_t[i++][0] = 0;
+	i = 0;
+	while (i < ps_data->ele_count)
+		lis->lcs_t[0][i++] = 0;
 	fill_unsorted(lis->unsrt, ps_data);
 }
 
@@ -71,8 +62,8 @@ void	set_pin(t_pushswap_data *ps_data)
 
 	lis = malloc (sizeof (t_lis));
 	init_mats(lis, ps_data);
-	printf ("setpin P: %p\n", lis->lcs_tab);
-	lis->lcs_size = lcs(lis->lcs_tab, lis->unsrt, ps_data, lis->lcs_m);
+	printf ("setpin P: %p\n", lis->lcs_t);
+	lis->lcs_size = lcs(lis->lcs_t, lis->unsrt, ps_data, lis->lcs_m);
 
 	printf ("%d\n", lis->unsrt[0]);
 	int i = 0;

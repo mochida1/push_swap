@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:17:16 by hmochida          #+#    #+#             */
-/*   Updated: 2022/07/31 08:49:35 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/08/02 18:12:31 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct s_pin
 
 typedef struct s_lis
 {
-	int					**lcs_tab;
+	int					**lcs_t;
 	int					*unsrt;
 	int					*lcs_m;
 	int					lcs_size;
