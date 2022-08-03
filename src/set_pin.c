@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 10:50:52 by hmochida          #+#    #+#             */
-/*   Updated: 2022/08/02 18:32:26 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/08/02 21:24:27 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,28 @@ static void	init_mats(t_lis *lis, t_pushswap_data *ps_data)
 
 	i = 0;
 	lis->unsrt = malloc (sizeof(int) * ps_data->ele_count * 2);
-	lis->lcs_t = malloc (sizeof(int *) * ps_data->ele_count * 2 + 1);
-	while (i < ps_data->ele_count * 2)
+	lis->lcs_t = malloc (sizeof(int *) * (ps_data->ele_count * 2) + 1);
+	while (i <= ps_data->ele_count * 2)
 		lis->lcs_t[i++] = malloc (sizeof(int) * ps_data->ele_count + 1);
 	i = 0;
-	while (i < ps_data->ele_count * 2)
+	while (i <= ps_data->ele_count * 2)
 		lis->lcs_t[i++][0] = 0;
 	i = 0;
-	while (i < ps_data->ele_count)
+	while (i <= ps_data->ele_count)
 		lis->lcs_t[0][i++] = 0;
+
+	// int j = 0;
+	// while (j <= ps_data->ele_count * 2)
+	// {
+	// 	while (i <= ps_data->ele_count)
+	// 	{
+	// 		lis->lcs_t[j][i] = 0;
+	// 		printf ("%d ", lis->lcs_t[j][i++]);
+	// 	}
+	// 	i = 0;
+	// 	printf ("\n");
+	// 	j++;
+	// }
 	fill_unsorted(lis->unsrt, ps_data);
 }
 
@@ -67,6 +80,7 @@ void	set_pin(t_pushswap_data *ps_data)
 
 	printf ("%d\n", lis->unsrt[0]);
 	int i = 0;
+	printf ("LIS/PIN: ");
 	while (i < lis->lcs_size)
 		printf("%d ", lis->lcs_m[i++]);
 	printf("\n");
