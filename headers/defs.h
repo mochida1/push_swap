@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:17:16 by hmochida          #+#    #+#             */
-/*   Updated: 2022/08/02 18:12:31 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/08/03 21:49:11 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ typedef struct s_pushswap_data
 	int					ele_count;
 	int					pin_size;
 	int					*lut;
-	struct s_pin		*pin;
+	struct s_pin		*pin_head;
 	struct s_stack		*head_a;
 	struct s_stack		*end_a;
 	struct s_stack		*head_b;

@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 18:56:22 by hmochida          #+#    #+#             */
-/*   Updated: 2022/08/03 21:23:04 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/08/03 21:45:37 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,6 @@ static int	lcs_index(t_pushswap_data *ps_data, int **lcs_t, int *unsrt)
 	i = lcs_t[ps_data->ele_count * 2][ps_data->ele_count];
 	return (i);
 }
-/*
-for (i = 1; i <= m; i++)
-    for (j = 1; j <= n; j++) {
-      if (S1[i - 1] == S2[j - 1]) {
-        LCS_table[i][j] = LCS_table[i - 1][j - 1] + 1;
-      } else if (LCS_table[i - 1][j] >= LCS_table[i][j - 1]) {
-        LCS_table[i][j] = LCS_table[i - 1][j];
-      } else {
-        LCS_table[i][j] = LCS_table[i][j - 1];
-      }
-    }
-*/
 
 int	lcs(int **lcs_t, int *unsrt, t_pushswap_data *ps_data, int *lcs_m)
 {
@@ -76,13 +64,5 @@ int	lcs(int **lcs_t, int *unsrt, t_pushswap_data *ps_data, int *lcs_m)
 		else
 			j--;
 	}
-	i=0;
-	printf (">>");
-	while (i < x)
-	{
-		printf ("%d ", lcs_m[i++]);
-	}
-	printf ("<<\n");
-	printf ("index: %d\n", index);
 	return (index);
 }

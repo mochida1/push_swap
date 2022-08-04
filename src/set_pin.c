@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 10:50:52 by hmochida          #+#    #+#             */
-/*   Updated: 2022/08/03 21:36:33 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/08/03 21:55:27 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,22 +42,26 @@ static void	init_mats(t_lis *lis, t_pushswap_data *ps_data)
 	i = 0;
 	while (i <= ps_data->ele_count)
 		lis->lcs_t[0][i++] = 0;
-
-	// int j = 0;
-	// while (j <= ps_data->ele_count * 2)
-	// {
-	// 	while (i <= ps_data->ele_count)
-	// 	{
-	// 		lis->lcs_t[j][i] = 0;
-	// 		printf ("%d ", lis->lcs_t[j][i++]);
-	// 	}
-	// 	i = 0;
-	// 	printf ("\n");
-	// 	j++;
-	// }
 	fill_unsorted(lis->unsrt, ps_data);
 }
 
+static void	free_lcs_lists(t_lis *lis, t_pushswap_data *ps_data)
+{
+	int	i;
+
+	i = 0;
+	free (lis->unsrt);
+	while (i <= ps_data->ele_count)
+		free(lis->lcs_t[i++]);
+	free(lis->lcs_m);
+	lis->lcs_size = 0;
+	free(lis);
+}
+
+static void	remake_pin(t_lis *lis, t_pushswap_data *ps_data)
+{
+
+}
 /*
 ** sets ps_data->pin to the longest incresing sequence numbers from
 ** arguments.
@@ -68,14 +72,8 @@ void	set_pin(t_pushswap_data *ps_data)
 
 	lis = malloc (sizeof (t_lis));
 	init_mats(lis, ps_data);
-	printf ("setpin P: %p\n", lis->lcs_t);
 	lis->lcs_size = lcs(lis->lcs_t, lis->unsrt, ps_data, lis->lcs_m);
-
-	printf ("%d\n", lis->unsrt[0]);
-	int i = 0;
-	printf ("LIS/PIN: ");
-	while (i < lis->lcs_size)
-		printf("%d ", lis->lcs_m[i++]);
-	printf("\n");
-
+	if (ps_data->pin_head)
+	remake_pin(lis, ps_data);
+	free_lcs_lists(lis, ps_data);
 }
