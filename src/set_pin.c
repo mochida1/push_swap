@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 10:50:52 by hmochida          #+#    #+#             */
-/*   Updated: 2022/08/02 21:24:27 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/08/03 21:36:33 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,15 @@
 static void	fill_unsorted(int *unsrt, t_pushswap_data *ps_data)
 {
 	int	i;
-	int	flag;
 	t_stack *temp;
 
 	temp = ps_data->head_a;
 	i = 0;
-	flag = 0;
 	while (temp)
 	{
 		unsrt[i] = temp->num;
 		temp = temp->next;
 		i++;
-		if (!flag && !temp)
-		{
-			flag = 1;
-			temp = ps_data->head_a;
-		}
 	}
 }
 
@@ -39,8 +32,8 @@ static void	init_mats(t_lis *lis, t_pushswap_data *ps_data)
 	int	i;
 
 	i = 0;
-	lis->unsrt = malloc (sizeof(int) * ps_data->ele_count * 2);
-	lis->lcs_t = malloc (sizeof(int *) * (ps_data->ele_count * 2) + 1);
+	lis->unsrt = malloc (sizeof(int) * ps_data->ele_count);
+	lis->lcs_t = malloc (sizeof(int *) * (ps_data->ele_count) + 1);
 	while (i <= ps_data->ele_count * 2)
 		lis->lcs_t[i++] = malloc (sizeof(int) * ps_data->ele_count + 1);
 	i = 0;

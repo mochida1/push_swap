@@ -79,7 +79,7 @@ então temos que testar todos os elementos maiores que o elemento atual da compa
 Se no entanto, uma iteração resultar em n elementos ordenados, signifca que a porra já está toda em ordem, e você não vai precisar fazer um teste de O(n*n!) ou algo absurdo do gênero. Se houver também uma sequência já achada que seja maior que o número de elementos restantes na LUT, não é preciso testar os números acima do primeiro elemento sendo testado, então no exemplo acima, já achamos uma sequencia de 8/10 com o primeiro numero sendo 0, isso significa que 1 vai achar no maximo 9/10; 2 resultara no máximo 8/10 e 3 só 7/10 na melhor das hipoteses. Se você vai implementar isso de alguma maneira pra se exibir, problema seu.
 
 ### IMPLEMENTANDO A MEMOIZAÇÃO
-dar uma olhada sobre longes increasing subsequence;
+dar uma olhada sobre longest increasing subsequence;
 https://algodaily.com/challenges/longest-increasing-subsequence
 https://www.geeksforgeeks.org/longest-monotonically-increasing-subsequence-size-n-log-n/
 https://cp-algorithms.com/sequences/longest_increasing_subsequence.html

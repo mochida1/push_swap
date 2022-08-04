@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 18:56:22 by hmochida          #+#    #+#             */
-/*   Updated: 2022/08/02 21:27:07 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/08/03 21:23:04 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,20 @@ static int	lcs_index(t_pushswap_data *ps_data, int **lcs_t, int *unsrt)
 	{
 		while (j <= ps_data->ele_count)
 		{
-			// printf ("i:%d, j:%d\n elecount: %d\n", i, j, ps_data->ele_count);
 			if (unsrt[i - 1] == ps_data->lut[j - 1])
 				lcs_t[i][j] = (lcs_t[i - 1][j - 1]) + 1;
 			else if (lcs_t[i - 1][j] >= lcs_t[i][j - 1])
 				lcs_t[i][j] = lcs_t[i - 1][j];
 			else
 				lcs_t[i][j] = lcs_t[i][j - 1];
-			printf ("LCS: %d \n", lcs_t[i][j]);
 			j++;
 		}
 		j = 1;
 		i++;
 	}
-	return (lcs_t[ps_data->ele_count * 2][ps_data->ele_count]);
+	printf ("LCS: %d\n", lcs_t[ps_data->ele_count * 2][ps_data->ele_count]);
+	i = lcs_t[ps_data->ele_count * 2][ps_data->ele_count];
+	return (i);
 }
 /*
 for (i = 1; i <= m; i++)
@@ -61,6 +61,7 @@ int	lcs(int **lcs_t, int *unsrt, t_pushswap_data *ps_data, int *lcs_m)
 	lcs_m = malloc(sizeof(int) * index);
 	i = ps_data->ele_count * 2;
 	j = ps_data->ele_count;
+	int x = index;
 	while (i > 0 && j > 0)
 	{
 		if (unsrt[i - 1] == ps_data->lut[j - 1])
@@ -70,10 +71,18 @@ int	lcs(int **lcs_t, int *unsrt, t_pushswap_data *ps_data, int *lcs_m)
 			j--;
 			index--;
 		}
-	else if (lcs_t[i - 1][j] > lcs_t[i][j - 1])
-		i--;
-	else
-		j--;
+		else if (lcs_t[i - 1][j] > lcs_t[i][j - 1])
+			i--;
+		else
+			j--;
 	}
+	i=0;
+	printf (">>");
+	while (i < x)
+	{
+		printf ("%d ", lcs_m[i++]);
+	}
+	printf ("<<\n");
+	printf ("index: %d\n", index);
 	return (index);
 }
