@@ -6,16 +6,20 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 10:50:52 by hmochida          #+#    #+#             */
-/*   Updated: 2022/08/03 21:55:27 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/08/04 20:36:10 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/push_swap.h"
 
+/*
+** fiss unsrt with the unsorted arguments. Yes. I should have thought of it
+** before.
+*/
 static void	fill_unsorted(int *unsrt, t_pushswap_data *ps_data)
 {
-	int	i;
-	t_stack *temp;
+	int		i;
+	t_stack	*temp;
 
 	temp = ps_data->head_a;
 	i = 0;
@@ -45,6 +49,9 @@ static void	init_mats(t_lis *lis, t_pushswap_data *ps_data)
 	fill_unsorted(lis->unsrt, ps_data);
 }
 
+/*
+** Frees all auxiliary lists
+*/
 static void	free_lcs_lists(t_lis *lis, t_pushswap_data *ps_data)
 {
 	int	i;
@@ -60,20 +67,40 @@ static void	free_lcs_lists(t_lis *lis, t_pushswap_data *ps_data)
 
 static void	remake_pin(t_lis *lis, t_pushswap_data *ps_data)
 {
+	int		i;
+	t_pin	*temp;
 
+	i = 0;
+	while (ps_data->pin_head)
+	{
+		temp = ps_data->pin_head;
+		ps_data->pin_head = ps_data->pin_head->next;
+		free(temp);
+		temp = NULL;
+	}
+		ps_data->pin_head = malloc (sizeof(t_pin));
+		ps_data->pin_head->num = lis->lcs_m[i++];
+		temp = ps_data->pin_head;
+	while (i < lis->lcs_size)
+	{
+		temp->next = malloc (sizeof(t_pin));
+		temp = temp->next;
+		temp->num = lis->lcs_m[i++];
+	}
 }
+
 /*
 ** sets ps_data->pin to the longest incresing sequence numbers from
 ** arguments.
 */
 void	set_pin(t_pushswap_data *ps_data)
 {
-	t_lis *lis;
+	t_lis	*lis;
 
 	lis = malloc (sizeof (t_lis));
 	init_mats(lis, ps_data);
 	lis->lcs_size = lcs(lis->lcs_t, lis->unsrt, ps_data, lis->lcs_m);
-	if (ps_data->pin_head)
+	ps_data->pin_size = lis->lcs_size;
 	remake_pin(lis, ps_data);
 	free_lcs_lists(lis, ps_data);
 }

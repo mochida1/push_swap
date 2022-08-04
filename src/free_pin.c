@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_pin.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:19:42 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/30 11:25:30 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/08/04 20:31:36 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 /*
 ** Frees ps_data->pin list
 */
-void	free_pin(t_pin *pin)
+void	free_pin(t_pin *pin_head)
 {
 	t_pin	*tempin;
 
-	while (pin)
+	while (pin_head)
 	{
-		tempin = pin;
-		pin = pin->next;
+		tempin = pin_head;
+		pin_head = pin_head->next;
 		free (tempin);
 	}
 }

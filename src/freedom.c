@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   freedom.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/18 14:37:02 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/30 11:49:51 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/08/04 20:32:00 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	freedom(t_pushswap_data *ps_data)
 {
 	free_moves_array(ps_data->moves);
 	free_print_list(ps_data->mv_to_print);
-	if (ps_data->pin)
-		free_pin(ps_data->pin);
+	if (ps_data->pin_head)
+		free_pin(ps_data->pin_head);
 	free_list(ps_data);
 	free (ps_data->lut);
 	free (ps_data);

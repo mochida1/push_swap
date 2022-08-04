@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:32:17 by hmochida          #+#    #+#             */
-/*   Updated: 2022/07/31 03:19:25 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/08/04 19:16:19 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ int	push_swap(t_pushswap_data *ps_data) //heisenbug: 3 2 1 faz desaparecer um in
 	if (ps_data->ele_count == 3)
 		sort_three(ps_data);
 	if (ps_data->ele_count >= 4)
-		set_pin(ps_data);
-		// sort_me(ps_data);
+		sort_me(ps_data);
 
 
 	return (0);
@@ -44,13 +43,13 @@ int	main(int argc, char *argv[])
 	sort_lut(ps_data);
 	push_swap(ps_data);
 
-	print_mv(ps_data->mv_to_print);
-	printf("----------A----------\n");
-	print_list(ps_data->head_a);
-	printf("END_A:%p \n", ps_data->end_a);
-	printf("----------B----------\n");
-	print_list(ps_data->head_b);
-	printf("END_B:%p \n", ps_data->end_b);
+	// print_mv(ps_data->mv_to_print);
+	// printf("----------A----------\n");
+	// print_list(ps_data->head_a);
+	// printf("END_A:%p \n", ps_data->end_a);
+	// printf("----------B----------\n");
+	// print_list(ps_data->head_b);
+	// printf("END_B:%p \n", ps_data->end_b);
 	freedom(ps_data);
 	return (0);
 }

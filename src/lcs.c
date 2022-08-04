@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 18:56:22 by hmochida          #+#    #+#             */
-/*   Updated: 2022/08/03 21:45:37 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/08/04 20:34:47 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ static int	lcs_index(t_pushswap_data *ps_data, int **lcs_t, int *unsrt)
 		j = 1;
 		i++;
 	}
-	printf ("LCS: %d\n", lcs_t[ps_data->ele_count * 2][ps_data->ele_count]);
 	i = lcs_t[ps_data->ele_count * 2][ps_data->ele_count];
 	return (i);
 }
@@ -49,7 +48,6 @@ int	lcs(int **lcs_t, int *unsrt, t_pushswap_data *ps_data, int *lcs_m)
 	lcs_m = malloc(sizeof(int) * index);
 	i = ps_data->ele_count * 2;
 	j = ps_data->ele_count;
-	int x = index;
 	while (i > 0 && j > 0)
 	{
 		if (unsrt[i - 1] == ps_data->lut[j - 1])

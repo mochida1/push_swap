@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:17:16 by hmochida          #+#    #+#             */
-/*   Updated: 2022/08/03 21:49:11 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/08/04 20:12:43 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ typedef struct s_lis
 /*
 ** exit_code: if exiting is needed, keeps the exit code to be used after frees;
 ** lut: sorted array of arguments
-** pin: keeps the numbers wich are already sorted;
+** pin_head: keeps the numbers wich are already sorted;
 ** ele_count: quantity of received elements(arguments) to be sorted;
 ** mv_to_print: stack of things to be printed;
 ** moves: keeps the strings of movements names;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmochida <hmochida@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 19:52:16 by hmochida          #+#    #+#             */
-/*   Updated: 2022/06/30 11:50:35 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/08/04 20:33:55 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 void	init_data(t_pushswap_data *ps_data, int in_nbr, char *argv[])
 {
 	ps_data->ele_count = in_nbr;
-	ps_data->pin = NULL;
+	ps_data->pin_head = NULL;
 	get_lut(ps_data, argv);
 	create_stack(ps_data);
 	create_moves_array(ps_data);
