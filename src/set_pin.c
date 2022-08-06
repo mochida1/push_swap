@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 10:50:52 by hmochida          #+#    #+#             */
-/*   Updated: 2022/08/05 21:14:34 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/08/05 21:15:43 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static void	free_lcs_lists(t_lis *lis, t_pushswap_data *ps_data)
 
 	i = 0;
 	free (lis->unsrt);
-	while (i <= ps_data->ele_count)
+	while (i < ps_data->ele_count)
 		free(lis->lcs_t[i++]);
 	free(lis->lcs_m);
 	lis->lcs_size = 0;
