@@ -19,6 +19,7 @@
 # include "defs.h"
 
 void		add_to_mv(int move, t_pushswap_data *ps_data);
+int			case_1(t_pushswap_data *ps_data);
 int			check_arguments(char *argv[]);
 int			check_invalid_chars(char *str);
 void		check_repeated_numbers(t_pushswap_data *ps_data);
