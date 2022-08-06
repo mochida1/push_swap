@@ -20,7 +20,7 @@ void	freedom(t_pushswap_data *ps_data)
 	free_moves_array(ps_data->moves);
 	free_print_list(ps_data->mv_to_print);
 	if (ps_data->pin_head)
-		free_pin(ps_data->pin_head);
+		free_pin(ps_data);
 	free_list(ps_data);
 	free (ps_data->lut);
 	free (ps_data);

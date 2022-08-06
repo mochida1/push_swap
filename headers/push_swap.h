@@ -27,7 +27,7 @@ void		create_moves_array(t_pushswap_data *ps_data);
 int			create_stack(t_pushswap_data *ps_data);
 void		free_list(t_pushswap_data *ps_data);
 void		free_moves_array(char **moves);
-void		free_pin(t_pin *pin);
+void		free_pin(t_pushswap_data *ps_data);
 void		free_print_list(t_movements *list);
 void		freedom(t_pushswap_data *ps_data);
 void		freexit(void *ptr, int exit_code);

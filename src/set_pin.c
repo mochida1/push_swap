@@ -37,7 +37,7 @@ static void	init_mats(t_lis *lis, t_pushswap_data *ps_data)
 
 	i = 0;
 	lis->unsrt = malloc (sizeof(int) * ps_data->ele_count);
-	lis->lcs_t = malloc (sizeof(int*) * (ps_data->ele_count + 1));
+	lis->lcs_t = malloc (sizeof(int *) * (ps_data->ele_count + 1));
 	while (i <= ps_data->ele_count)
 		lis->lcs_t[i++] = malloc (sizeof(int) * (ps_data->ele_count + 1));
 	i = 0;
@@ -66,29 +66,29 @@ static void	free_lcs_lists(t_lis *lis, t_pushswap_data *ps_data)
 	free(lis);
 }
 
-// static void	remake_pin(t_lis *lis, t_pushswap_data *ps_data)
-// {
-// 	int		i;
-// 	t_pin	*temp;
+static void	remake_pin(t_lis *lis, t_pushswap_data *ps_data)
+{
+	int		i;
+	t_pin	*temp;
 
-// 	i = 0;
-// 	while (ps_data->pin_head)
-// 	{
-// 		temp = ps_data->pin_head;
-// 		ps_data->pin_head = ps_data->pin_head->next;
-// 		free(temp);
-// 		temp = NULL;
-// 	}
-// 		ps_data->pin_head = malloc (sizeof(t_pin));
-// 		ps_data->pin_head->num = lis->lcs_m[i++];
-// 		temp = ps_data->pin_head;
-// 	while (i < lis->lcs_size)
-// 	{
-// 		temp->next = malloc (sizeof(t_pin));
-// 		temp = temp->next;
-// 		temp->num = lis->lcs_m[i++];
-// 	}
-// }
+	i = 0;
+	while (ps_data->pin_head)
+	{
+		temp = ps_data->pin_head;
+		ps_data->pin_head = ps_data->pin_head->next;
+		free(temp);
+		temp = NULL;
+	}
+		ps_data->pin_head = malloc (sizeof(t_pin));
+		ps_data->pin_head->num = lis->lcs_m[i++];
+		temp = ps_data->pin_head;
+	while (i < lis->lcs_size)
+	{
+		temp->next = malloc (sizeof(t_pin));
+		temp = temp->next;
+		temp->num = lis->lcs_m[i++];
+	}
+}
 
 /*
 ** sets ps_data->pin to the longest incresing sequence numbers from
@@ -102,7 +102,6 @@ void	set_pin(t_pushswap_data *ps_data)
 	init_mats(lis, ps_data);
 	lis->lcs_size = lcs(lis, ps_data);
 	ps_data->pin_size = lis->lcs_size;
-
-	// remake_pin(lis, ps_data);
+	remake_pin(lis, ps_data);
 	free_lcs_lists(lis, ps_data);
 }

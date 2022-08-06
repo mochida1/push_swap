@@ -15,14 +15,14 @@
 /*
 ** Frees ps_data->pin list
 */
-void	free_pin(t_pin *pin_head)
+void	free_pin(t_pushswap_data *ps_data)
 {
 	t_pin	*tempin;
 
-	while (pin_head)
+	while (ps_data->pin_head)
 	{
-		tempin = pin_head;
-		pin_head = pin_head->next;
+		tempin = ps_data->pin_head;
+		ps_data->pin_head = ps_data->pin_head->next;
 		free (tempin);
 	}
 }
