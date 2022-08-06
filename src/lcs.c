@@ -12,7 +12,7 @@
 
 #include "../headers/push_swap.h"
 
-static int	lcs_index(t_pushswap_data *ps_data, int **lcs_t, int *unsrt)
+static int	lcs_index(t_pushswap_data *ps_data, t_lis *lis)
 {
 	int	i;
 	int j;
@@ -23,28 +23,34 @@ static int	lcs_index(t_pushswap_data *ps_data, int **lcs_t, int *unsrt)
 	{
 		while (j <= ps_data->ele_count)
 		{
-			if (unsrt[i - 1] == ps_data->lut[j - 1])
-				lcs_t[i][j] = (lcs_t[i - 1][j - 1]) + 1;
-			else if (lcs_t[i - 1][j] >= lcs_t[i][j - 1])
-				lcs_t[i][j] = lcs_t[i - 1][j];
+			if (lis->unsrt[i - 1] == ps_data->lut[j - 1])
+				lis->lcs_t[i][j] = (lis->lcs_t[i - 1][j - 1]) + 1;
+			else if (lis->lcs_t[i - 1][j] >= lis->lcs_t[i][j - 1])
+				lis->lcs_t[i][j] = lis->lcs_t[i - 1][j];
 			else
-				lcs_t[i][j] = lcs_t[i][j - 1];
+				lis->lcs_t[i][j] = lis->lcs_t[i][j - 1];
 			j++;
 		}
 		j = 1;
 		i++;
 	}
-	i = lcs_t[ps_data->ele_count][ps_data->ele_count];
+	i = lis->lcs_t[ps_data->ele_count][ps_data->ele_count];
 	return (i);
 }
 
-int	lcs(int **lcs_t, t_lis *lis, t_pushswap_data *ps_data)
+/*
+** fills the lis struct with relevant data, returns the number of elements in
+** lis->lcs_m, wich is our largest increasing sequence :)
+*/
+int	lcs(t_lis *lis, t_pushswap_data *ps_data)
 {
 	int	index;
 	int	i;
 	int	j;
+	int	ret;
 
-	index = lcs_index(ps_data, lcs_t, lis->unsrt);
+	index = lcs_index(ps_data, lis);
+	ret = index;
 	lis->lcs_m = malloc(sizeof(int) * index);
 	i = ps_data->ele_count;
 	j = ps_data->ele_count;
@@ -57,10 +63,10 @@ int	lcs(int **lcs_t, t_lis *lis, t_pushswap_data *ps_data)
 			j--;
 			index--;
 		}
-		else if (lcs_t[i - 1][j] > lcs_t[i][j - 1])
+		else if (lis->lcs_t[i - 1][j] > lis->lcs_t[i][j - 1])
 			i--;
 		else
 			j--;
 	}
-	return (index);
+	return (ret);
 }

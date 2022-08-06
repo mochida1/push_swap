@@ -43,7 +43,7 @@ void		get_lut(t_pushswap_data *data, char *argv[]);
 void		get_stack_index(t_pushswap_data *ps_data);
 void		ifreexit(void *ptr_to_check, void *ptr_to_free, int exit_code);
 void		init_data(t_pushswap_data *ps_data, int in_nbr, char *argv[]);
-int			lcs(int **lcs_t, t_lis *lis, t_pushswap_data *ps_data);
+int			lcs(t_lis *lis, t_pushswap_data *ps_data);
 void		mv(int mv, t_pushswap_data *ps_data);
 void		mv_pa(t_pushswap_data *ps_data);
 void		mv_pb(t_pushswap_data *ps_data);
