@@ -6,7 +6,7 @@
 /*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:19:18 by hmochida          #+#    #+#             */
-/*   Updated: 2022/07/31 01:39:56 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/08/05 21:11:47 by hmochida         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void		get_lut(t_pushswap_data *data, char *argv[]);
 void		get_stack_index(t_pushswap_data *ps_data);
 void		ifreexit(void *ptr_to_check, void *ptr_to_free, int exit_code);
 void		init_data(t_pushswap_data *ps_data, int in_nbr, char *argv[]);
-int			lcs(int **lcs_t, int *unsrt, t_pushswap_data *ps_data, int *lcs_m);
+int			lcs(int **lcs_t, t_lis *lis, t_pushswap_data *ps_data);
 void		mv(int mv, t_pushswap_data *ps_data);
 void		mv_pa(t_pushswap_data *ps_data);
 void		mv_pb(t_pushswap_data *ps_data);
