@@ -12,7 +12,7 @@
 
 #include "../headers/push_swap.h"
 
-int is_pin(int check_num, t_pin *pin_head)
+static int is_pin(int check_num, t_pin *pin_head)
 {
 	t_pin *temp;
 
@@ -26,17 +26,29 @@ int is_pin(int check_num, t_pin *pin_head)
 	return (0);
 }
 
+// int	case_2(t_pushswap_data *ps_data)
+// {
+
+// }
+
+/*
+**
+*/
 int	case_1(t_pushswap_data *ps_data)
 {
-	printf ("\nIS_PIN: %d <<<<<\n", is_pin(ps_data->head_a->num, ps_data->pin_head));
-	// if (ps_data->head_a && ps_data->head_b)
-	// 	return (0);
-	// if (is_pin(ps_data->head_a->num, ps_data->pin_head))
-	// 	&& is_pin(ps_data->head_b->num, ps_data->pin_head))
-	// {
-
-	// }
-	return 0;
+	if (!ps_data->head_a || !ps_data->head_b)
+		return (0);
+	if (is_pin(ps_data->head_a->num, ps_data->pin_head) &&
+			is_pin(ps_data->head_b->num, ps_data->pin_head))
+	{
+		if (ps_data->head_a->num > ps_data->head_a->next->num &&
+				ps_data->head_b->num > ps_data->head_b->next->num)
+			{
+				mv(SS, ps_data);
+				return (1);
+			}
+	}
+	return (0);
 }
 
 /*
@@ -45,6 +57,16 @@ int	case_1(t_pushswap_data *ps_data)
 void	sort_me(t_pushswap_data *ps_data)
 {
 	set_pin(ps_data);
+
+	t_pin *temp = ps_data->pin_head;
+	printf("\n>>>>>>>\n");
+	while (temp)
+	{
+		printf("%d ", temp->num);
+		temp = temp->next;
+	}
+	printf("\n<<<<<<<\n");
+
 	if (case_1(ps_data))
-	return ;
+		return ;
 }
