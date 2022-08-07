@@ -158,14 +158,14 @@ já dá pra pensar também em como finalizar a porra toda, então... depois diss
 --------------------------------------------------------------------------------
 
 input: 54321	LUT: 12345	PIN: 1 3 (escolha totalmente arbitrária)
-1 - Marca os PIN junto à LUT para poder fixar os valores que já estão certos
-2 - Testa TOP_A e TOP_B: se TOP_A entrar em ordem crescente com um SWAP A e TOP_B entrar em ordem crescente com um SWAP B -> SS
-3 - caso TOP_A entre em ordem e TOP_B não, SA
-4 - se existir STACK B o topo do STACK B for o elemento na LUT antes do elemento topo do STACK A na LUT, PUSH A;
-5 - se TOP_A estiver PINADO, RA
-6 - caso porra nenhuma das anteriores, PB
+0 - Marca os PIN junto à LUT para poder fixar os valores que já estão certos
+1 - Testa TOP_A e TOP_B: se TOP_A entrar em ordem crescente com um SWAP A e TOP_B entrar em ordem crescente com um SWAP B -> SS
+2 - caso TOP_A entre em ordem e TOP_B não, SA
+3 - se existir STACK B o topo do STACK B for o elemento na LUT antes do elemento topo do STACK A na LUT, PUSH A;
+4 - se TOP_A estiver PINADO, RA
+5 - caso porra nenhuma das anteriores, PB
 	Testa a STACK A para autalizar o PIN;
-7 - se o PIN estiver completo, checa se o menor elemento está mais perto do fim ou do começo, se estiver mais proximo do fim, RA até chegar no topo. Se estiver mais próximo do começo, RRA até lá. Caso esteja equidistante, tanto faz.
+6 - se o PIN estiver completo, checa se o menor elemento está mais perto do fim ou do começo, se estiver mais proximo do fim, RA até chegar no topo. Se estiver mais próximo do começo, RRA até lá. Caso esteja equidistante, tanto faz.
 
 1> 54321	PIN:13
 3> 45321	PIN:13
@@ -257,14 +257,14 @@ input: 54321	LUT: 12345	PIN: 1 4
 
 Note no entanto, que o 4o comando, um SWAP, faz-se-ia desenecessário caso houvesse um jeito de se prever que ambos iriam tomar PUSH. Com uma pequena mudança na regra 3, creio que isso possa ser resolvido.
 input: 54321	LUT: 12345	PIN: 1 5
-1 - Marca os PIN junto à LUT para poder fixar os valores que já estão certos
-2 - Testa TOP_A e TOP_B: se TOP_A entrar em ordem crescente com um SWAP A e TOP_B entrar em ordem crescente com um SWAP B -> SS
-3 - caso TOP_A entre em ordem indexada e TOP_B não, SA
-4 - se existir STACK B o topo do STACK B for o elemento na LUT antes do elemento topo do STACK A na LUT, PUSH A;
-5 - se TOP_A estiver PINADO, RA
-6 - caso porra nenhuma das anteriores, PB
+0 - Marca os PIN junto à LUT para poder fixar os valores que já estão certos
+1 - Testa TOP_A e TOP_B: se TOP_A entrar em ordem crescente com um SWAP A e TOP_B entrar em ordem crescente com um SWAP B -> SS
+2 - caso TOP_A entre em ordem indexada e TOP_B não, SA
+3 - se existir STACK B o topo do STACK B for o elemento na LUT antes do elemento topo do STACK A na LUT, PUSH A;
+4 - se TOP_A estiver PINADO, RA
+5 - caso porra nenhuma das anteriores, PB
 	Testa a STACK A para autalizar o PIN;
-7 - se o PIN estiver completo, checa se o menor elemento está mais perto do fim ou do começo, se estiver mais proximo do fim, RA até chegar no topo. Se estiver mais próximo do começo, RRA até lá. Caso esteja equidistante, tanto faz.
+6 - se o PIN estiver completo, checa se o menor elemento está mais perto do fim ou do começo, se estiver mais proximo do fim, RA até chegar no topo. Se estiver mais próximo do começo, RRA até lá. Caso esteja equidistante, tanto faz.
 3>45321		PIN:145
 5>53214		PIN:145
 5>32145		PIN:145
