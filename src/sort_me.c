@@ -95,12 +95,16 @@ static int	case_5(t_pushswap_data *ps_data)
 	return (1);
 }
 
+/*
+** se TOP_A estiver PINADO, RA
+*/
 static int	case_4(t_pushswap_data *ps_data)
 {
 	if (!ps_data->head_a)
 		return (0);
 	if (ps_data->head_a->is_indexed)
 	{
+	printf("num: %d\n", ps_data->head_a->num);
 	printf ("4\n");
 		mv(RA, ps_data);
 		return (1);
@@ -108,17 +112,21 @@ static int	case_4(t_pushswap_data *ps_data)
 	return (0);
 }
 
-
+/*
+** se existir STACK B o topo do STACK B for o elemento na LUT antes do elemento
+** topo do STACK A na LUT, PUSH A;
+*/
 static int	case_3(t_pushswap_data *ps_data)
 {
-	printf ("3\n");
 	if (!ps_data->head_b)
 		return (0);
-	if (ps_data->head_b->num > ps_data->head_a->num)
+	if (ps_data->head_b->num < ps_data->head_a->num)
 	{
-		if (get_lut_index((ps_data->head_a->num + 1) , ps_data) ==
-			get_lut_index(ps_data->head_b->num, ps_data))
+		if ((ps_data->head_a->index) ==
+			ps_data->head_b->index - 1)
 			{
+	printf ("3\n");
+				ps_data->head_b->is_indexed = 1;
 				mv(PA, ps_data);
 				return (1);
 			}
@@ -126,30 +134,39 @@ static int	case_3(t_pushswap_data *ps_data)
 	return (0);
 }
 
+/*
+** caso TOP_A entre em ordem indexada e TOP_B não, SA
+*/
 static int	case_2(t_pushswap_data *ps_data)
 {
-	printf ("2\n");
 	if (!ps_data->head_a)
 		return (0);
+	if	(ps_data->head_a->is_indexed)
+		return (0);
 	if (ps_data->head_a->num > ps_data->head_a->next->num)
-	{
-		mv(SA, ps_data);
-		return (1);
-	}
+		if (ps_data->head_a->index +1 == ps_data->head_a->next->index)
+		{
+		printf ("2\n");
+			mv(SA, ps_data);
+			return (1);
+		}
 	return (0);
 }
 
 /*
-**
+** Testa TOP_A e TOP_B: se TOP_A entrar em ordem crescente com um SWAP A e TOP_B
+** entrar em ordem crescente com um SWAP B -> SS
 */
 int	case_1(t_pushswap_data *ps_data)
 {
-	printf ("1\n");
 	if (!ps_data->head_a || !ps_data->head_b)
+		return (0);
+	if	(ps_data->head_a->is_indexed)
 		return (0);
 	if (ps_data->head_a->num > ps_data->head_a->next->num &&
 			ps_data->head_b->num > ps_data->head_b->next->num)
 	{
+	printf ("1\n");
 		mv(SS, ps_data);
 		return (1);
 	}
@@ -170,6 +187,9 @@ void PRINT_PIN(t_pushswap_data *ps_data)
 	printf ("<<<<\n");
 }
 
+/*
+** initializes all is_indexed variables to reflect their right status;
+*/
 void	pin_to_data(t_pushswap_data *ps_data)
 {
 	t_pin 	*pintemp;
@@ -191,6 +211,29 @@ void	pin_to_data(t_pushswap_data *ps_data)
 }
 
 /*
+** set's all indexes in the stack to their right place.
+*/
+void	index_to_data(t_pushswap_data *ps_data)
+{
+	t_stack *temp;
+
+	int	i;
+	i = 0;
+	temp = ps_data->head_a;
+	while (temp)
+	{
+		while (i < ps_data->ele_count)
+		{
+			if (temp->num == ps_data->lut[i])
+				temp->index = i;
+			i++;
+		}
+		i = 0;
+		temp = temp->next;
+	}
+}
+
+/*
 ** sort case for more than three elements;
 */
 void	sort_me(t_pushswap_data *ps_data)
@@ -200,8 +243,11 @@ void	sort_me(t_pushswap_data *ps_data)
 	run = 1;
 	set_pin(ps_data);
 	pin_to_data(ps_data);
+	index_to_data(ps_data);
+	print_list(ps_data->head_a);
 	while (run)
 	{
+		update_pins(ps_data);
 		if (case_1(ps_data))
 			continue ;
 		else if (case_2(ps_data))
