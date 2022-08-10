@@ -233,6 +233,23 @@ void	index_to_data(t_pushswap_data *ps_data)
 	}
 }
 
+void	update_pins(t_pushswap_data *ps_data)
+{
+	t_stack	*temp;
+
+	temp = ps_data->head_a;
+	while (temp)
+	{
+		if (temp->next && (temp->index == 1 && temp->next->index == 2))
+			temp->is_indexed = 1;
+		else if ((temp->next && temp->prev) && ((temp->next && temp->next->is_indexed) || (temp->prev && temp->prev->is_indexed)))
+			{
+				temp->is_indexed = 1;
+			}
+	temp = temp->next;
+	}
+}
+
 /*
 ** sort case for more than three elements;
 */
