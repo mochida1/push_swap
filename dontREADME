@@ -265,6 +265,8 @@ input: 54321	LUT: 12345	PIN: 1 5
 4 - se TOP_A estiver PINADO, RA
 5 - caso porra nenhuma das anteriores, PB
 	Testa a STACK A para autalizar o PIN;
+5.1 - se TOP_A não estiver pinado, PB
+5.2 - se houver TOP B, RB;
 6 - se o PIN estiver completo, checa se o menor elemento está mais perto do fim ou do começo, se estiver mais proximo do fim, RA até chegar no topo. Se estiver mais próximo do começo, RRA até lá. Caso esteja equidistante, tanto faz.
 3>45321		PIN:145
 5>53214		PIN:145

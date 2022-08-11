@@ -69,6 +69,7 @@ static int	case_6(t_pushswap_data *ps_data)
 		return (0);
 	else if (stack_is_sorted(ps_data->head_a, ps_data->ele_count))
 	{
+	printf ("6\n");
 		if (is_near_end(ps_data->head_a, ps_data->ele_count))
 		{
 			while (ps_data->head_a->num != ps_data->lut[0])
@@ -84,6 +85,33 @@ static int	case_6(t_pushswap_data *ps_data)
 	}
 	else
 		return (0);
+}
+
+static int	case_52(t_pushswap_data *ps_data)
+{
+	static int DELETEME;
+	if (DELETEME < 5)
+	{
+	printf ("\n\n<<<<< A >>>>>\n\n");
+	print_list(ps_data->head_a);
+	printf ("\n\n<<<<< B >>>>>\n\n");
+	print_list(ps_data->head_b);
+	exit (52);
+	}
+	if (!ps_data->head_b)
+		return (0);
+	printf ("52\n");
+	mv (RB, ps_data);
+	return (1);
+}
+
+static int	case_51(t_pushswap_data *ps_data)
+{
+	if (!ps_data->head_a || ps_data->head_a->is_indexed)
+		return (0);
+	printf ("51\n");
+	mv (PB, ps_data);
+	return (1);
 }
 
 static int	case_5(t_pushswap_data *ps_data)
@@ -103,12 +131,12 @@ int	is_all_pinned(t_stack *stack_head)
 	t_stack	*temp;
 	int		ret;
 
-	ret = 0;
+	ret = 1;
 	temp = stack_head;
 	while (temp)
 	{
 		if (!temp->is_indexed)
-			ret = 1;
+			ret = 0;
 		temp = temp->next;
 	}
 	return (ret);
@@ -175,7 +203,9 @@ static int	case_31(t_pushswap_data *ps_data)
 			return (0);
 		temp = temp->next;
 	}
-	if (ps_data->head_a->index > ps_data->head_b->index)
+	if (ps_data->head_b && ps_data->head_b)
+		return (0);
+	if (ps_data->head_a->index	> ps_data->head_b->index)
 	{
 		printf ("31\n");
 		ps_data->head_b->is_indexed = 1;
@@ -197,18 +227,14 @@ static int	case_31(t_pushswap_data *ps_data)
 */
 static int	case_3(t_pushswap_data *ps_data)
 {
-	if (!ps_data->head_b)
+	if (!ps_data->head_b || !ps_data->head_a)
 		return (0);
-	if (ps_data->head_b->num < ps_data->head_a->num)
+	if (ps_data->head_b->index + 1 == ps_data->head_a->index)
 	{
-		if ((ps_data->head_a->index) ==
-			ps_data->head_b->index - 1)
-			{
 	printf ("3\n");
-				ps_data->head_b->is_indexed = 1;
-				mv(PA, ps_data);
-				return (1);
-			}
+		ps_data->head_b->is_indexed = 1;
+		mv(PA, ps_data);
+		return (1);
 	}
 	return (0);
 }
@@ -240,16 +266,17 @@ int	case_1(t_pushswap_data *ps_data)
 {
 	if (!ps_data->head_a || !ps_data->head_b)
 		return (0);
-	if	(ps_data->head_a->is_indexed)
+	if (ps_data->head_a->is_indexed)
 		return (0);
-	if (ps_data->head_a->num > ps_data->head_a->next->num &&
-			ps_data->head_b->num > ps_data->head_b->next->num)
-	{
+	if (!ps_data->head_a->next || !ps_data->head_b->next)
+		return (0);
+	if (ps_data->head_a->index < ps_data->head_a->next->index)
+		return (0);
+	if (ps_data->head_b->index < ps_data->head_b->next->index)
+		return (0);
 	printf ("1\n");
-		mv(SS, ps_data);
-		return (1);
-	}
-	return (0);
+	mv(SS, ps_data);
+	return (1);
 }
 
 void PRINT_PIN(t_pushswap_data *ps_data)
@@ -323,7 +350,8 @@ void	update_pins(t_pushswap_data *ps_data)
 			temp->is_indexed = 1;
 		else if ((temp->next && temp->prev) && ((temp->next && temp->next->is_indexed) || (temp->prev && temp->prev->is_indexed)))
 			{
-				temp->is_indexed = 1;
+				if ((temp->next->index > temp->index) && (temp->prev->index < temp->index))
+					temp->is_indexed = 1;
 			}
 	temp = temp->next;
 	}
@@ -355,6 +383,10 @@ void	sort_me(t_pushswap_data *ps_data)
 		else if (case_4(ps_data))
 			continue ;
 		else if (case_5(ps_data))
+			continue ;
+		else if (case_51(ps_data))
+			continue ;
+		else if (case_52(ps_data))
 			continue ;
 		else if (case_6(ps_data))
 			continue ;
