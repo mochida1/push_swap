@@ -261,6 +261,7 @@ input: 54321	LUT: 12345	PIN: 1 5
 1 - Testa TOP_A e TOP_B: se TOP_A entrar em ordem crescente com um SWAP A e TOP_B entrar em ordem crescente com um SWAP B -> SS
 2 - caso TOP_A entre em ordem indexada e TOP_B não, SA
 3 - se existir STACK B o topo do STACK B for o elemento na LUT antes do elemento topo do STACK A na LUT, PUSH A;
+3.1 - se STACK A inteira estiver pinada - e se TOP A for menor que TOP B, pb, se não, RB;
 4 - se TOP_A estiver PINADO, RA
 5 - caso porra nenhuma das anteriores, PB
 	Testa a STACK A para autalizar o PIN;

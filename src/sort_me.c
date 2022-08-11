@@ -89,10 +89,29 @@ static int	case_6(t_pushswap_data *ps_data)
 static int	case_5(t_pushswap_data *ps_data)
 {
 	printf ("5\n");
-	if (!ps_data->head_a)
+	if (!ps_data->head_a || ps_data->head_a->is_indexed)
 		return (0);
 	mv(PB, ps_data);
 	return (1);
+}
+
+/*
+** checks if a stack has all it's elements pinned
+*/
+int	is_all_pinned(t_stack *stack_head)
+{
+	t_stack	*temp;
+	int		ret;
+
+	ret = 0;
+	temp = stack_head;
+	while (temp)
+	{
+		if (!temp->is_indexed)
+			ret = 1;
+		temp = temp->next;
+	}
+	return (ret);
 }
 
 /*
@@ -102,11 +121,71 @@ static int	case_4(t_pushswap_data *ps_data)
 {
 	if (!ps_data->head_a)
 		return (0);
+	if (is_all_pinned(ps_data->head_a))
+		return (0);
 	if (ps_data->head_a->is_indexed)
 	{
-	printf("num: %d\n", ps_data->head_a->num);
+	printf("num: %d  || pinned: %d\n", ps_data->head_a->num, ps_data->head_a->is_indexed);
 	printf ("4\n");
 		mv(RA, ps_data);
+		return (1);
+	}
+	return (0);
+}
+
+int	check_for_greater(t_pushswap_data *ps_data)
+{
+	int	biggest;
+	t_stack	*sa;
+	t_stack	*sb;
+	int	flag;
+
+	flag = 0;
+	sa = ps_data->head_a;
+	sb = ps_data->head_b;
+	biggest = 0;
+	while (sb)
+	{
+		if (sb->index > biggest)
+			biggest = sb->index;
+		sb = sb->next;
+	}
+	while (sa)
+	{
+		if (sa->index > biggest)
+		{
+			biggest = sa->index;
+			flag = 1;
+		}
+		sa = sa->next;
+	}
+	return (flag);
+}
+
+static int	case_31(t_pushswap_data *ps_data)
+{
+	t_stack	*temp;
+	int		flag;
+
+	flag = 0;
+	temp = ps_data->head_a;
+	while (temp)
+	{
+		if (!temp->is_indexed)
+			return (0);
+		temp = temp->next;
+	}
+	if (ps_data->head_a->index > ps_data->head_b->index)
+	{
+		printf ("31\n");
+		ps_data->head_b->is_indexed = 1;
+		mv (PB, ps_data);
+		return (1);
+	}
+	else if(check_for_greater(ps_data))
+	{
+		printf ("32\n");
+		mv (RB, ps_data);
 		return (1);
 	}
 	return (0);
@@ -270,6 +349,8 @@ void	sort_me(t_pushswap_data *ps_data)
 		else if (case_2(ps_data))
 			continue ;
 		else if (case_3(ps_data))
+			continue ;
+		else if (case_31(ps_data))
 			continue ;
 		else if (case_4(ps_data))
 			continue ;
