@@ -12,6 +12,39 @@
 
 #include "../headers/push_swap.h"
 
+/*
+** checks wether stack A has an element with index biger than stack B;
+** if there is, returns true, if not, returns 0;
+*/
+int	check_for_greater(t_pushswap_data *ps_data)
+{
+	int	biggest;
+	t_stack	*sa;
+	t_stack	*sb;
+	int	flag;
+
+	flag = 0;
+	sa = ps_data->head_a;
+	sb = ps_data->head_b;
+	biggest = 0;
+	while (sb)
+	{
+		if (sb->index > biggest)
+			biggest = sb->index;
+		sb = sb->next;
+	}
+	while (sa)
+	{
+		if (sa->index > biggest)
+		{
+			biggest = sa->index;
+			flag = 1;
+		}
+		sa = sa->next;
+	}
+	return (flag);
+}
+
 static int	stack_is_sorted(t_stack *head_a, int ele_count)
 {
 	t_stack *temp;
@@ -62,6 +95,25 @@ static int is_near_end(t_stack *head_x, int ele_count)
 	return (0);
 }
 
+/*
+** checks if a stack has all it's elements pinned
+*/
+int	is_all_pinned(t_stack *stack_head)
+{
+	t_stack	*temp;
+	int		ret;
+
+	ret = 1;
+	temp = stack_head;
+	while (temp)
+	{
+		if (!temp->is_indexed)
+			ret = 0;
+		temp = temp->next;
+	}
+	return (ret);
+}
+
 static int	case_6(t_pushswap_data *ps_data)
 {
 	printf ("6\n");
@@ -101,16 +153,30 @@ static int	case_53(t_pushswap_data *ps_data)
 	}
 	if (!ps_data->head_b)
 		return (0);
-	printf ("52\n");
+	printf ("53\n");
 	mv (RB, ps_data);
 	return (1);
 }
 
-static int	case_51(t_pushswap_data *ps_data)
+static int	case_52(t_pushswap_data *ps_data)
 {
+	static int DELETEME;
+	DELETEME++;
+	if (DELETEME > 500)
+	{
+	printf ("\n\n<<<<< A >>>>>\n\n");
+	print_list(ps_data->head_a);
+	printf ("\n\n<<<<< B >>>>>\n\n");
+	print_list(ps_data->head_b);
+	exit (52);
+	}
 	if (!is_all_pinned(ps_data->head_a))
 		return (0);
-	if ()
+	if (!check_for_greater(ps_data))
+		return (0);
+	printf ("52\n");
+	mv(RA, ps_data);
+	return (1);
 }
 
 static int	case_51(t_pushswap_data *ps_data)
@@ -124,30 +190,11 @@ static int	case_51(t_pushswap_data *ps_data)
 
 static int	case_5(t_pushswap_data *ps_data)
 {
-	printf ("5\n");
 	if (!ps_data->head_a || ps_data->head_a->is_indexed)
 		return (0);
+	printf ("5\n");
 	mv(PB, ps_data);
 	return (1);
-}
-
-/*
-** checks if a stack has all it's elements pinned
-*/
-int	is_all_pinned(t_stack *stack_head)
-{
-	t_stack	*temp;
-	int		ret;
-
-	ret = 1;
-	temp = stack_head;
-	while (temp)
-	{
-		if (!temp->is_indexed)
-			ret = 0;
-		temp = temp->next;
-	}
-	return (ret);
 }
 
 /*
@@ -167,38 +214,6 @@ static int	case_4(t_pushswap_data *ps_data)
 		return (1);
 	}
 	return (0);
-}
-
-/*
-** checks wether stack A has an element with index biger than stack B;
-*/
-int	check_for_greater(t_pushswap_data *ps_data)
-{
-	int	biggest;
-	t_stack	*sa;
-	t_stack	*sb;
-	int	flag;
-
-	flag = 0;
-	sa = ps_data->head_a;
-	sb = ps_data->head_b;
-	biggest = 0;
-	while (sb)
-	{
-		if (sb->index > biggest)
-			biggest = sb->index;
-		sb = sb->next;
-	}
-	while (sa)
-	{
-		if (sa->index > biggest)
-		{
-			biggest = sa->index;
-			flag = 1;
-		}
-		sa = sa->next;
-	}
-	return (flag);
 }
 
 static int	case_31(t_pushswap_data *ps_data)
