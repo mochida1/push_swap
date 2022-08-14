@@ -45,13 +45,13 @@ int	main(int argc, char *argv[])
 	sort_lut(ps_data);
 	push_swap(ps_data);
 
-	// print_mv(ps_data->mv_to_print);
-	// printf("----------A----------\n");
-	// print_list(ps_data->head_a);
-	// printf("END_A:%p \n", ps_data->end_a);
-	// printf("----------B----------\n");
-	// print_list(ps_data->head_b);
-	// printf("END_B:%p \n", ps_data->end_b);
+	print_mv(ps_data->mv_to_print);
+	printf("----------A----------\n");
+	print_list(ps_data->head_a);
+	printf("END_A:%p \n", ps_data->end_a);
+	printf("----------B----------\n");
+	print_list(ps_data->head_b);
+	printf("END_B:%p \n", ps_data->end_b);
 	freedom(ps_data);
 	return (0);
 }

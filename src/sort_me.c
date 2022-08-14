@@ -114,6 +114,38 @@ int	is_all_pinned(t_stack *stack_head)
 	return (ret);
 }
 
+int	is_smallest_index(t_stack *head_x)
+{
+	int		smol;
+	t_stack	*temp;
+
+	temp = head_x;
+	smol = temp->index;
+	while (temp)
+	{
+		if (temp->index < smol)
+			return (0);
+		temp = temp->next;
+	}
+	return (1);
+}
+
+int	is_biggest_index(t_stack *head_x)
+{
+	int		bog;
+	t_stack	*temp;
+
+	temp = head_x;
+	bog = temp->index;
+	while (temp)
+	{
+		if (temp->index > bog)
+			return (0);
+		temp = temp->next;
+	}
+	return (1);
+}
+
 static int	case_6(t_pushswap_data *ps_data)
 {
 	printf ("6\n");
@@ -153,6 +185,8 @@ static int	case_53(t_pushswap_data *ps_data)
 	}
 	if (!ps_data->head_b)
 		return (0);
+	if (is_smallest_index(ps_data->head_b))
+		return (0);
 	printf ("53\n");
 	mv (RB, ps_data);
 	return (1);
@@ -160,19 +194,21 @@ static int	case_53(t_pushswap_data *ps_data)
 
 static int	case_52(t_pushswap_data *ps_data)
 {
-	static int DELETEME;
-	DELETEME++;
-	if (DELETEME > 500)
-	{
-	printf ("\n\n<<<<< A >>>>>\n\n");
-	print_list(ps_data->head_a);
-	printf ("\n\n<<<<< B >>>>>\n\n");
-	print_list(ps_data->head_b);
-	exit (52);
-	}
+	// static int DELETEME;
+	// DELETEME++;
+	// if (DELETEME > 500)
+	// {
+	// printf ("\n\n<<<<< A >>>>>\n\n");
+	// print_list(ps_data->head_a);
+	// printf ("\n\n<<<<< B >>>>>\n\n");
+	// print_list(ps_data->head_b);
+	// exit (52);
+	// }
 	if (!is_all_pinned(ps_data->head_a))
 		return (0);
 	if (!check_for_greater(ps_data))
+		return (0);
+	if (is_smallest_index(ps_data->head_a))
 		return (0);
 	printf ("52\n");
 	mv(RA, ps_data);
@@ -257,7 +293,7 @@ static int	case_3(t_pushswap_data *ps_data)
 		return (0);
 	if (!ps_data->head_a->is_indexed)
 		return (0);
-	if ((ps_data->head_b->index) + 1 == ps_data->head_a->index)
+	if ((ps_data->head_b->index) + 1 == ps_data->head_a->index || (is_smallest_index(ps_data->head_a) && is_biggest_index(ps_data->head_b)))
 	{
 	printf ("3\n");
 		ps_data->head_b->is_indexed = 1;
