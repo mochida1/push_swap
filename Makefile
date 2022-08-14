@@ -49,6 +49,7 @@ push_swap.c \
 set_pin.c \
 sort_lut.c \
 sort_me.c \
+sort_vb.c \
 sort_three.c \
 sort_two.c \
 update_stacks_data.c \

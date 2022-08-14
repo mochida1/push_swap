@@ -22,7 +22,7 @@ int	push_swap(t_pushswap_data *ps_data) //heisenbug: 3 2 1 faz desaparecer um in
 	if (ps_data->ele_count == 3)
 		sort_three(ps_data);
 	if (ps_data->ele_count >= 4)
-		sort_me(ps_data);
+		sort_vb(ps_data);
 
 	print_mv(ps_data->mv_to_print);
 
