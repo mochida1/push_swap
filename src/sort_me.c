@@ -90,7 +90,8 @@ static int	case_6(t_pushswap_data *ps_data)
 static int	case_52(t_pushswap_data *ps_data)
 {
 	static int DELETEME;
-	if (DELETEME < 5)
+	DELETEME++;
+	if (DELETEME > 500)
 	{
 	printf ("\n\n<<<<< A >>>>>\n\n");
 	print_list(ps_data->head_a);
@@ -229,7 +230,9 @@ static int	case_3(t_pushswap_data *ps_data)
 {
 	if (!ps_data->head_b || !ps_data->head_a)
 		return (0);
-	if (ps_data->head_b->index + 1 == ps_data->head_a->index)
+	if (!ps_data->head_a->is_indexed)
+		return (0);
+	if ((ps_data->head_b->index) + 1 == ps_data->head_a->index)
 	{
 	printf ("3\n");
 		ps_data->head_b->is_indexed = 1;
@@ -346,11 +349,11 @@ void	update_pins(t_pushswap_data *ps_data)
 	temp = ps_data->head_a;
 	while (temp)
 	{
-		if (temp->next && (temp->index == 1 && temp->next->index == 2))
+		if (temp->next && temp->next->is_indexed && (temp->index == 1 && temp->next->index == 2))
 			temp->is_indexed = 1;
 		else if ((temp->next && temp->prev) && ((temp->next && temp->next->is_indexed) || (temp->prev && temp->prev->is_indexed)))
 			{
-				if ((temp->next->index > temp->index) && (temp->prev->index < temp->index))
+				if ((temp->next->index - 1 == temp->index) && (temp->prev->index + 1 == temp->index))
 					temp->is_indexed = 1;
 			}
 	temp = temp->next;
