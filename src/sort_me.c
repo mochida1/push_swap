@@ -87,7 +87,7 @@ static int	case_6(t_pushswap_data *ps_data)
 		return (0);
 }
 
-static int	case_52(t_pushswap_data *ps_data)
+static int	case_53(t_pushswap_data *ps_data)
 {
 	static int DELETEME;
 	DELETEME++;
@@ -104,6 +104,13 @@ static int	case_52(t_pushswap_data *ps_data)
 	printf ("52\n");
 	mv (RB, ps_data);
 	return (1);
+}
+
+static int	case_51(t_pushswap_data *ps_data)
+{
+	if (!is_all_pinned(ps_data->head_a))
+		return (0);
+	if ()
 }
 
 static int	case_51(t_pushswap_data *ps_data)
@@ -162,6 +169,9 @@ static int	case_4(t_pushswap_data *ps_data)
 	return (0);
 }
 
+/*
+** checks wether stack A has an element with index biger than stack B;
+*/
 int	check_for_greater(t_pushswap_data *ps_data)
 {
 	int	biggest;
@@ -390,6 +400,8 @@ void	sort_me(t_pushswap_data *ps_data)
 		else if (case_51(ps_data))
 			continue ;
 		else if (case_52(ps_data))
+			continue ;
+		else if (case_53(ps_data))
 			continue ;
 		else if (case_6(ps_data))
 			continue ;
