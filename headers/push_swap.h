@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:19:18 by hmochida          #+#    #+#             */
-/*   Updated: 2022/08/05 21:11:47 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/08/17 01:57:44 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void		print_mv(t_movements *mv_to_print);
 void		set_pin(t_pushswap_data *ps_data);
 void		sort_lut(t_pushswap_data *ps_data);
 void		sort_me(t_pushswap_data *ps_data);
+void		sort_vb(t_pushswap_data *ps_data);
 void		sort_three(t_pushswap_data *ps_data);
 void		sort_two(t_pushswap_data *ps_data);
 int			push_swap(t_pushswap_data *ps_data);

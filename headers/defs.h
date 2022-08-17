@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   defs.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:17:16 by hmochida          #+#    #+#             */
-/*   Updated: 2022/08/04 20:12:43 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/08/17 00:33:17 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,20 @@ typedef struct s_stack
 	struct s_stack		*next;
 	struct s_stack		*prev;
 }	t_stack;
+
+/*
+** struct holding shit to be used by the sorting algo
+*/
+typedef struct s_svb
+{
+	int	index;
+	int	size_a;
+	int	size_b;
+	int	best_a;
+	int	best_b;
+	int	dist_a;
+	int	dist_b;
+}	t_svb;
 
 /*
 **
