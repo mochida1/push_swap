@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 01:30:48 by coder             #+#    #+#             */
-/*   Updated: 2022/08/17 02:54:53 by coder            ###   ########.fr       */
+/*   Updated: 2022/08/18 01:43:30 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,6 +130,9 @@ int	get_moves_to_pa(int a_index, int b_index, t_svb self)
 	return (moves_a + moves_b);
 }
 
+/*
+** gets the index of the !!STACK!! of the best element to move
+*/
 int	get_best_to_mv(t_pushswap_data *ps_data, t_svb self)
 {
 	int	b_index;
@@ -166,33 +169,157 @@ int	get_best_a(t_pushswap_data *ps_data, t_svb self)
 	return (is_movable(self.best_b, ps_data));
 }
 
+int	calc_moves_quant(int best_index, int stack_sz)
+{
+	if (best_index < stack_sz / 2)
+		return (best_index);
+	else
+		return (stack_sz - best_index);
+}
+
+int	get_lut_from (int best_x, t_stack *stack_x)
+{
+	int			i;
+	t_stack	*temp;
+
+	temp = stack_x;
+	i = 0;
+	while (i != best_x)
+	{
+		temp = temp->next;
+		i++;
+	}
+	return (temp->index);
+}
+
+int	check_if_last(t_stack *stack, int index)
+{
+	t_stack *temp;
+
+	temp = stack;
+	while (temp)
+	{
+		if (!temp->next && temp->index == index)
+			return (0);
+		temp = temp->next;
+	}
+	return (1);
+}
+
+void	rotate_till_bot(t_stack *stack, int index, t_pushswap_data *ps_data)
+{
+	while (check_if_last(stack, index))
+		mv (RA, ps_data);
+}
+
+void	rrrotate_till_bot(t_stack *stack, int index, t_pushswap_data *ps_data)
+{
+	while (check_if_last(stack, index))
+		mv (RA, ps_data);
+}
+
+int	move_best_b (t_pushswap_data *ps_data, t_svb svb)
+{
+	int rrrotation;
+
+	if (!svb.best_b)
+	{
+		ps_data->head_b->is_indexed = 1;
+		mv(PA, ps_data);
+		return (1);
+	}
+	rrrotation = 0;
+	if (svb.best_b < ((svb.size_b) / 2))
+		rrrotation = 1;
+	if (rrrotation)
+		while (ps_data->head_b->index != svb.index_b)
+			mv (RRB, ps_data);
+	while (ps_data->head_b->index != svb.index_b)
+			mv (RB, ps_data);
+	ps_data->head_b->is_indexed = 1;
+	mv(PA, ps_data);
+	return (1);
+}
+
+int	move_best_a (t_pushswap_data *ps_data, t_svb svb)
+{
+	int rrrotation;
+	int should_be_on_bot;
+
+	if (!svb.best_a)
+		return (0);
+	rrrotation = 0;
+	should_be_on_bot = 0;
+	if (svb.best_a < svb.best_b)
+		should_be_on_bot = 1;
+	if (svb.best_a < ((svb.size_a + should_be_on_bot) / 2))
+		rrrotation = 1;
+	if (!should_be_on_bot && !rrrotation)
+		while (ps_data->head_a->index != svb.index_a)
+			mv (RA, ps_data);
+	else if (!should_be_on_bot && rrrotation)
+		while (ps_data->head_a->index != svb.index_a)
+			mv (RRA, ps_data);
+	else if (should_be_on_bot && !rrrotation)
+		rotate_till_bot(ps_data->head_a, svb.index_a, ps_data);
+	else if (should_be_on_bot && rrrotation)
+		rrrotate_till_bot(ps_data->head_a, svb.index_a, ps_data);
+	return (1);
+}
+
 t_svb init_svb(t_pushswap_data *ps_data)
 {
 	t_svb ret;
-	ret.index = 0;
+
 	ret.size_a = get_stack_size(ps_data->head_a);
-	printf ("size_a: %d\n", ret.size_a);
 	ret.size_b = get_stack_size(ps_data->head_b);
-	printf ("size_b: %d\n", ret.size_b);
 	ret.best_b = get_best_to_mv(ps_data, ret);
-	printf ("best_b: %d\n", ret.best_b);
 	ret.best_a = get_best_a(ps_data, ret);
-	printf ("best_a: %d\n", ret.best_a);
-	ret.moves_a =
+	ret.dist_a = calc_moves_quant(ret.best_a, ret.size_a);
+	ret.dist_b = calc_moves_quant(ret.best_b, ret.size_b);
+	ret.index_a = get_lut_from (ret.best_a, ps_data->head_a);
+	ret.index_b = get_lut_from (ret.best_b, ps_data->head_b);
 	return (ret);
+}
+
+int	i_should_rrr(t_pushswap_data *ps_data)
+{
+	t_stack	*temp;
+	int	i;
+
+	i = 0;
+	temp = ps_data->head_a;
+	while (temp->index)
+	{
+		temp = temp->next;
+		i++;
+	}
+	if (i < ((ps_data->ele_count - 1) / 2))
+		return (0);
+	return (1);
+}
+
+int case03(t_pushswap_data *ps_data)
+{
+	if (i_should_rrr(ps_data))
+		while (ps_data->head_a->index)
+			mv(RRA, ps_data);
+	else
+		while (ps_data->head_a->index)
+			mv(RA, ps_data);
+	return (1);
 }
 
 int case02(t_pushswap_data *ps_data)
 {
 	t_svb svb;
+
+	while (ps_data->head_b)
+	{
 	svb = init_svb(ps_data);
-
-	printf ("\n<<<<<< A >>>>>>\n");
-	print_list (ps_data->head_a);
-	printf ("\n<<<<<< B >>>>>>\n");
-	print_list (ps_data->head_b);
-	exit (2);
-
+	move_best_a (ps_data, svb);
+	move_best_b (ps_data, svb);
+	}
 	return (1);
 }
 
@@ -218,7 +345,6 @@ int case01(t_pushswap_data *ps_data)
 	}
 	mv(RA, ps_data);
 	return (1);
-
 }
 
 void sort_vb(t_pushswap_data *ps_data)
@@ -239,8 +365,12 @@ void sort_vb(t_pushswap_data *ps_data)
 		if (ps_data->head_b)
 		{
 			case02(ps_data);
+			// printf ("\n----------------\n");
+			// print_list(ps_data->head_a);
+			// printf ("\n****************\n");
 			continue;
 		}
+		case03(ps_data);
 		run = 0;
 	}
 }

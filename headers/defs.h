@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:17:16 by hmochida          #+#    #+#             */
-/*   Updated: 2022/08/17 00:33:17 by coder            ###   ########.fr       */
+/*   Updated: 2022/08/17 23:59:55 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,12 @@ typedef struct s_stack
 */
 typedef struct s_svb
 {
-	int	index;
 	int	size_a;
 	int	size_b;
 	int	best_a;
 	int	best_b;
+	int	index_a;
+	int	index_b;
 	int	dist_a;
 	int	dist_b;
 }	t_svb;
