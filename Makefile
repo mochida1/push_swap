@@ -70,7 +70,7 @@ VAL = valgrind --trace-children=yes --leak-check=full --track-origins=yes ./$(NA
 FSF = -fsanitize=address
 
 # Arguments to test the program with
-RUN_ARGS = "01234567 012345678 0123456789 01234567890" "  01 0 012 0123 01234 012345 " " -1 -12 -123 -1234 -12345 -1235456" "-1234567890 -123456789 -12345678 -1234567"
+RUN_ARGS = "-1 2 3 0 1"
 
 $(NAME): $(OBJS)
 	@$(CC) $(CF) $(OBJS) $(INCLUDES) -o $(NAME)

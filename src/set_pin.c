@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_pin.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 10:50:52 by hmochida          #+#    #+#             */
-/*   Updated: 2022/08/05 21:15:43 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/08/18 02:22:02 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,3 +105,32 @@ void	set_pin(t_pushswap_data *ps_data)
 	remake_pin(lis, ps_data);
 	free_lcs_lists(lis, ps_data);
 }
+
+/*
+3 0 2 1 -1
+pb
+0 2 1 -1 / 3
+ra
+2 1 -1 0/ 3
+sa
+1 2 -1 0/ 3
+ra
+ra
+pb
+rb
+pa
+ra
+ra
+pa
+pb
+ra
+sa
+ra
+ra
+pb
+rb
+pa
+ra
+ra
+pa
+*/

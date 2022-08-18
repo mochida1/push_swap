@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 01:30:48 by coder             #+#    #+#             */
-/*   Updated: 2022/08/18 02:04:26 by coder            ###   ########.fr       */
+/*   Updated: 2022/08/18 03:01:09 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -222,13 +222,8 @@ int	move_best_b (t_pushswap_data *ps_data, t_svb svb)
 {
 	int rrrotation;
 
-	// if (!svb.best_b)
-	// {
-	// 	ps_data->head_b->is_indexed = 1;
-	// 	mv(PA, ps_data);
-	// 	return (1);
-	// }
 	rrrotation = 0;
+
 	if (svb.best_b < ((svb.size_b) / 2))
 		rrrotation = 1;
 	if (rrrotation)
@@ -238,8 +233,6 @@ int	move_best_b (t_pushswap_data *ps_data, t_svb svb)
 			mv (RB, ps_data);
 	ps_data->head_b->is_indexed = 1;
 	mv(PA, ps_data);
-	printf ("\n______________________\n");
-	print_list(ps_data->head_a);
 	return (1);
 }
 
@@ -274,13 +267,21 @@ t_svb init_svb(t_pushswap_data *ps_data)
 	t_svb ret;
 
 	ret.size_a = get_stack_size(ps_data->head_a);
+	// printf("ret.size_a:%d\n" , ret.size_a);
 	ret.size_b = get_stack_size(ps_data->head_b);
+	// printf("ret.size_b:%d\n" , ret.size_b);
 	ret.best_b = get_best_to_mv(ps_data, ret);
+	// printf("ret.best_b:%d\n" , ret.best_b);
 	ret.best_a = get_best_a(ps_data, ret);
+	// printf("ret.best_a:%d\n" , ret.best_a);
 	ret.dist_a = calc_moves_quant(ret.best_a, ret.size_a);
+	// printf("ret.dist_a:%d\n" , ret.dist_a);
 	ret.dist_b = calc_moves_quant(ret.best_b, ret.size_b);
+	// printf("ret.dist_b:%d\n" , ret.dist_b);
 	ret.index_a = get_lut_from (ret.best_a, ps_data->head_a);
+	// printf("ret.index_a:%d\n" , ret.index_a);
 	ret.index_b = get_lut_from (ret.best_b, ps_data->head_b);
+	// printf("ret.index_b:%d\n" , ret.index_b);
 	return (ret);
 }
 
@@ -367,12 +368,9 @@ void sort_vb(t_pushswap_data *ps_data)
 		if (ps_data->head_b)
 		{
 			case02(ps_data);
-			// printf ("\n----------------\n");
-			// print_list(ps_data->head_a);
-			// printf ("\n****************\n");
 			continue;
 		}
-		case03(ps_data);
+		// case03(ps_data);
 		run = 0;
 	}
 }
