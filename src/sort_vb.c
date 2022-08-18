@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 01:30:48 by coder             #+#    #+#             */
-/*   Updated: 2022/08/18 01:43:30 by coder            ###   ########.fr       */
+/*   Updated: 2022/08/18 02:04:26 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -222,12 +222,12 @@ int	move_best_b (t_pushswap_data *ps_data, t_svb svb)
 {
 	int rrrotation;
 
-	if (!svb.best_b)
-	{
-		ps_data->head_b->is_indexed = 1;
-		mv(PA, ps_data);
-		return (1);
-	}
+	// if (!svb.best_b)
+	// {
+	// 	ps_data->head_b->is_indexed = 1;
+	// 	mv(PA, ps_data);
+	// 	return (1);
+	// }
 	rrrotation = 0;
 	if (svb.best_b < ((svb.size_b) / 2))
 		rrrotation = 1;
@@ -238,6 +238,8 @@ int	move_best_b (t_pushswap_data *ps_data, t_svb svb)
 			mv (RB, ps_data);
 	ps_data->head_b->is_indexed = 1;
 	mv(PA, ps_data);
+	printf ("\n______________________\n");
+	print_list(ps_data->head_a);
 	return (1);
 }
 
@@ -250,7 +252,7 @@ int	move_best_a (t_pushswap_data *ps_data, t_svb svb)
 		return (0);
 	rrrotation = 0;
 	should_be_on_bot = 0;
-	if (svb.best_a < svb.best_b)
+	if (svb.best_a > svb.best_b)
 		should_be_on_bot = 1;
 	if (svb.best_a < ((svb.size_a + should_be_on_bot) / 2))
 		rrrotation = 1;
