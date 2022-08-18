@@ -48,8 +48,11 @@ populate_stack.c \
 push_swap.c \
 set_pin.c \
 sort_lut.c \
-sort_me.c \
 sort_vb.c \
+sort_vb_utils01.c \
+sort_vb_utils02.c \
+sort_vb_utils03.c \
+sort_vb_utils04.c \
 sort_three.c \
 sort_two.c \
 update_stacks_data.c \

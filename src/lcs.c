@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lcs.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmochida <hmochida@student.42.fr>          +#+  +:+       +#+        */
+/*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 18:56:22 by hmochida          #+#    #+#             */
-/*   Updated: 2022/08/05 21:11:46 by hmochida         ###   ########.fr       */
+/*   Updated: 2022/08/19 01:15:00 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	lcs_index(t_pushswap_data *ps_data, t_lis *lis)
 {
 	int	i;
-	int j;
+	int	j;
 
 	i = 1;
 	j = 1;
