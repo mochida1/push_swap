@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:32:17 by hmochida          #+#    #+#             */
-/*   Updated: 2022/08/19 01:04:06 by coder            ###   ########.fr       */
+/*   Updated: 2022/08/19 02:33:11 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,12 @@ int	push_swap(t_pushswap_data *ps_data) //heisenbug: 3 2 1 faz desaparecer um in
 {
 	if (ps_data->ele_count == 2)
 		sort_two(ps_data);
-	if (ps_data->ele_count == 3)
+	else if (ps_data->ele_count == 3)
 		sort_three(ps_data);
-	if (ps_data->ele_count >= 4 && ps_data->ele_count < 50)
+	else if (ps_data->ele_count >= 4 && ps_data->ele_count < 50)
 		sort_vb(ps_data);
+	else
+		sort_radix(ps_data);
 
 	print_mv(ps_data->mv_to_print);
 

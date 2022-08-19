@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:19:18 by hmochida          #+#    #+#             */
-/*   Updated: 2022/08/19 01:05:58 by coder            ###   ########.fr       */
+/*   Updated: 2022/08/19 02:21:56 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,10 @@ void		rr_till_bot(t_stack *stack, int index, t_pushswap_data *ps_data);
 void		rrrr_till_bot(t_stack *stack, int index, t_pushswap_data *ps_data);
 void		set_pin(t_pushswap_data *ps_data);
 void		sort_lut(t_pushswap_data *ps_data);
-void		sort_vb(t_pushswap_data *ps_data);
+int			sort_radix(t_pushswap_data *ps_data);
 void		sort_three(t_pushswap_data *ps_data);
 void		sort_two(t_pushswap_data *ps_data);
+void		sort_vb(t_pushswap_data *ps_data);
 int			stack_is_indexed(t_stack *stack);
 int			push_swap(t_pushswap_data *ps_data);
 void		update_stacks_data(t_pushswap_data *ps_data);
