@@ -6,7 +6,7 @@
 /*   By: coder <coder@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 09:19:18 by hmochida          #+#    #+#             */
-/*   Updated: 2022/08/19 02:21:56 by coder            ###   ########.fr       */
+/*   Updated: 2022/08/19 23:38:46 by coder            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <unistd.h> // read, write;
 # include <stdlib.h> // exit, malloc, free;
-# include <stdio.h> // DELETAR OS PRINTF!!!
 # include "defs.h"
 
 void		add_to_mv(int move, t_pushswap_data *ps_data);
@@ -24,6 +23,7 @@ int			case02(t_pushswap_data *ps_data);
 int			case03(t_pushswap_data *ps_data);
 int			calc_moves_quant(int best_index, int stack_sz);
 int			check_arguments(char *argv[]);
+int			check_bit(int largest_number, int i);
 int			check_if_last(t_stack *stack, int index);
 int			check_invalid_chars(char *str);
 void		check_repeated_numbers(t_pushswap_data *ps_data);
@@ -51,6 +51,7 @@ void		get_lut(t_pushswap_data *data, char *argv[]);
 int			get_lut_from(int best_x, t_stack *stack_x);
 int			move_best_a(t_pushswap_data *ps_data, t_svb svb);
 int			move_best_b(t_pushswap_data *ps_data, t_svb svb);
+int			get_largest_index(t_pushswap_data *ps_data);
 int			get_moves_to_pa(int a_index, int b_index, t_svb self);
 void		get_stack_index(t_pushswap_data *ps_data);
 int			get_stack_size(t_stack *stack);
@@ -59,8 +60,11 @@ void		ifreexit(void *ptr_to_check, void *ptr_to_free, int exit_code);
 void		index_to_data(t_pushswap_data *ps_data);
 void		init_data(t_pushswap_data *ps_data, int in_nbr, char *argv[]);
 t_svb		init_svb(t_pushswap_data *ps_data);
+int			is_crecent(t_pushswap_data *ps_data);
 int			is_movable(int b_index, t_pushswap_data *ps_data);
 int			lcs(t_lis *lis, t_pushswap_data *ps_data);
+void		move_zero(t_pushswap_data *ps_data, int i);
+int			msb(int largest_number);
 void		mv(int mv, t_pushswap_data *ps_data);
 void		mv_pa(t_pushswap_data *ps_data);
 void		mv_pb(t_pushswap_data *ps_data);
@@ -75,7 +79,6 @@ void		mv_sb(t_pushswap_data *ps_data, int log_mv);
 void		mv_ss(t_pushswap_data *ps_data);
 void		pin_to_data(t_pushswap_data *ps_data);
 int			populate_stack(t_pushswap_data *ps_data);
-void print_list(t_stack *head_a); // DELETAR!
 void		print_mv(t_movements *mv_to_print);
 void		rr_till_bot(t_stack *stack, int index, t_pushswap_data *ps_data);
 void		rrrr_till_bot(t_stack *stack, int index, t_pushswap_data *ps_data);

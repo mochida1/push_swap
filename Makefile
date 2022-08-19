@@ -12,8 +12,7 @@ LIBS = libs
 INCLUDES = -I /headers
 
 # Lists sources. Manually because of norm...
-SRC_LIST = PRINT_LIST.c \
-add_to_mv_list.c \
+SRC_LIST = add_to_mv_list.c \
 check_arguments.c \
 check_invalid_chars.c \
 check_repeated_numbers.c \
@@ -49,6 +48,7 @@ push_swap.c \
 set_pin.c \
 sort_lut.c \
 sort_radix.c \
+sort_radix_utils.c \
 sort_vb.c \
 sort_vb_utils01.c \
 sort_vb_utils02.c \
@@ -108,8 +108,6 @@ run: all
 
 make teste: $(NAME_FS)
 	./$(NAME_FS) $(RUN_ARGS)
-
-
 
 git: fclean
 	git add -A
